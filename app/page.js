@@ -422,7 +422,8 @@ export default function Home() {
       </section>
 
       {/* Work */}
-      <section className="section work" id="work">
+      <section className="section work">
+        <div id="work" />
         <Reveal className="section-header work-header">
           <h2 className="section-title">Our Work</h2>
           <p className="section-sub">
@@ -561,13 +562,14 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="section services" id="services">
+      <section className="section services">
         <div className="section-visual section-visual--duo">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/work-03.png" alt="" className="section-visual-img" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/work-04.png" alt="" className="section-visual-img" />
         </div>
+        <div id="services" />
         <Reveal className="section-header">
           <h2 className="section-title">Our Services</h2>
           <p className="section-sub">

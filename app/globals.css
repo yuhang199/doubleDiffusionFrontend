@@ -582,7 +582,7 @@ ul { list-style: none; }
 /* === ABOUT === */
 .about { background: var(--dark); color: var(--white); }
 .about .section-title { color: var(--pure-white); }
-.about-inner { max-width: 1440px; margin: 0 auto; padding: 90px 48px; min-height: 100vh; }
+.about-inner { max-width: 1440px; margin: 0 auto; padding: 90px 48px; min-height: 100vh; scroll-margin-top: 45px; }
 .about-content { margin-bottom: 16px; }
 .about-headline {
     font-family: var(--font-main); font-size: 14px;
