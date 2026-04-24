@@ -9,7 +9,7 @@ export default function TermsOfService() {
       <div className="legal-inner">
         <a href="/" className="legal-back">← Back to Home</a>
         <h1 className="legal-title">Terms of Service</h1>
-        <p className="legal-date">Last updated: April 23, 2025</p>
+        <p className="legal-date">Last updated: April 23, 2026</p>
 
         <section className="legal-section">
           <h2>1. Agreement to Terms</h2>

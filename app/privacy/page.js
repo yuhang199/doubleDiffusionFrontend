@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
       <div className="legal-inner">
         <a href="/" className="legal-back">← Back to Home</a>
         <h1 className="legal-title">Privacy Policy</h1>
-        <p className="legal-date">Last updated: April 23, 2025</p>
+        <p className="legal-date">Last updated: April 23, 2026</p>
 
         <section className="legal-section">
           <h2>1. Introduction</h2>

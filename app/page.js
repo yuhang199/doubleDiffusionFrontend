@@ -20,13 +20,13 @@ const BRAND_LOGOS = [
 ];
 
 const VIDEOS = [
-  "/videos/reel-04.mp4",
-  "/videos/reel-01.mp4",
-  "/videos/reel-new-01.mp4",
-  "/videos/reel-new-02.mp4",
-  "/videos/reel-new-03.mp4",
-  "/videos/reel-new-04.mp4",
-  "/videos/reel-new-05.mp4",
+  "/videos/snowboard.mp4",
+  "/videos/sample-01.mp4",
+  "/videos/biker.mp4",
+  "/videos/blue-dress.mp4",
+  "/videos/tomato.mp4",
+  "/videos/field.mp4",
+  "/videos/coffee.mp4",
   "/videos/reel-new-06.mp4",
 ];
 
@@ -145,20 +145,18 @@ function HeroCarousel() {
   const goToSlide = useCallback((index) => {
     const prev = currentRef.current;
     if (index === prev) return;
-    // Next video is ALREADY playing hidden — just swap visibility
     currentRef.current = index;
     setCurrent(index);
-    // Pause & reset previous
+    // Pause immediately to prevent looping back to frame 0
     if (videosRef.current[prev]) {
       videosRef.current[prev].pause();
-      videosRef.current[prev].currentTime = 0;
     }
   }, []);
 
   useEffect(() => {
     const v = videosRef.current[0];
     if (v) {
-      v.play().catch(() => {});
+      v.play().catch(() => { });
     }
     // Preload all: decode first frame
     setTimeout(() => {
@@ -174,7 +172,7 @@ function HeroCarousel() {
                   vid.currentTime = 0;
                 }
               }, 150);
-            }).catch(() => {});
+            }).catch(() => { });
         }
       });
     }, 2000);
@@ -187,11 +185,12 @@ function HeroCarousel() {
       if (!vid) return;
       let switching = false;
       let raf = null;
-      // Tight polling in the last 1s — switch 50ms before end
+      // Switch 500ms before end to prevent first-frame flash
       const pollEnd = () => {
         if (switching) return;
-        if (vid.duration && vid.currentTime >= vid.duration - 0.1) {
+        if (vid.duration && vid.currentTime >= vid.duration - 0.5) {
           switching = true;
+          vid.pause(); // freeze on current frame immediately
           goToSlide((i + 1) % VIDEOS.length);
           return;
         }
@@ -204,7 +203,7 @@ function HeroCarousel() {
           // Start next video playing hidden
           if (nv && nv.paused && nextIdx !== currentRef.current) {
             nv.currentTime = 0;
-            nv.play().catch(() => {});
+            nv.play().catch(() => { });
           }
           // Start tight polling
           if (!raf && !switching) {
@@ -213,7 +212,8 @@ function HeroCarousel() {
         }
       };
       const onEnded = () => {
-        // Fallback in case polling missed
+        // Fallback — pause immediately to prevent looping to frame 0
+        vid.pause();
         if (!switching) {
           switching = true;
           goToSlide((i + 1) % VIDEOS.length);
@@ -357,7 +357,7 @@ export default function Home() {
             <span className="logo-bot">DIFFUSION</span>
           </a>
           <div className="nav-center">
-            {["work", "services", "about", "contact"].map((s) => (
+            {["work", "about", "services", "contact"].map((s) => (
               <a
                 key={s}
                 href={`#${s}`}
@@ -416,8 +416,8 @@ export default function Home() {
       {/* Slogan */}
       <section className="slogan">
         <Reveal className="slogan-inner">
-          <h2 className="slogan-hero">Cinematic Creatives Built To Convert</h2>
-          <p className="slogan-top">Powered By Double Diffusion AI</p>
+          <h2 className="slogan-hero">Cinema Built To Convert</h2>
+          <p className="slogan-top">By Double Diffusion AI</p>
         </Reveal>
       </section>
 
@@ -479,47 +479,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services */}
-      <section className="section services" id="services">
+      {/* About */}
+      <section className="section about" id="about">
         <div className="section-visual">
           <BrandMarquee />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/work-01.png" alt="" className="section-visual-img" />
-        </div>
-        <Reveal className="section-header">
-          <h2 className="section-title">Our Services</h2>
-          <p className="section-sub">
-            Full-spectrum creative production. Supercharged by AI.
-          </p>
-        </Reveal>
-        <div className="services-grid">
-          {SERVICES.map((s, i) => (
-            <Reveal key={i} className="service-block" delay={i * 0.06}>
-              <a href={`/services/${s.slug}`} className="service-block-link">
-                <div className="service-block-header">
-                  <span className="sb-index">0{i + 1}</span>
-                  <h3
-                    className="sb-title"
-                    dangerouslySetInnerHTML={{
-                      __html: s.title.replace("\n", "<br>"),
-                    }}
-                  />
-                </div>
-                <p className="sb-desc">{s.desc}</p>
-                <span className="sb-arrow">→</span>
-              </a>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* About */}
-      <section className="section about" id="about">
-        <div className="section-visual section-visual--duo">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/work-03.png" alt="" className="section-visual-img" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/work-04.png" alt="" className="section-visual-img" />
         </div>
         <div className="about-inner">
           <Reveal className="section-header">
@@ -527,53 +492,39 @@ export default function Home() {
           </Reveal>
           <div className="about-content">
             <Reveal>
-              <h3 className="about-headline">
-                We don&apos;t just use AI.
-                <br />
-                <span className="outline-text">We think in it.</span>
-              </h3>
+              <h3 className="about-headline">Who We Are</h3>
             </Reveal>
 
-            {/* Team */}
             <Reveal className="about-subsection">
-              <h4 className="about-sub-title">Team</h4>
               <div className="about-columns">
                 <div className="about-col">
                   <p>
-                    Our team combines senior creative directors from top-tier agencies with machine learning engineers from leading AI labs. Every project is led by humans who understand both storytelling and the technical frontier.
+                    We are a multidisciplinary AIGC-driven creative studio located in Los Angeles, specializing in advertising and cinematic content production. We operate at the intersection of film production, artificial intelligence, brand building, and visual storytelling.
+                  </p>
+                  <p>
+                    Our team brings together expertise from film directing, screenwriting, post-production, and large-scale software engineering, forming a uniquely integrated production environment.
                   </p>
                 </div>
                 <div className="about-col">
                   <p>
-                    We operate as a lean, high-output studio — no bloated teams, no wasted cycles. Every member is fluent in both creative and technical workflows, enabling us to move at startup speed with agency-grade quality.
+                    With backgrounds spanning cinema, storytelling, and advanced cloud-based systems, we approach content creation and advertising as both an artistic and technological endeavor. Our studio is built to deliver the highest-quality and innovative visual content for commercial, entertainment, and experimental applications.
+                  </p>
+                  <p>
+                    We specialize in transforming ideas into compelling visual narratives.
                   </p>
                 </div>
               </div>
             </Reveal>
 
-            {/* Technology */}
-            <Reveal className="about-subsection">
-              <h4 className="about-sub-title">Technology</h4>
-              <div className="about-columns">
-                <div className="about-col">
-                  <p>
-                    Our proprietary AI pipeline integrates state-of-the-art generative models — including Seedance, Flux, and custom fine-tuned diffusion architectures — into a unified production workflow. From text-to-video to style transfer to digital humans, every capability is production-ready.
-                  </p>
-                </div>
-                <div className="about-col">
-                  <p>
-                    We maintain rigorous model governance: all models are commercially licensed, outputs are IP-clean, and our pipeline includes automated quality gates for brand safety, consistency, and compliance.
-                  </p>
-                </div>
-              </div>
+            <Reveal>
+              <a href="/about" className="learn-more-btn">Learn More →</a>
             </Reveal>
 
             {/* Performance */}
-            <Reveal className="about-subsection">
-              <h4 className="about-sub-title">Performance</h4>
-            </Reveal>
           </div>
           <Reveal className="about-metrics">
+            <h4 className="about-sub-title" style={{ marginBottom: 32 }}>Performance</h4>
+            <div className="metrics-row">
             <div className="metric">
               <div className="metric-value">
                 <Counter target={50} suffix="+" />
@@ -604,7 +555,43 @@ export default function Home() {
                 Pipeline
               </div>
             </div>
+            </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="section services" id="services">
+        <div className="section-visual section-visual--duo">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/work-03.png" alt="" className="section-visual-img" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/work-04.png" alt="" className="section-visual-img" />
+        </div>
+        <Reveal className="section-header">
+          <h2 className="section-title">Our Services</h2>
+          <p className="section-sub">
+            Full-spectrum creative production. Supercharged by AI.
+          </p>
+        </Reveal>
+        <div className="services-grid">
+          {SERVICES.map((s, i) => (
+            <Reveal key={i} className="service-block" delay={i * 0.06}>
+              <a href={`/services/${s.slug}`} className="service-block-link">
+                <div className="service-block-header">
+                  <span className="sb-index">0{i + 1}</span>
+                  <h3
+                    className="sb-title"
+                    dangerouslySetInnerHTML={{
+                      __html: s.title.replace("\n", "<br>"),
+                    }}
+                  />
+                </div>
+                <p className="sb-desc">{s.desc}</p>
+                <span className="sb-arrow">→</span>
+              </a>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -638,6 +625,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Vision */}
+      <section className="section vision">
+        <div className="vision-inner">
+          <Reveal>
+            <h2 className="vision-title">The Double Diffusion Vision</h2>
+          </Reveal>
+          <Reveal>
+            <p className="vision-text">
+              We believe the future of content lies in the fusion of human creativity and artificial intelligence. Our mission is to build a new production process and mindset that is more agile, accurate, and creatively liberated.
+            </p>
+            <p className="vision-text">
+              By combining cinematic storytelling, AI-driven generation, and engineering rigor, we deliver content that is both efficient and emotionally impactful.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="footer">
         <div className="footer-inner">
@@ -651,7 +655,7 @@ export default function Home() {
             <a href="/compliance" className="footer-link">Ethical AI & Compliance</a>
             <a href="/support" className="footer-link">Support</a>
           </div>
-          <div className="footer-copy">© 2025 Double Diffusion. All rights reserved.</div>
+          <div className="footer-copy">© 2026 Double Diffusion. All rights reserved.</div>
         </div>
       </footer>
     </>

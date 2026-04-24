@@ -14,7 +14,7 @@ export async function POST(req) {
     }
 
     await resend.emails.send({
-      from: "Double Diffusion <noreply@doublediffusion.co>",
+      from: "Double Diffusion <creative@doublediffusion.co>",
       to: ["doublediffusionstudios@gmail.com"],
       replyTo: email,
       subject: `Demo Request from ${name} — ${company}`,
