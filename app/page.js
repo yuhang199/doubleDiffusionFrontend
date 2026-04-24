@@ -480,13 +480,13 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section className="section about" id="about">
+      <section className="section about">
         <div className="section-visual">
           <BrandMarquee />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/work-01.png" alt="" className="section-visual-img" />
         </div>
-        <div className="about-inner">
+        <div className="about-inner" id="about">
           <Reveal className="section-header">
             <h2 className="section-title">About Us</h2>
           </Reveal>
