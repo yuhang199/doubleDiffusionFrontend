@@ -426,7 +426,7 @@ export default function Home() {
         <Reveal className="section-header work-header">
           <h2 className="section-title">Our Work</h2>
           <p className="section-sub">
-            Industry-leading AI productions, crafted to the highest quality.
+            Industry-leading AI productions, crafted to the highest quality. Selected frames from our productions.
           </p>
         </Reveal>
         <div className="gallery-wrap">
@@ -596,12 +596,12 @@ export default function Home() {
       </section>
 
       {/* Get in Touch */}
-      <section className="section contact" id="contact">
+      <section className="section contact">
         <div className="section-visual">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/work-05.png" alt="" className="section-visual-img" />
         </div>
-        <div className="contact-inner">
+        <div className="contact-inner" id="contact">
           <Reveal>
             <h2 className="contact-headline">
               <span className="contact-line">Get in Touch</span>

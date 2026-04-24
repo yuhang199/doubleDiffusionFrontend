@@ -9,6 +9,17 @@ export default function About() {
       <div className="legal-inner about-detail">
         <a href="/" className="legal-back">← Back to Home</a>
         
+        {/* Who We Are */}
+        <h1 className="legal-title">Who We Are</h1>
+        <section className="legal-section">
+          <p>We are a multidisciplinary AIGC-driven creative studio located in Los Angeles, specializing in advertising and cinematic content production. We operate at the intersection of film production, artificial intelligence, brand building, and visual storytelling.</p>
+          <p>Our team brings together expertise from film directing, screenwriting, post-production, and large-scale software engineering, forming a uniquely integrated production environment.</p>
+          <p>With backgrounds spanning cinema, storytelling, and advanced cloud-based systems, we approach content creation and advertising as both an artistic and technological endeavor. Our studio is built to deliver the highest-quality and innovative visual content for commercial, entertainment, and experimental applications.</p>
+          <p>We specialize in transforming ideas into compelling visual narratives.</p>
+        </section>
+
+        <div className="about-divider" />
+
         {/* How We Serve Our Clients */}
         <h1 className="legal-title">How We Serve Our Clients</h1>
 
