@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { name, email, company, role, budget, services, message } = body;
+    const { name, email, company, role, runtime, services, message } = body;
 
     // Validate required fields
     if (!name || !email || !company) {
@@ -26,7 +26,7 @@ export async function POST(req) {
             <tr><td style="padding: 8px 0; font-weight: 600;">Email</td><td><a href="mailto:${email}">${email}</a></td></tr>
             <tr><td style="padding: 8px 0; font-weight: 600;">Company</td><td>${company}</td></tr>
             <tr><td style="padding: 8px 0; font-weight: 600;">Role</td><td>${role || "—"}</td></tr>
-            <tr><td style="padding: 8px 0; font-weight: 600;">Budget</td><td>${budget || "—"}</td></tr>
+            <tr><td style="padding: 8px 0; font-weight: 600;">Runtime</td><td>${runtime || "—"}</td></tr>
             <tr><td style="padding: 8px 0; font-weight: 600;">Services</td><td>${services?.length ? services.join(", ") : "—"}</td></tr>
           </table>
           <div style="margin-top: 24px; padding: 16px; background: #f5f5f5; border-radius: 8px;">

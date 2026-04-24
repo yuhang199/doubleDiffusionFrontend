@@ -7,7 +7,7 @@ export default function BookDemo() {
     email: "",
     company: "",
     role: "",
-    budget: "",
+    runtime: "",
     services: [],
     message: "",
   });
@@ -25,14 +25,16 @@ export default function BookDemo() {
     "Concept Creation",
   ];
 
-  const BUDGET_OPTIONS = [
-    "Under $5,000",
-    "$5,000 – $15,000",
-    "$15,000 – $50,000",
-    "$50,000 – $100,000",
-    "$100,000+",
-    "Not sure yet",
+  const RUNTIME_OPTIONS = [
+    "0–30sec",
+    "30–45sec",
+    "45–60sec",
+    "60–120sec",
+    "120–300sec",
+    "300sec+",
   ];
+
+  const isCustomRuntime = form.runtime !== "" && !RUNTIME_OPTIONS.includes(form.runtime) && form.runtime !== undefined;
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -58,7 +60,7 @@ export default function BookDemo() {
       });
       if (res.ok) {
         setStatus("sent");
-        setForm({ name: "", email: "", company: "", role: "", budget: "", services: [], message: "" });
+        setForm({ name: "", email: "", company: "", role: "", runtime: "", services: [], message: "" });
       } else {
         setStatus("error");
       }
@@ -141,18 +143,34 @@ export default function BookDemo() {
             </div>
 
             <div className="form-group">
-              <label>Estimated Budget</label>
+              <label>Estimated Runtime</label>
               <div className="budget-options">
-                {BUDGET_OPTIONS.map((b) => (
+                {RUNTIME_OPTIONS.map((r) => (
                   <button
-                    key={b} type="button"
-                    className={`chip${form.budget === b ? " chip--active" : ""}`}
-                    onClick={() => setForm({ ...form, budget: b })}
+                    key={r} type="button"
+                    className={`chip${form.runtime === r ? " chip--active" : ""}`}
+                    onClick={() => setForm({ ...form, runtime: r })}
                   >
-                    {b}
+                    {r}
                   </button>
                 ))}
+                <button
+                  type="button"
+                  className={`chip${isCustomRuntime ? " chip--active" : ""}`}
+                  onClick={() => setForm({ ...form, runtime: "custom:" })}
+                >
+                  Custom
+                </button>
               </div>
+              {isCustomRuntime && (
+                <input
+                  type="number" name="runtime" min="1" step="1"
+                  value={form.runtime.replace("custom:", "")}
+                  onChange={(e) => setForm({ ...form, runtime: `custom:${e.target.value.replace(/\D/g, "")}` })}
+                  placeholder="Enter seconds, e.g. 90"
+                  style={{ marginTop: 12 }}
+                />
+              )}
             </div>
 
             <div className="form-group">

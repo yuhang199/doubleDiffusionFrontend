@@ -426,7 +426,7 @@ export default function Home() {
         <Reveal className="section-header work-header">
           <h2 className="section-title">Our Work</h2>
           <p className="section-sub">
-            Industry-leading AI productions, crafted to the highest quality. Selected frames from our productions.
+            Selected frames from our productions. Industry-leading AI productions, crafted to the highest quality.
           </p>
         </Reveal>
         <div className="gallery-wrap">
