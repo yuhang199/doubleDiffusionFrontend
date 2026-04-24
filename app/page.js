@@ -22,71 +22,59 @@ const BRAND_LOGOS = [
 const VIDEOS = [
   "/videos/reel-04.mp4",
   "/videos/reel-01.mp4",
-  "/videos/reel-06.mp4",
-  "/videos/reel-03.mp4",
-  "/videos/reel-02.mp4",
+  "/videos/reel-new-01.mp4",
+  "/videos/reel-new-02.mp4",
+  "/videos/reel-new-03.mp4",
+  "/videos/reel-new-04.mp4",
+  "/videos/reel-new-05.mp4",
+  "/videos/reel-new-06.mp4",
 ];
 
 const SERVICES = [
   {
-    title: "Creative\nDesign",
-    items: [
-      "Ad Creative",
-      "Social Media Creative",
-      "Presentation Design",
-      "Illustration Design",
-      "Branding Services",
-      "eBooks & Report Design",
-      "Concept Creation",
-      "Print Design",
-      "Packaging & Merchandise",
-    ],
+    title: "Creative\nProduction",
+    desc: "End-to-end AI-powered ad production. From concept to final cut, we create high-converting video ads and visual content at unprecedented speed and cinematic quality.",
+    slug: "creative-production",
   },
   {
-    title: "Specialized\nProduction",
-    items: [
-      "Video Production",
-      "Motion Design",
-      "Email Creation",
-      "Web Design",
-      "Design Systems",
-      "Product Design",
-      "Copywriting",
-    ],
+    title: "AI Brand\nAssets",
+    desc: "Custom-trained visual style models exclusive to your brand. Maintain perfect brand consistency across thousands of assets while scaling creative output infinitely.",
+    slug: "ai-brand-assets",
   },
   {
-    title: "AI\nServices",
-    items: [
-      "AI-Powered Creative",
-      "AI Consulting",
-      "Automation",
-      "Data Services",
-      "Marketing Services",
-      "Campaign Strategy",
-    ],
-  },
-];
-
-const PROCESS_STEPS = [
-  {
-    num: "01",
-    title: "Discover",
-    desc: "Deep-dive into your brand, audience, and objectives. We map the creative territory and identify where AI amplifies your vision.",
+    title: "Dynamic Creative\nOptimization",
+    desc: "AI-generated ad variants across hundreds of sizes, languages, and contexts. Platform-specific creatives optimized for every channel and audience segment, delivered in hours.",
+    slug: "dynamic-creative-optimization",
   },
   {
-    num: "02",
-    title: "Conceive",
-    desc: "Humans and machines collaborate to generate concepts, storyboards, and prototypes at unprecedented speed. Hundreds of directions, refined to the one.",
+    title: "Virtual Production\n& Avatars",
+    desc: "Hyper-realistic digital humans and AI-generated environments for social media marketing. No studio, no scheduling — cinematic content with AI-driven virtual talent on demand.",
+    slug: "virtual-production",
   },
   {
-    num: "03",
-    title: "Produce",
-    desc: "From Seedance-powered cinematics to hand-crafted motion design — highest fidelity output from our proprietary AI-native pipeline.",
+    title: "AI Content\nEngine",
+    desc: "Automated pipeline from script to visuals to final edit. Continuous, high-volume ad creative output — eliminating the traditional production bottleneck entirely.",
+    slug: "ai-content-engine",
   },
   {
-    num: "04",
-    title: "Deliver",
-    desc: "Polished, optimized, platform-ready. Human quality control at every gate. No compromises on the final frame.",
+    title: "Ad Testing &\nOptimization",
+    desc: "A/B test creative variants at scale. Data-driven performance iteration and rapid creative refresh cycles to maximize ROAS across every campaign.",
+    slug: "ad-testing",
+  },
+  {
+    title: "Long-term\nRetainer",
+    desc: "Dedicated creative production partnership with priority pipeline access. Monthly retainer model providing consistent, brand-aligned ad content for sustained growth.",
+    slug: "retainer",
+  },
+  {
+    title: "Narrative Creative\nProduction",
+    desc: "Hybrid live-action and AI production. Technical consulting and creative direction that seamlessly blends traditional filmmaking with cutting-edge generative AI capabilities.",
+    slug: "narrative-production",
+  },
+  {
+    title: "Concept\nCreation",
+    desc: "Strategic creative ideation powered by AI. From mood boards to storyboards, we generate and refine hundreds of concepts to find the perfect creative direction for your campaign.",
+    slug: "concept-creation",
   },
 ];
 
@@ -157,13 +145,13 @@ function HeroCarousel() {
   const goToSlide = useCallback((index) => {
     const prev = currentRef.current;
     if (index === prev) return;
-    if (videosRef.current[prev]) videosRef.current[prev].pause();
+    // Next video is ALREADY playing hidden — just swap visibility
     currentRef.current = index;
     setCurrent(index);
-    const v = videosRef.current[index];
-    if (v) {
-      v.currentTime = 0;
-      v.play().catch(() => {});
+    // Pause & reset previous
+    if (videosRef.current[prev]) {
+      videosRef.current[prev].pause();
+      videosRef.current[prev].currentTime = 0;
     }
   }, []);
 
@@ -172,7 +160,7 @@ function HeroCarousel() {
     if (v) {
       v.play().catch(() => {});
     }
-    // Preload all
+    // Preload all: decode first frame
     setTimeout(() => {
       videosRef.current.forEach((vid, i) => {
         if (vid && i !== 0) {
@@ -180,40 +168,74 @@ function HeroCarousel() {
           const p = vid.play();
           if (p)
             p.then(() => {
-              vid.pause();
-              vid.currentTime = 0;
+              setTimeout(() => {
+                if (i !== currentRef.current) {
+                  vid.pause();
+                  vid.currentTime = 0;
+                }
+              }, 150);
             }).catch(() => {});
         }
       });
     }, 2000);
   }, []);
 
-  // Watch for end
+  // Pre-start next video and switch BEFORE current ends
   useEffect(() => {
-    let raf;
-    const check = () => {
-      const idx = currentRef.current;
-      const v = videosRef.current[idx];
-      if (v && v.duration && v.currentTime >= v.duration - 0.5) {
-        goToSlide((idx + 1) % VIDEOS.length);
-      } else if (v && v.duration && v.currentTime >= v.duration - 2) {
-        const nextIdx = (idx + 1) % VIDEOS.length;
-        const nv = videosRef.current[nextIdx];
-        if (nv && nv.paused) {
-          nv.currentTime = 0;
-          nv.play().catch(() => {});
-          setTimeout(() => {
-            if (nextIdx !== currentRef.current) {
-              nv.pause();
-              nv.currentTime = 0;
-            }
-          }, 200);
+    const handlers = [];
+    videosRef.current.forEach((vid, i) => {
+      if (!vid) return;
+      let switching = false;
+      let raf = null;
+      // Tight polling in the last 1s — switch 50ms before end
+      const pollEnd = () => {
+        if (switching) return;
+        if (vid.duration && vid.currentTime >= vid.duration - 0.1) {
+          switching = true;
+          goToSlide((i + 1) % VIDEOS.length);
+          return;
         }
-      }
-      raf = requestAnimationFrame(check);
+        raf = requestAnimationFrame(pollEnd);
+      };
+      const onTimeUpdate = () => {
+        if (vid.duration && vid.currentTime >= vid.duration - 1.5) {
+          const nextIdx = (i + 1) % VIDEOS.length;
+          const nv = videosRef.current[nextIdx];
+          // Start next video playing hidden
+          if (nv && nv.paused && nextIdx !== currentRef.current) {
+            nv.currentTime = 0;
+            nv.play().catch(() => {});
+          }
+          // Start tight polling
+          if (!raf && !switching) {
+            raf = requestAnimationFrame(pollEnd);
+          }
+        }
+      };
+      const onEnded = () => {
+        // Fallback in case polling missed
+        if (!switching) {
+          switching = true;
+          goToSlide((i + 1) % VIDEOS.length);
+        }
+      };
+      // Reset switching flag when this video starts playing again
+      const onPlay = () => {
+        switching = false;
+        raf = null;
+      };
+      vid.addEventListener('timeupdate', onTimeUpdate);
+      vid.addEventListener('ended', onEnded);
+      vid.addEventListener('play', onPlay);
+      handlers.push({ vid, onTimeUpdate, onEnded, onPlay });
+    });
+    return () => {
+      handlers.forEach(({ vid, onTimeUpdate, onEnded, onPlay }) => {
+        vid.removeEventListener('timeupdate', onTimeUpdate);
+        vid.removeEventListener('ended', onEnded);
+        vid.removeEventListener('play', onPlay);
+      });
     };
-    raf = requestAnimationFrame(check);
-    return () => cancelAnimationFrame(raf);
   }, [goToSlide]);
 
   return (
@@ -335,7 +357,7 @@ export default function Home() {
             <span className="logo-bot">DIFFUSION</span>
           </a>
           <div className="nav-center">
-            {["work", "services", "about", "process"].map((s) => (
+            {["work", "services", "about", "contact"].map((s) => (
               <a
                 key={s}
                 href={`#${s}`}
@@ -346,13 +368,21 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <a
-            href="#contact"
-            className="nav-cta"
-            onClick={(e) => scrollTo(e, "contact")}
-          >
-            Get in Touch
-          </a>
+          <div className="nav-ctas">
+            <a
+              href="#contact"
+              className="nav-cta"
+              onClick={(e) => scrollTo(e, "contact")}
+            >
+              Get in Touch
+            </a>
+            <a
+              href="/demo"
+              className="nav-cta nav-cta--primary"
+            >
+              Book a Demo
+            </a>
+          </div>
           <button
             className={`nav-burger${menuOpen ? " open" : ""}`}
             onClick={toggleMenu}
@@ -383,30 +413,76 @@ export default function Home() {
       {/* Hero */}
       <HeroCarousel />
 
+      {/* Slogan */}
+      <section className="slogan">
+        <Reveal className="slogan-inner">
+          <h2 className="slogan-hero">Ads that convert.</h2>
+          <p className="slogan-top">Double Diffusion, Cinematic Quality.</p>
+        </Reveal>
+      </section>
+
+      {/* Work */}
+      <section className="section work" id="work">
+        <Reveal className="section-header">
+          <h2 className="section-title">Our Work</h2>
+          <p className="section-sub">
+            Selected frames from our productions. AI-native cinematics at the highest fidelity.
+          </p>
+        </Reveal>
+        <div className="project-hub">
+          {[
+            { img: "/images/work-01.png", label: "Campaign Film", type: "Video", year: "2025", large: true },
+            { img: "/images/work-02.png", label: "Product Launch", type: "Ad Creative", year: "2025" },
+            { img: "/images/work-03.png", label: "Brand Film", type: "Motion", year: "2025" },
+            { img: "/images/work-04.png", label: "Social Campaign", type: "Digital", year: "2024", large: true },
+            { img: "/images/work-05.png", label: "Commercial Spot", type: "Video", year: "2024" },
+          ].map((p, i) => (
+            <Reveal key={i} className={`project-card${p.large ? " project-card--large" : ""}`} delay={i * 0.08}>
+              <div className="project-media">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={p.img} alt="" className="project-img" />
+                <div className="project-overlay">
+                  <span className="project-label">{p.label}</span>
+                </div>
+              </div>
+              <div className="project-info">
+                <span className="project-type">{p.type}</span>
+                <span className="project-year">{p.year}</span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* Services */}
       <section className="section services" id="services">
+        <div className="section-visual">
+          <BrandMarquee />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/work-01.png" alt="" className="section-visual-img" />
+        </div>
         <Reveal className="section-header">
-          <h2 className="section-title">Services</h2>
+          <h2 className="section-title">Our Services</h2>
           <p className="section-sub">
-            Full-spectrum creative. Supercharged by AI.
+            Full-spectrum creative production. Supercharged by AI.
           </p>
         </Reveal>
         <div className="services-grid">
           {SERVICES.map((s, i) => (
-            <Reveal key={i} className="service-block" delay={i * 0.1}>
-              <div className="service-block-header">
-                <h3
-                  className="sb-title"
-                  dangerouslySetInnerHTML={{
-                    __html: s.title.replace("\n", "<br>"),
-                  }}
-                />
-              </div>
-              <ul className="service-items">
-                {s.items.map((item, j) => (
-                  <li key={j}>{item}</li>
-                ))}
-              </ul>
+            <Reveal key={i} className="service-block" delay={i * 0.06}>
+              <a href={`/services/${s.slug}`} className="service-block-link">
+                <div className="service-block-header">
+                  <span className="sb-index">0{i + 1}</span>
+                  <h3
+                    className="sb-title"
+                    dangerouslySetInnerHTML={{
+                      __html: s.title.replace("\n", "<br>"),
+                    }}
+                  />
+                </div>
+                <p className="sb-desc">{s.desc}</p>
+                <span className="sb-arrow">→</span>
+              </a>
             </Reveal>
           ))}
         </div>
@@ -414,18 +490,15 @@ export default function Home() {
 
       {/* About */}
       <section className="section about" id="about">
-        <div className="section-visual">
-          <BrandMarquee />
+        <div className="section-visual section-visual--duo">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/work-01.png"
-            alt=""
-            className="section-visual-img"
-          />
+          <img src="/images/work-03.png" alt="" className="section-visual-img" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/work-04.png" alt="" className="section-visual-img" />
         </div>
         <div className="about-inner">
           <Reveal className="section-header">
-            <h2 className="section-title">About</h2>
+            <h2 className="section-title">About Us</h2>
           </Reveal>
           <div className="about-content">
             <Reveal>
@@ -435,24 +508,45 @@ export default function Home() {
                 <span className="outline-text">We think in it.</span>
               </h3>
             </Reveal>
-            <div className="about-columns">
-              <Reveal className="about-col">
-                <p>
-                  Double Diffusion is a creative studio built for the age of
-                  generative intelligence. We operate at the frontier where
-                  neural networks meet narrative — where prompts become
-                  productions and algorithms become art directors.
-                </p>
-              </Reveal>
-              <Reveal className="about-col">
-                <p>
-                  Every frame we produce, every campaign we launch, every brand
-                  we build is infused with machine intelligence — not as a
-                  gimmick, but as a fundamental creative partner. This is not the
-                  future. This is now.
-                </p>
-              </Reveal>
-            </div>
+
+            {/* Team */}
+            <Reveal className="about-subsection">
+              <h4 className="about-sub-title">Team</h4>
+              <div className="about-columns">
+                <div className="about-col">
+                  <p>
+                    Our team combines senior creative directors from top-tier agencies with machine learning engineers from leading AI labs. Every project is led by humans who understand both storytelling and the technical frontier.
+                  </p>
+                </div>
+                <div className="about-col">
+                  <p>
+                    We operate as a lean, high-output studio — no bloated teams, no wasted cycles. Every member is fluent in both creative and technical workflows, enabling us to move at startup speed with agency-grade quality.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Technology */}
+            <Reveal className="about-subsection">
+              <h4 className="about-sub-title">Technology</h4>
+              <div className="about-columns">
+                <div className="about-col">
+                  <p>
+                    Our proprietary AI pipeline integrates state-of-the-art generative models — including Seedance, Flux, and custom fine-tuned diffusion architectures — into a unified production workflow. From text-to-video to style transfer to digital humans, every capability is production-ready.
+                  </p>
+                </div>
+                <div className="about-col">
+                  <p>
+                    We maintain rigorous model governance: all models are commercially licensed, outputs are IP-clean, and our pipeline includes automated quality gates for brand safety, consistency, and compliance.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Performance */}
+            <Reveal className="about-subsection">
+              <h4 className="about-sub-title">Performance</h4>
+            </Reveal>
           </div>
           <Reveal className="about-metrics">
             <div className="metric">
@@ -489,79 +583,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="section process" id="process">
-        <div className="section-visual section-visual--duo">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/work-03.png"
-            alt=""
-            className="section-visual-img"
-          />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/work-04.png"
-            alt=""
-            className="section-visual-img"
-          />
-        </div>
-        <Reveal className="section-header">
-          <h2 className="section-title">Process</h2>
-          <p className="section-sub">
-            From brief to final frame — our AI-native pipeline.
-          </p>
-        </Reveal>
-        <div className="process-timeline">
-          {PROCESS_STEPS.map((s, i) => (
-            <Reveal key={i} className="process-step" delay={i * 0.08}>
-              <div className="ps-marker">
-                <span className="ps-num">{s.num}</span>
-              </div>
-              <div className="ps-body">
-                <h3 className="ps-title">{s.title}</h3>
-                <p className="ps-desc">{s.desc}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* Contact */}
+      {/* Get in Touch */}
       <section className="section contact" id="contact">
         <div className="section-visual">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/work-05.png"
-            alt=""
-            className="section-visual-img"
-          />
+          <img src="/images/work-05.png" alt="" className="section-visual-img" />
         </div>
         <div className="contact-inner">
           <Reveal>
             <h2 className="contact-headline">
-              <span className="contact-line">Let&apos;s build</span>
-              <span className="contact-line">
-                <em>something</em>
-              </span>
-              <span className="contact-line">extraordinary.</span>
+              <span className="contact-line">Get in Touch</span>
             </h2>
+            <p className="contact-subtitle">See what AI-native production can do for your brand.</p>
           </Reveal>
-          <Reveal className="contact-actions">
-            <a
-              href="mailto:doublediffusionstudios@gmail.com"
-              className="contact-btn"
-            >
-              <span className="btn-text">
-                doublediffusionstudios@gmail.com
-              </span>
-              <span className="btn-icon">↗</span>
-            </a>
-          </Reveal>
-          <Reveal className="contact-links">
-            <a href="#" className="cl-link">Instagram</a>
-            <a href="#" className="cl-link">Twitter / X</a>
-            <a href="#" className="cl-link">LinkedIn</a>
-            <a href="#" className="cl-link">YouTube</a>
+          <Reveal className="contact-emails">
+            <div className="email-item">
+              <span className="email-label">New Creative Clients</span>
+              <a href="mailto:creative@doublediffusion.co" className="email-link">creative@doublediffusion.co</a>
+            </div>
+            <div className="email-item">
+              <span className="email-label">Technology Partnerships</span>
+              <a href="mailto:partnerships@doublediffusion.co" className="email-link">partnerships@doublediffusion.co</a>
+            </div>
+            <div className="email-item">
+              <span className="email-label">General Inquiries & Press</span>
+              <a href="mailto:hello@doublediffusion.co" className="email-link">hello@doublediffusion.co</a>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -573,7 +620,13 @@ export default function Home() {
             <span className="footer-name">Double Diffusion®</span>
             <span className="footer-sub">AI-Native Creative Studio</span>
           </div>
-          <div className="footer-copy">© 2025 All rights reserved.</div>
+          <div className="footer-links">
+            <a href="/privacy" className="footer-link">Privacy Policy</a>
+            <a href="/terms" className="footer-link">Terms of Service</a>
+            <a href="/compliance" className="footer-link">Ethical AI & Compliance</a>
+            <a href="/support" className="footer-link">Support</a>
+          </div>
+          <div className="footer-copy">© 2025 Double Diffusion. All rights reserved.</div>
         </div>
       </footer>
     </>
