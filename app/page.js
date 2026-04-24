@@ -416,41 +416,66 @@ export default function Home() {
       {/* Slogan */}
       <section className="slogan">
         <Reveal className="slogan-inner">
-          <h2 className="slogan-hero">Ads that convert.</h2>
-          <p className="slogan-top">Double Diffusion, Cinematic Quality.</p>
+          <h2 className="slogan-hero">Cinematic Creatives Built To Convert</h2>
+          <p className="slogan-top">Powered By Double Diffusion AI</p>
         </Reveal>
       </section>
 
       {/* Work */}
       <section className="section work" id="work">
-        <Reveal className="section-header">
+        <Reveal className="section-header work-header">
           <h2 className="section-title">Our Work</h2>
           <p className="section-sub">
-            Selected frames from our productions. AI-native cinematics at the highest fidelity.
+            Industry-leading AI productions, crafted to the highest quality.
           </p>
         </Reveal>
-        <div className="project-hub">
-          {[
-            { img: "/images/work-01.png", label: "Campaign Film", type: "Video", year: "2025", large: true },
-            { img: "/images/work-02.png", label: "Product Launch", type: "Ad Creative", year: "2025" },
-            { img: "/images/work-03.png", label: "Brand Film", type: "Motion", year: "2025" },
-            { img: "/images/work-04.png", label: "Social Campaign", type: "Digital", year: "2024", large: true },
-            { img: "/images/work-05.png", label: "Commercial Spot", type: "Video", year: "2024" },
-          ].map((p, i) => (
-            <Reveal key={i} className={`project-card${p.large ? " project-card--large" : ""}`} delay={i * 0.08}>
-              <div className="project-media">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.img} alt="" className="project-img" />
-                <div className="project-overlay">
-                  <span className="project-label">{p.label}</span>
-                </div>
-              </div>
-              <div className="project-info">
-                <span className="project-type">{p.type}</span>
-                <span className="project-year">{p.year}</span>
-              </div>
-            </Reveal>
-          ))}
+        <div className="gallery-wrap">
+          <div className="gallery-row gallery-row--1">
+            <div className="gallery-track">
+              {[
+                "/images/gallery-reel-04.jpg",
+                "/images/work-01.png",
+                "/images/gallery-reel-new-01.jpg",
+                "/images/gallery-reel-new-02.jpg",
+                "/images/gallery-reel-new-03.jpg",
+                "/images/work-02.png",
+                "/images/gallery-reel-04-b.jpg",
+                "/images/gallery-reel-04.jpg",
+                "/images/work-01.png",
+                "/images/gallery-reel-new-01.jpg",
+                "/images/gallery-reel-new-02.jpg",
+                "/images/gallery-reel-new-03.jpg",
+                "/images/work-02.png",
+                "/images/gallery-reel-04-b.jpg",
+              ].map((src, i) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={i} src={src} alt="" className="gallery-img" />
+              ))}
+            </div>
+          </div>
+          <div className="gallery-row gallery-row--2">
+            <div className="gallery-track gallery-track--reverse">
+              {[
+                "/images/gallery-reel-new-04.jpg",
+                "/images/work-03.png",
+                "/images/gallery-reel-new-05.jpg",
+                "/images/gallery-reel-new-06.jpg",
+                "/images/work-04.png",
+                "/images/gallery-reel-new-04-b.jpg",
+                "/images/gallery-reel-new-05-b.jpg",
+                "/images/gallery-reel-new-04.jpg",
+                "/images/work-03.png",
+                "/images/gallery-reel-new-05.jpg",
+                "/images/gallery-reel-new-06.jpg",
+                "/images/work-04.png",
+                "/images/gallery-reel-new-04-b.jpg",
+                "/images/gallery-reel-new-05-b.jpg",
+              ].map((src, i) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={i} src={src} alt="" className="gallery-img" />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
