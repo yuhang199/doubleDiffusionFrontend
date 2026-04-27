@@ -1050,7 +1050,8 @@ ul { list-style: none; }
 
     /* Section visuals — smaller on mobile, full width */
     .section-visual { height: 40vh; width: 100%; }
-    .section-visual--duo { grid-template-columns: 1fr; }
+    .section-visual--duo { grid-template-columns: 1fr; height: auto; }
+    .section-visual--duo .section-visual-img { height: 40vh; }
     .section-image { height: 40vh; border-radius: 0; width: 100%; }
     .section-image--duo { grid-template-columns: 1fr; height: auto; }
     .section-image--branded .section-image-img { height: 40vh; }
