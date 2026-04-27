@@ -1089,7 +1089,9 @@ ul { list-style: none; }
     .contact-inner { padding: 60px 24px; }
     .contact-headline { font-size: clamp(28px, 8vw, 48px); }
     .contact-subtitle { font-size: 14px; }
-    .contact-emails { flex-direction: column; gap: 32px; }
+    .contact-emails { flex-direction: column; gap: 32px; width: 100%; }
+    .email-item { text-align: left; }
+    .email-label { font-size: 10px; letter-spacing: 2px; }
     .email-link { font-size: 12px; word-break: break-all; }
 
     /* Vision */
