@@ -33,48 +33,23 @@ const VIDEOS = [
 const SERVICES = [
   {
     title: "Creative\nProduction",
-    desc: "End-to-end AI-powered ad production. From concept to final cut, we create high-converting video ads and visual content at unprecedented speed and cinematic quality.",
+    desc: "End-to-end AI-powered ad and campaign production. From concept to final cut — high-converting video ads, branded content, and campaign visuals delivered at cinematic quality.",
     slug: "creative-production",
   },
   {
-    title: "AI Brand\nAssets",
-    desc: "Custom-trained visual style models exclusive to your brand. Maintain perfect brand consistency across thousands of assets while scaling creative output infinitely.",
-    slug: "ai-brand-assets",
+    title: "Social\nContent",
+    desc: "Scroll-stopping vertical video for Instagram, TikTok, YouTube Shorts, and beyond. AI-powered UGC-style content, product demos, and social-first campaigns at scale.",
+    slug: "social-content",
   },
   {
-    title: "Dynamic Creative\nOptimization",
-    desc: "AI-generated ad variants across hundreds of sizes, languages, and contexts. Platform-specific creatives optimized for every channel and audience segment, delivered in hours.",
-    slug: "dynamic-creative-optimization",
+    title: "Music\nVideos",
+    desc: "Visually stunning music videos produced with AI-native workflows. From concept and storyboarding to final delivery — cinematic visuals at a fraction of traditional production costs.",
+    slug: "music-videos",
   },
   {
-    title: "Virtual Production\n& Avatars",
-    desc: "Hyper-realistic digital humans and AI-generated environments for social media marketing. No studio, no scheduling — cinematic content with AI-driven virtual talent on demand.",
-    slug: "virtual-production",
-  },
-  {
-    title: "AI Content\nEngine",
-    desc: "Automated pipeline from script to visuals to final edit. Continuous, high-volume ad creative output — eliminating the traditional production bottleneck entirely.",
-    slug: "ai-content-engine",
-  },
-  {
-    title: "Ad Testing &\nOptimization",
-    desc: "A/B test creative variants at scale. Data-driven performance iteration and rapid creative refresh cycles to maximize ROAS across every campaign.",
-    slug: "ad-testing",
-  },
-  {
-    title: "Long-term\nRetainer",
-    desc: "Dedicated creative production partnership with priority pipeline access. Monthly retainer model providing consistent, brand-aligned ad content for sustained growth.",
-    slug: "retainer",
-  },
-  {
-    title: "Narrative Creative\nProduction",
-    desc: "Hybrid live-action and AI production. Technical consulting and creative direction that seamlessly blends traditional filmmaking with cutting-edge generative AI capabilities.",
+    title: "Narrative\nProduction",
+    desc: "Hybrid live-action and AI production for short films, branded narratives, and feature-length projects. We seamlessly blend traditional filmmaking with cutting-edge generative AI.",
     slug: "narrative-production",
-  },
-  {
-    title: "Concept\nCreation",
-    desc: "Strategic creative ideation powered by AI. From mood boards to storyboards, we generate and refine hundreds of concepts to find the perfect creative direction for your campaign.",
-    slug: "concept-creation",
   },
 ];
 
@@ -261,6 +236,20 @@ function HeroCarousel() {
             <div className="slide-overlay" />
           </div>
         ))}
+      </div>
+      <div className="hero-content">
+        <span className="hero-label">AI-Native Production Studio</span>
+        <h1 className="hero-headline">
+          <span className="hero-headline-main">Cinema Quality.</span>
+          <span className="hero-headline-sub">Startup Budget.</span>
+        </h1>
+        <p className="hero-sub-text">
+          AI-powered production for ads, campaigns, social content,
+          music videos, and more — delivered in DAYS, not months.
+        </p>
+        <a href="/demo" className="hero-cta-btn">
+          Book a Demo <span className="btn-icon">→</span>
+        </a>
       </div>
     </section>
   );
@@ -491,73 +480,63 @@ export default function Home() {
           <Reveal className="section-header">
             <h2 className="section-title">About Us</h2>
           </Reveal>
-          <div className="about-content">
-            <Reveal>
-              <h3 className="about-headline">Who We Are</h3>
-            </Reveal>
+          <div className="about-row">
+            <div className="about-content">
+              <Reveal>
+                <h3 className="about-headline">Who We Are</h3>
+              </Reveal>
 
-            <Reveal className="about-subsection">
-              <div className="about-columns">
-                <div className="about-col">
-                  <p>
-                    We are a multidisciplinary AIGC-driven creative studio located in Los Angeles, specializing in advertising and cinematic content production. We operate at the intersection of film production, artificial intelligence, brand building, and visual storytelling.
-                  </p>
-                  <p>
-                    Our team brings together expertise from film directing, screenwriting, post-production, and large-scale software engineering, forming a uniquely integrated production environment.
-                  </p>
+              <Reveal className="about-subsection">
+                <p className="about-text">
+                  We&apos;re an AI-native production studio based in Los Angeles, built at the intersection of filmmaking and artificial intelligence. Our team brings together film directors, screenwriters, post-production specialists, and software engineers — a uniquely integrated crew that treats every project as both a creative and technical challenge.
+                </p>
+                <p className="about-text">
+                  We produce video ads, social media content, music videos, campaign visuals, and branded films — all at cinematic quality. Our AI-powered pipeline handles everything from concept development and storyboarding to final color grading and platform-specific delivery, compressing traditional production timelines from weeks into days.
+                </p>
+                <p className="about-text">
+                  What sets us apart is our hybrid approach: we combine cutting-edge generative AI with real-world production expertise. The result is content that looks and feels like premium studio work — delivered faster and at a fraction of the cost.
+                </p>
+              </Reveal>
+
+              <Reveal>
+                <a href="/about" className="learn-more-btn">Learn More →</a>
+              </Reveal>
+            </div>
+
+            <Reveal className="about-metrics">
+              <h3 className="about-headline">Performance</h3>
+              <div className="metric">
+                <div className="metric-value">
+                  <Counter target={50} suffix="+" />
                 </div>
-                <div className="about-col">
-                  <p>
-                    With backgrounds spanning cinema, storytelling, and advanced cloud-based systems, we approach content creation and advertising as both an artistic and technological endeavor. Our studio is built to deliver the highest-quality and innovative visual content for commercial, entertainment, and experimental applications.
-                  </p>
-                  <p>
-                    We specialize in transforming ideas into compelling visual narratives.
-                  </p>
+                <div className="metric-label">
+                  Projects
+                  <br />
+                  Delivered
+                </div>
+              </div>
+              <div className="metric">
+                <div className="metric-value">
+                  <Counter target={10} suffix="×" />
+                </div>
+                <div className="metric-label">
+                  Faster
+                  <br />
+                  Production
+                </div>
+              </div>
+              <div className="metric">
+                <div className="metric-value">
+                  <Counter target={90} suffix="%" />
+                </div>
+                <div className="metric-label">
+                  Cost
+                  <br />
+                  Savings
                 </div>
               </div>
             </Reveal>
-
-            <Reveal>
-              <a href="/about" className="learn-more-btn">Learn More →</a>
-            </Reveal>
-
-            {/* Performance */}
           </div>
-          <Reveal className="about-metrics">
-            <h4 className="about-sub-title" style={{ marginBottom: 32 }}>Performance</h4>
-            <div className="metrics-row">
-            <div className="metric">
-              <div className="metric-value">
-                <Counter target={50} suffix="+" />
-              </div>
-              <div className="metric-label">
-                Projects
-                <br />
-                Delivered
-              </div>
-            </div>
-            <div className="metric">
-              <div className="metric-value">
-                <Counter target={10} suffix="×" />
-              </div>
-              <div className="metric-label">
-                Faster
-                <br />
-                Production
-              </div>
-            </div>
-            <div className="metric">
-              <div className="metric-value">
-                <Counter target={100} suffix="%" />
-              </div>
-              <div className="metric-label">
-                AI-Native
-                <br />
-                Pipeline
-              </div>
-            </div>
-            </div>
-          </Reveal>
         </div>
       </section>
 
