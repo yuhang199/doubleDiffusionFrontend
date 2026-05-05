@@ -28,7 +28,7 @@ export default function MusicVideos() {
             </div>
             <div className="card-text">
               <h2>Overview</h2>
-              <p>Visually stunning music videos produced with AI-native workflows. We bring together cinematic storytelling, cutting-edge generative AI, and professional post-production to deliver music videos that rival major label productions — at a fraction of the timeline and cost.</p>
+              <p>Visually stunning music videos produced with AI-powered workflows. We bring together cinematic storytelling, cutting-edge generative AI, and professional post-production to deliver music videos that rival major label productions — at a fraction of the timeline and cost.</p>
             </div>
           </div>
         </section>
@@ -56,7 +56,7 @@ export default function MusicVideos() {
               <ul>
                 <li><strong>Listen:</strong> We immerse ourselves in the track, mood, and artistic vision.</li>
                 <li><strong>Conceive:</strong> AI-assisted visual development generates concepts, mood boards, and storyboards tailored to the music.</li>
-                <li><strong>Produce:</strong> Our AI-native pipeline creates cinematic visuals, motion sequences, and complete scenes — reviewed and refined by our creative team.</li>
+                <li><strong>Produce:</strong> Our AI-powered pipeline creates cinematic visuals, motion sequences, and complete scenes — reviewed and refined by our creative team.</li>
                 <li><strong>Deliver:</strong> Final color grade, sound sync, and platform-optimized exports ready for release.</li>
               </ul>
             </div>

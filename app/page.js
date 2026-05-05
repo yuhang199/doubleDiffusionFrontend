@@ -43,7 +43,7 @@ const SERVICES = [
   },
   {
     title: "Music\nVideos",
-    desc: "Visually stunning music videos produced with AI-native workflows. From concept and storyboarding to final delivery — cinematic visuals at a fraction of traditional production costs.",
+    desc: "Visually stunning music videos produced with AI-powered workflows. From concept and storyboarding to final delivery — cinematic visuals at a fraction of traditional production costs.",
     slug: "music-videos",
   },
   {
@@ -238,7 +238,7 @@ function HeroCarousel() {
         ))}
       </div>
       <div className="hero-content">
-        <span className="hero-label">AI-Native Production Studio</span>
+        <span className="hero-label">AI-Powered Production Studio</span>
         <h1 className="hero-headline">
           <span className="hero-headline-main">Cinema Quality.</span>
           <span className="hero-headline-sub">Startup Budget.</span>
@@ -488,7 +488,7 @@ export default function Home() {
 
               <Reveal className="about-subsection">
                 <p className="about-text">
-                  We&apos;re an AI-native production studio based in Los Angeles, built at the intersection of filmmaking and artificial intelligence. Our team brings together film directors, screenwriters, post-production specialists, and software engineers — a uniquely integrated crew that treats every project as both a creative and technical challenge.
+                  We&apos;re an AI-powered production studio based in Los Angeles, built at the intersection of filmmaking and artificial intelligence. Our team brings together film directors, screenwriters, post-production specialists, and software engineers — a uniquely integrated crew that treats every project as both a creative and technical challenge.
                 </p>
                 <p className="about-text">
                   We produce video ads, social media content, music videos, campaign visuals, and branded films — all at cinematic quality. Our AI-powered pipeline handles everything from concept development and storyboarding to final color grading and platform-specific delivery, compressing traditional production timelines from weeks into days.
@@ -587,7 +587,7 @@ export default function Home() {
             <h2 className="contact-headline">
               <span className="contact-line">Get in Touch</span>
             </h2>
-            <p className="contact-subtitle">See what AI-native production can do for your brand.</p>
+            <p className="contact-subtitle">See what AI-powered production can do for your brand.</p>
           </Reveal>
           <Reveal className="contact-emails">
             <div className="email-item">
@@ -628,7 +628,7 @@ export default function Home() {
         <div className="footer-inner">
           <div className="footer-brand">
             <span className="footer-name">Double Diffusion®</span>
-            <span className="footer-sub">AI-Native Creative Studio</span>
+            <span className="footer-sub">AI-Powered Creative Studio</span>
           </div>
           <div className="footer-links">
             <a href="/privacy" className="footer-link">Privacy Policy</a>

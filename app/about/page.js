@@ -16,7 +16,7 @@ export default function About() {
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
           <h1 className="subpage-hero-title">Who We Are</h1>
-          <p className="subpage-hero-sub">AI-Native Production Studio — Los Angeles</p>
+          <p className="subpage-hero-sub">AI-Powered Production Studio — Los Angeles</p>
         </div>
       </div>
       <div className="legal-inner about-detail">
@@ -76,7 +76,7 @@ export default function About() {
 
         <section className="legal-section--card reveal reveal-delay-3">
           <h2>Music Video Production</h2>
-          <p>Cinematic music videos powered by AI-native workflows. From concept to final delivery — visuals that rival major label productions at a fraction of the cost.</p>
+          <p>Cinematic music videos powered by AI-powered workflows. From concept to final delivery — visuals that rival major label productions at a fraction of the cost.</p>
         </section>
 
         <section className="legal-section--card reveal reveal-delay-4">

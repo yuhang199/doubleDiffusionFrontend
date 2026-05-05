@@ -13,7 +13,7 @@ export default function Compliance() {
 
         <section className="legal-section">
           <h2>1. Our Commitment</h2>
-          <p>At Double Diffusion, responsible AI is not an afterthought — it is foundational to how we build, deploy, and deliver creative work. We are committed to transparency, fairness, and compliance at every level of our AI-native production pipeline.</p>
+          <p>At Double Diffusion, responsible AI is not an afterthought — it is foundational to how we build, deploy, and deliver creative work. We are committed to transparency, fairness, and compliance at every level of our AI-powered production pipeline.</p>
         </section>
 
         <section className="legal-section">

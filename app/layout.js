@@ -4,11 +4,11 @@ export const metadata = {
   metadataBase: new URL("https://www.doublediffusion.co"),
   title: "Double Diffusion — AI-Powered Creative & Production Studio",
   description:
-    "Double Diffusion is an AI-native creative studio specializing in short films, ads, and cutting-edge production.",
+    "Double Diffusion is an AI-powered creative studio specializing in short films, ads, and cutting-edge production.",
   openGraph: {
     title: "Double Diffusion — AI-Powered Creative & Production Studio",
     description:
-      "AI-native creative studio specializing in short films, ads, and cutting-edge production.",
+      "AI-powered creative studio specializing in short films, ads, and cutting-edge production.",
     url: "https://www.doublediffusion.co",
     siteName: "Double Diffusion",
     images: [
@@ -25,7 +25,7 @@ export const metadata = {
     card: "summary",
     title: "Double Diffusion — AI-Powered Creative & Production Studio",
     description:
-      "AI-native creative studio specializing in short films, ads, and cutting-edge production.",
+      "AI-powered creative studio specializing in short films, ads, and cutting-edge production.",
     images: ["/dd-logo-dark.png"],
   },
 };
@@ -37,7 +37,7 @@ const jsonLd = {
   url: "https://www.doublediffusion.co",
   logo: "https://www.doublediffusion.co/dd-logo-dark.png",
   description:
-    "AI-native creative studio specializing in short films, ads, and cutting-edge production.",
+    "AI-powered creative studio specializing in short films, ads, and cutting-edge production.",
   foundingDate: "2026",
   sameAs: [],
 };

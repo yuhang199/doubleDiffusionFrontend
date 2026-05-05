@@ -28,7 +28,7 @@ export default function SocialContent() {
             </div>
             <div className="card-text">
               <h2>Overview</h2>
-              <p>Scroll-stopping vertical video and social-first content designed for the platforms your audience lives on. We combine AI-native production with deep platform knowledge to create content that performs — Instagram Reels, TikTok, YouTube Shorts, and beyond.</p>
+              <p>Scroll-stopping vertical video and social-first content designed for the platforms your audience lives on. We combine AI-powered production with deep platform knowledge to create content that performs — Instagram Reels, TikTok, YouTube Shorts, and beyond.</p>
             </div>
           </div>
         </section>
@@ -51,7 +51,7 @@ export default function SocialContent() {
               <img src="/images/gallery-reel-04-b.jpg" alt="Social content production" />
             </div>
             <div className="card-text">
-              <h2>Why AI-Native?</h2>
+              <h2>Why AI-Powered?</h2>
               <p>Social moves fast. Traditional production can&apos;t keep up with the volume and velocity platforms demand. Our AI-powered pipeline lets you produce dozens of high-quality social assets in the time it takes to shoot one — without sacrificing the cinematic quality your brand deserves.</p>
             </div>
           </div>

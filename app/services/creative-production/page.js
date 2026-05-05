@@ -28,7 +28,7 @@ export default function CreativeProduction() {
             </div>
             <div className="card-text">
               <h2>Overview</h2>
-              <p>Our Creative Production service delivers high-converting video ads and visual content at unprecedented speed and cinematic quality. We combine AI-native workflows with experienced creative direction to produce campaigns that move at the speed of culture.</p>
+              <p>Our Creative Production service delivers high-converting video ads and visual content at unprecedented speed and cinematic quality. We combine AI-powered workflows with experienced creative direction to produce campaigns that move at the speed of culture.</p>
             </div>
           </div>
         </section>
@@ -56,7 +56,7 @@ export default function CreativeProduction() {
               <ul>
                 <li><strong>Discover:</strong> Deep-dive into your brand, audience, and KPIs. We define the creative territory and identify where AI amplifies your vision.</li>
                 <li><strong>Conceive:</strong> AI-assisted ideation generates hundreds of concepts, storyboards, and visual directions. Human creative directors curate and refine to the strongest options.</li>
-                <li><strong>Produce:</strong> Our AI-native pipeline generates cinematic visuals, motion graphics, and complete video sequences. Every frame is reviewed and polished by our production team.</li>
+                <li><strong>Produce:</strong> Our AI-powered pipeline generates cinematic visuals, motion graphics, and complete video sequences. Every frame is reviewed and polished by our production team.</li>
                 <li><strong>Deliver:</strong> Final assets are optimized for every platform, encoded to spec, and delivered with full usage documentation.</li>
               </ul>
             </div>
@@ -70,7 +70,7 @@ export default function CreativeProduction() {
               <img src="/images/gallery-reel-new-03.jpg" alt="Cinematic macro shot" />
             </div>
             <div className="card-text">
-              <h2>Why AI-Native?</h2>
+              <h2>Why AI-Powered?</h2>
               <p>Traditional production timelines of 8–12 weeks compress to days. Budgets that would cover a single hero spot now fund entire multi-platform campaigns. And quality doesn&apos;t suffer — it scales.</p>
             </div>
           </div>

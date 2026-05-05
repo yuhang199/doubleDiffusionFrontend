@@ -18,7 +18,7 @@ export default function TermsOfService() {
 
         <section className="legal-section">
           <h2>2. Services</h2>
-          <p>Double Diffusion provides AI-native creative production services, including but not limited to: video production, ad creative, AI brand asset management, dynamic creative optimization, virtual production, digital human creation, and content automation. The specific scope, deliverables, and timelines for each project will be defined in a separate Statement of Work (SOW) or service agreement.</p>
+          <p>Double Diffusion provides AI-powered creative production services, including but not limited to: video production, ad creative, AI brand asset management, dynamic creative optimization, virtual production, digital human creation, and content automation. The specific scope, deliverables, and timelines for each project will be defined in a separate Statement of Work (SOW) or service agreement.</p>
         </section>
 
         <section className="legal-section">
