@@ -11,7 +11,7 @@ export default function About() {
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div className="subpage-hero">
-        <img className="subpage-hero-img" src="/images/work-05.png" alt="" />
+        <img className="subpage-hero-img" src="/images/upgrade-01.png" alt="" />
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
@@ -23,11 +23,30 @@ export default function About() {
 
         {/* Our Studio */}
         <h2 className="legal-title reveal">Our Studio</h2>
-        <section className="legal-section reveal reveal-delay-1">
-          <p>We are a multidisciplinary AIGC-driven creative studio located in Los Angeles, specializing in advertising and cinematic content production. We operate at the intersection of film production, artificial intelligence, brand building, and visual storytelling.</p>
-          <p>Our team brings together expertise from film directing, screenwriting, post-production, and large-scale software engineering, forming a uniquely integrated production environment.</p>
-          <p>With backgrounds spanning cinema, storytelling, and advanced cloud-based systems, we approach content creation and advertising as both an artistic and technological endeavor. Our studio is built to deliver the highest-quality and innovative visual content for commercial, entertainment, and experimental applications.</p>
-          <p>We specialize in transforming ideas into compelling visual narratives.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-1">
+          <div className="card-with-media">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/upgrade-08.png" alt="Double Diffusion studio" />
+            </div>
+            <div className="card-text">
+              <p>We are a multidisciplinary AIGC-driven creative studio located in Los Angeles, specializing in advertising and cinematic content production. We operate at the intersection of film production, artificial intelligence, brand building, and visual storytelling.</p>
+              <p>Our team brings together expertise from film directing, screenwriting, post-production, and large-scale software engineering, forming a uniquely integrated production environment.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="legal-section--card has-media reveal reveal-delay-2">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/upgrade-02.png" alt="Creative process" />
+            </div>
+            <div className="card-text">
+              <p>With backgrounds spanning cinema, storytelling, and advanced cloud-based systems, we approach content creation and advertising as both an artistic and technological endeavor. Our studio is built to deliver the highest-quality and innovative visual content for commercial, entertainment, and experimental applications.</p>
+              <p>We specialize in transforming ideas into compelling visual narratives.</p>
+            </div>
+          </div>
         </section>
 
         <div className="about-divider" />
@@ -35,14 +54,30 @@ export default function About() {
         {/* How We Serve Our Clients */}
         <h2 className="legal-title reveal">How We Serve Our Clients</h2>
 
-        <section className="legal-section--card reveal reveal-delay-1">
-          <h2>Collaborative &amp; Client-Centered Approach</h2>
-          <p>We place strong emphasis on client collaboration. From initial concept to final delivery, we work closely with our clients, maintaining open communication and refining the work until it aligns with our clients&apos; vision. Our process is designed to deliver highly tailored solutions, ensuring each project is executed with precision and care.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-1">
+          <div className="card-with-media">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/upgrade-03.png" alt="Client collaboration" />
+            </div>
+            <div className="card-text">
+              <h2>Collaborative &amp; Client-Centered Approach</h2>
+              <p>We place strong emphasis on client collaboration. From initial concept to final delivery, we work closely with our clients, maintaining open communication and refining the work until it aligns with our clients&apos; vision. Our process is designed to deliver highly tailored solutions, ensuring each project is executed with precision and care.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-2">
-          <h2>Streamlined Production Process</h2>
-          <p>Our AI-powered pipeline is built for speed and clarity. You bring the brief — we handle concept, production, and delivery. Every project gets dedicated creative direction with rapid iteration cycles, so you get cinema-quality output without the traditional agency overhead.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-2">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/upgrade-09.png" alt="Streamlined production" />
+            </div>
+            <div className="card-text">
+              <h2>Streamlined Production Process</h2>
+              <p>Our AI-powered pipeline is built for speed and clarity. You bring the brief — we handle concept, production, and delivery. Every project gets dedicated creative direction with rapid iteration cycles, so you get cinema-quality output without the traditional agency overhead.</p>
+            </div>
+          </div>
         </section>
 
         <section className="legal-section--card reveal reveal-delay-3">
@@ -64,24 +99,56 @@ export default function About() {
         <div className="about-divider" />
         <h2 className="legal-title reveal">Our Services</h2>
 
-        <section className="legal-section--card reveal reveal-delay-1">
-          <h2>AIGC Production</h2>
-          <p>AI-generated commercials and branded content. Industry-leading quality.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-1">
+          <div className="card-with-media">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/upgrade-06.png" alt="AIGC Production" />
+            </div>
+            <div className="card-text">
+              <h2>AIGC Production</h2>
+              <p>AI-generated commercials and branded content. Industry-leading quality.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-2">
-          <h2>Social Content &amp; UGC</h2>
-          <p>AI-powered vertical video and social-first content for Instagram, TikTok, YouTube Shorts, and more. Scroll-stopping visuals produced at scale.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-2">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/upgrade-07.png" alt="Social content" />
+            </div>
+            <div className="card-text">
+              <h2>Social Content &amp; UGC</h2>
+              <p>AI-powered vertical video and social-first content for Instagram, TikTok, YouTube Shorts, and more. Scroll-stopping visuals produced at scale.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-3">
-          <h2>Music Video Production</h2>
-          <p>Cinematic music videos powered by AI-powered workflows. From concept to final delivery — visuals that rival major label productions at a fraction of the cost.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-3">
+          <div className="card-with-media">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/upgrade-05.png" alt="Music video production" />
+            </div>
+            <div className="card-text">
+              <h2>Music Video Production</h2>
+              <p>Cinematic music videos powered by AI-powered workflows. From concept to final delivery — visuals that rival major label productions at a fraction of the cost.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-4">
-          <h2>Creative Development &amp; Brand Collaboration</h2>
-          <p>Concept development and visual concept creation. We partner with brands on a long-term basis, delivering continuous creative direction and advertising solutions across multiple campaigns.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-4">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/upgrade-12.png" alt="Brand collaboration" />
+            </div>
+            <div className="card-text">
+              <h2>Creative Development &amp; Brand Collaboration</h2>
+              <p>Concept development and visual concept creation. We partner with brands on a long-term basis, delivering continuous creative direction and advertising solutions across multiple campaigns.</p>
+            </div>
+          </div>
         </section>
 
         <section className="legal-section--card reveal">
@@ -103,14 +170,30 @@ export default function About() {
         <div className="about-divider" />
         <h2 className="legal-title reveal">Our Performance</h2>
 
-        <section className="legal-section--card reveal reveal-delay-1">
-          <h2>Creative Production</h2>
-          <p>Experience across films, commercial productions, and narrative development. Execution of full production cycles: concept → script → shoot → post-production.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-1">
+          <div className="card-with-media">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/upgrade-04.png" alt="Creative production" />
+            </div>
+            <div className="card-text">
+              <h2>Creative Production</h2>
+              <p>Experience across films, commercial productions, and narrative development. Execution of full production cycles: concept → script → shoot → post-production.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-2">
-          <h2>Narrative Development</h2>
-          <p>Development of feature-length screenplays, stage plays, and published literary works.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-2">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/upgrade-10.png" alt="Technical engineering" />
+            </div>
+            <div className="card-text">
+              <h2>Narrative Development</h2>
+              <p>Development of feature-length screenplays, stage plays, and published literary works.</p>
+            </div>
+          </div>
         </section>
 
         <section className="legal-section--card reveal reveal-delay-3">

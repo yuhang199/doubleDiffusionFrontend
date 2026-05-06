@@ -11,7 +11,7 @@ export default function CreativeProduction() {
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div className="subpage-hero">
-        <img className="subpage-hero-img" src="/images/gallery-reel-new-06.jpg" alt="" />
+        <img className="subpage-hero-img" src="/images/upgrade-08.png" alt="" />
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
@@ -24,7 +24,7 @@ export default function CreativeProduction() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/gallery-reel-01.jpg" alt="Creative production reel" />
+              <img src="/images/upgrade-01.png" alt="Creative production reel" />
             </div>
             <div className="card-text">
               <h2>Overview</h2>
@@ -48,7 +48,7 @@ export default function CreativeProduction() {
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/work-01.png" alt="Creative production process" />
+              <img src="/images/upgrade-02.png" alt="Creative production process" />
             </div>
             <div className="card-text">
               <h2>Our Process</h2>

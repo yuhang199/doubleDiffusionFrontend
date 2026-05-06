@@ -11,7 +11,7 @@ export default function SocialContent() {
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div className="subpage-hero">
-        <img className="subpage-hero-img" src="/images/work-02.png" alt="" />
+        <img className="subpage-hero-img" src="/images/upgrade-10.png" alt="" />
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
@@ -24,7 +24,7 @@ export default function SocialContent() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/gallery-reel-new-02.jpg" alt="Social content fashion shoot" />
+              <img src="/images/upgrade-09.png" alt="Social content fashion shoot" />
             </div>
             <div className="card-text">
               <h2>Overview</h2>
@@ -48,7 +48,7 @@ export default function SocialContent() {
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/gallery-reel-04-b.jpg" alt="Social content production" />
+              <img src="/images/upgrade-07.png" alt="Social content production" />
             </div>
             <div className="card-text">
               <h2>Why AI-Powered?</h2>

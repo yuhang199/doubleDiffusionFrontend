@@ -447,17 +447,17 @@ export default function Home() {
             <div className="gallery-track gallery-track--reverse">
               {[
                 "/images/gallery-reel-new-04.jpg",
-                "/images/work-03.png",
+                "/images/upgrade-01.png",
                 "/images/gallery-reel-new-05.jpg",
                 "/images/gallery-reel-new-06.jpg",
-                "/images/work-04.png",
+                "/images/upgrade-02.png",
                 "/images/gallery-reel-new-04-b.jpg",
                 "/images/gallery-reel-new-05-b.jpg",
                 "/images/gallery-reel-new-04.jpg",
-                "/images/work-03.png",
+                "/images/upgrade-01.png",
                 "/images/gallery-reel-new-05.jpg",
                 "/images/gallery-reel-new-06.jpg",
-                "/images/work-04.png",
+                "/images/upgrade-02.png",
                 "/images/gallery-reel-new-04-b.jpg",
                 "/images/gallery-reel-new-05-b.jpg",
               ].map((src, i) => (
@@ -542,11 +542,9 @@ export default function Home() {
 
       {/* Services */}
       <section className="section services">
-        <div className="section-visual section-visual--duo">
+        <div className="section-visual">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/work-03.png" alt="" className="section-visual-img" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/work-04.png" alt="" className="section-visual-img" />
+          <img src="/images/upgrade-11.png" alt="" className="section-visual-img" />
         </div>
         <div id="services" />
         <Reveal className="section-header">

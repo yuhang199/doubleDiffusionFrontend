@@ -11,7 +11,7 @@ export default function NarrativeProduction() {
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div className="subpage-hero">
-        <img className="subpage-hero-img" src="/images/work-04.png" alt="" />
+        <img className="subpage-hero-img" src="/images/upgrade-12.png" alt="" />
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
@@ -24,7 +24,7 @@ export default function NarrativeProduction() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/gallery-reel-new-04.jpg" alt="Narrative production fieldwork" />
+              <img src="/images/upgrade-03.png" alt="Narrative production fieldwork" />
             </div>
             <div className="card-text">
               <h2>Overview</h2>
@@ -48,7 +48,7 @@ export default function NarrativeProduction() {
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/gallery-reel-new-01-b.jpg" alt="Cinematic cyclist silhouette" />
+              <img src="/images/upgrade-04.png" alt="Cinematic cyclist silhouette" />
             </div>
             <div className="card-text">
               <h2>Who This Is For</h2>

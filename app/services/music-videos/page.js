@@ -11,7 +11,7 @@ export default function MusicVideos() {
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div className="subpage-hero">
-        <img className="subpage-hero-img" src="/images/gallery-reel-new-05-b.jpg" alt="" />
+        <img className="subpage-hero-img" src="/images/upgrade-06.png" alt="" />
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
@@ -24,7 +24,7 @@ export default function MusicVideos() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/work-05.png" alt="Music video visual" />
+              <img src="/images/upgrade-05.png" alt="Music video visual" />
             </div>
             <div className="card-text">
               <h2>Overview</h2>
@@ -48,7 +48,7 @@ export default function MusicVideos() {
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/work-03.png" alt="Music video narrative" />
+              <img src="/images/upgrade-04.png" alt="Music video narrative" />
             </div>
             <div className="card-text">
               <h2>Our Process</h2>
