@@ -263,7 +263,11 @@ function Reveal({ children, className = "", delay = 0 }) {
     if (delay) el.style.transitionDelay = `${delay}s`;
     const obs = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) el.classList.add("visible");
+        if (entries[0].isIntersecting) {
+          el.classList.add("visible");
+        } else {
+          el.classList.remove("visible");
+        }
       },
       { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
