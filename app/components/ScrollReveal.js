@@ -22,6 +22,12 @@ export default function ScrollReveal() {
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
+    // Animate section-visual containers
+    document.querySelectorAll(".section-visual").forEach((el) => {
+      el.classList.add("section-visual--animate");
+      observer.observe(el);
+    });
+
     return () => observer.disconnect();
   }, []);
 

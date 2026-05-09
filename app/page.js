@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 
 /* ─── brand logos ─── */
 const BRAND_LOGOS = [
-  { src: "/logos/trek.png", alt: "Trek" },
+  { src: "/logos/doublediffusion.png", alt: "Double Diffusion" },
   { src: "/logos/liquiddeath.png", alt: "Liquid Death" },
   { src: "/logos/patagonia.png", alt: "Patagonia" },
   { src: "https://cdn.simpleicons.org/nike/ffffff", alt: "Nike" },
@@ -93,18 +93,16 @@ function Counter({ target, suffix }) {
   );
 }
 
-/* ─── Brand Marquee ─── */
+/* ─── Brand Grid ─── */
 function BrandMarquee() {
-  const logos = [...BRAND_LOGOS, ...BRAND_LOGOS];
   return (
-    <div className="reel-strip reel-strip--inline">
-      <div className="reel-track">
-        {logos.map((l, i) => (
-          <span key={i} style={{ display: "contents" }}>
+    <div className="brand-grid-wrap">
+      <div className="brand-grid">
+        {BRAND_LOGOS.map((l, i) => (
+          <div key={i} className="brand-cell">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="reel-logo" src={l.src} alt={l.alt} />
-            <span className="reel-sep">✦</span>
-          </span>
+            <img className="brand-cell-logo" src={l.src} alt={l.alt} />
+          </div>
         ))}
       </div>
     </div>
@@ -285,6 +283,26 @@ export default function Home() {
   const trailRef = useRef(null);
   const [navScrolled, setNavScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [curtainDone, setCurtainDone] = useState(false);
+  const [curtainHiding, setCurtainHiding] = useState(false);
+
+  // Intro curtain timer
+  useEffect(() => {
+    // Lock scroll while curtain is visible
+    document.body.style.overflow = "hidden";
+    const showTimer = setTimeout(() => {
+      setCurtainHiding(true);
+    }, 1000);
+    const removeTimer = setTimeout(() => {
+      setCurtainDone(true);
+      document.body.style.overflow = "";
+    }, 2000);
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(removeTimer);
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   // Cursor
   useEffect(() => {
@@ -333,6 +351,16 @@ export default function Home() {
 
   return (
     <>
+      {/* Intro Curtain */}
+      {!curtainDone && (
+        <div className={`intro-curtain${curtainHiding ? " intro-curtain--hide" : ""}`}>
+          <div className="intro-curtain-content">
+            <h2 className="intro-curtain-headline">Cinema Built To Convert</h2>
+            <p className="intro-curtain-sub">By Double Diffusion AI</p>
+          </div>
+        </div>
+      )}
+
       {/* Cursor */}
       <div className="cursor" ref={cursorRef} />
       <div className="cursor-trail" ref={trailRef} />
@@ -402,13 +430,7 @@ export default function Home() {
       {/* Hero */}
       <HeroCarousel />
 
-      {/* Slogan */}
-      <section className="slogan">
-        <Reveal className="slogan-inner">
-          <h2 className="slogan-hero">Cinema Built To Convert</h2>
-          <p className="slogan-top">By Double Diffusion AI</p>
-        </Reveal>
-      </section>
+
 
       {/* Work */}
       <section className="section work">
@@ -471,8 +493,8 @@ export default function Home() {
 
       {/* About */}
       <section className="section about">
+        <BrandMarquee />
         <div className="section-visual">
-          <BrandMarquee />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/work-01.png" alt="" className="section-visual-img" />
         </div>
@@ -481,12 +503,12 @@ export default function Home() {
             <h2 className="section-title">About Us</h2>
           </Reveal>
           <div className="about-row">
-            <div className="about-content">
-              <Reveal>
+            <div className="about-content card">
+              <Reveal delay={0.1}>
                 <h3 className="about-headline">Who We Are</h3>
               </Reveal>
 
-              <Reveal className="about-subsection">
+              <Reveal className="about-subsection" delay={0.2}>
                 <p className="about-text">
                   We&apos;re an AI-powered production studio based in Los Angeles, built at the intersection of filmmaking and artificial intelligence. Our team brings together film directors, screenwriters, post-production specialists, and software engineers — a uniquely integrated crew that treats every project as both a creative and technical challenge.
                 </p>
@@ -498,12 +520,12 @@ export default function Home() {
                 </p>
               </Reveal>
 
-              <Reveal>
+              <Reveal delay={0.3}>
                 <a href="/about" className="learn-more-btn">Learn More →</a>
               </Reveal>
             </div>
 
-            <Reveal className="about-metrics">
+            <Reveal className="about-metrics card" delay={0.15}>
               <h3 className="about-headline">Performance</h3>
               <div className="metric">
                 <div className="metric-value">
