@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   metadataBase: new URL("https://www.doublediffusion.co"),
@@ -66,6 +67,7 @@ export default function RootLayout({ children }) {
       <body>
         <PageTransition />
         {children}
+        <Analytics />
       </body>
     </html>
   );
