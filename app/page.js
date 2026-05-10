@@ -32,24 +32,36 @@ const VIDEOS = [
 
 const SERVICES = [
   {
-    title: "Creative\nProduction",
+    title: "Creative Production",
     desc: "End-to-end AI-powered ad and campaign production. From concept to final cut — high-converting video ads, branded content, and campaign visuals delivered at cinematic quality.",
     slug: "creative-production",
+    timeline: "1–2 Weeks",
+    tags: ["Video Ads", "Campaign Visuals", "Branded Content", "Color Grading", "Storyboarding"],
+    img: "/images/service-creative.png",
   },
   {
-    title: "Social\nContent",
+    title: "Social Content",
     desc: "Scroll-stopping vertical video for Instagram, TikTok, YouTube Shorts, and beyond. AI-powered UGC-style content, product demos, and social-first campaigns at scale.",
     slug: "social-content",
+    timeline: "3–5 Days",
+    tags: ["Instagram Reels", "TikTok", "YouTube Shorts", "UGC-Style", "Product Demos"],
+    img: "/images/service-social.png",
   },
   {
-    title: "Music\nVideos",
+    title: "Music Videos",
     desc: "Visually stunning music videos produced with AI-powered workflows. From concept and storyboarding to final delivery — cinematic visuals at a fraction of traditional production costs.",
     slug: "music-videos",
+    timeline: "1–3 Weeks",
+    tags: ["Concept Art", "Storyboarding", "VFX", "Color Grading", "Final Delivery"],
+    img: "/images/service-music.png",
   },
   {
-    title: "Narrative\nProduction",
+    title: "Narrative Production",
     desc: "Hybrid live-action and AI production for short films, branded narratives, and feature-length projects. We seamlessly blend traditional filmmaking with cutting-edge generative AI.",
     slug: "narrative-production",
+    timeline: "2–6 Weeks",
+    tags: ["Short Films", "Branded Narratives", "Live-Action", "Generative AI", "Feature Films"],
+    img: "/images/service-narrative.png",
   },
 ];
 
@@ -289,6 +301,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [curtainDone, setCurtainDone] = useState(false);
   const [curtainHiding, setCurtainHiding] = useState(false);
+  const [openServices, setOpenServices] = useState(new Set([0]));
 
   // Intro curtain timer
   useEffect(() => {
@@ -513,14 +526,11 @@ export default function Home() {
               </Reveal>
 
               <Reveal className="about-subsection" delay={0.2}>
-                <p className="about-text">
-                  We&apos;re an AI-powered production studio based in Los Angeles, built at the intersection of filmmaking and artificial intelligence. Our team brings together film directors, screenwriters, post-production specialists, and software engineers — a uniquely integrated crew that treats every project as both a creative and technical challenge.
+                <p className="about-text about-text--hero">
+                  We&apos;re a Los Angeles-based studio where filmmakers and engineers build together. Our crew spans directors, screenwriters, post-production artists, and AI researchers — all under one roof, all obsessed with the final frame.
                 </p>
-                <p className="about-text">
-                  We produce video ads, social media content, music videos, campaign visuals, and branded films — all at cinematic quality. Our AI-powered pipeline handles everything from concept development and storyboarding to final color grading and platform-specific delivery, compressing traditional production timelines from weeks into days.
-                </p>
-                <p className="about-text">
-                  What sets us apart is our hybrid approach: we combine cutting-edge generative AI with real-world production expertise. The result is content that looks and feels like premium studio work — delivered faster and at a fraction of the cost.
+                <p className="about-text about-text--hero">
+                  From global ad campaigns to music videos to branded short films, our AI-first pipeline compresses traditional timelines from weeks into days. The result is studio-grade content delivered faster, priced fairly, and built to perform.
                 </p>
               </Reveal>
 
@@ -563,6 +573,34 @@ export default function Home() {
               </div>
             </Reveal>
           </div>
+
+          <Reveal className="spaces-showcase">
+            <h3 className="spaces-headline">Our Spaces</h3>
+            <div className="spaces-grid">
+              <div className="space-card">
+                <div className="space-img-wrap">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/studio.png" alt="Double Diffusion LA Studio" className="space-img" />
+                </div>
+                <div className="space-info">
+                  <span className="space-badge">2,400 SQFT</span>
+                  <span className="space-name">Production Studio — Los Angeles</span>
+                  <span className="space-desc">Equipped with full lighting rigs, sound stage, and dedicated AI render stations for real-time post-production.</span>
+                </div>
+              </div>
+              <div className="space-card">
+                <div className="space-img-wrap">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/warehouse.png" alt="Double Diffusion Houston Warehouse" className="space-img" />
+                </div>
+                <div className="space-info">
+                  <span className="space-badge">5,000 SQFT</span>
+                  <span className="space-name">Creative Warehouse — Houston</span>
+                  <span className="space-desc">Large-format set builds, prop storage, and multi-zone shooting stages for end-to-end in-house production.</span>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -579,24 +617,48 @@ export default function Home() {
             Full-spectrum creative production. Supercharged by AI.
           </p>
         </Reveal>
-        <div className="services-grid">
-          {SERVICES.map((s, i) => (
-            <Reveal key={i} className="service-block" delay={i * 0.06}>
-              <a href={`/services/${s.slug}`} className="service-block-link">
-                <div className="service-block-header">
-                  <span className="sb-index">0{i + 1}</span>
-                  <h3
-                    className="sb-title"
-                    dangerouslySetInnerHTML={{
-                      __html: s.title.replace("\n", "<br>"),
-                    }}
-                  />
+        <div className="services-accordion">
+          {SERVICES.map((s, i) => {
+            const isOpen = openServices.has(i);
+            return (
+              <Reveal key={i} delay={i * 0.06}>
+                <div className={`sa-item${isOpen ? " sa-item--open" : ""}`}>
+                  <button
+                    className="sa-header"
+                    onClick={() => setOpenServices(prev => {
+                      const next = new Set(prev);
+                      if (next.has(i)) next.delete(i);
+                      else next.add(i);
+                      return next;
+                    })}
+                    aria-expanded={isOpen}
+                  >
+                    <span className="sa-index">0{i + 1}</span>
+                    <h3 className="sa-title">{s.title}</h3>
+                    <span className="sa-timeline">{s.timeline}</span>
+                    <span className="sa-chevron">{isOpen ? "−" : "+"}</span>
+                  </button>
+                  <div className="sa-body" style={{ maxHeight: isOpen ? "400px" : "0" }}>
+                    <div className="sa-body-inner">
+                      <div className="sa-body-content">
+                        <p className="sa-desc">{s.desc}</p>
+                        <div className="sa-tags">
+                          {s.tags.map((tag, ti) => (
+                            <span key={ti} className="sa-tag">{tag}</span>
+                          ))}
+                        </div>
+                        <a href={`/services/${s.slug}`} className="sa-explore">
+                          Explore →
+                        </a>
+                      </div>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={s.img} alt={s.title} className="sa-img" />
+                    </div>
+                  </div>
                 </div>
-                <p className="sb-desc">{s.desc}</p>
-                <span className="sb-arrow">→</span>
-              </a>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
@@ -611,20 +673,105 @@ export default function Home() {
             <h2 className="contact-headline">
               <span className="contact-line">Get in Touch</span>
             </h2>
-            <p className="contact-subtitle">See what AI-powered production can do for your brand.</p>
+            <p className="contact-subtitle">Tell us about your project and we&apos;ll get back to you with a free estimate within 24 hours.</p>
           </Reveal>
-          <Reveal className="contact-emails">
-            <div className="email-item">
-              <span className="email-label">New Creative Clients</span>
-              <a href="mailto:creative@doublediffusion.co" className="email-link">creative@doublediffusion.co</a>
-            </div>
-            <div className="email-item">
-              <span className="email-label">Technology Partnerships</span>
-              <a href="mailto:partnerships@doublediffusion.co" className="email-link">partnerships@doublediffusion.co</a>
-            </div>
-            <div className="email-item">
-              <span className="email-label">General Inquiries & Press</span>
-              <a href="mailto:hello@doublediffusion.co" className="email-link">hello@doublediffusion.co</a>
+          <div className="contact-split">
+            <Reveal className="contact-left">
+              <div className="email-item">
+                <span className="email-label">New Creative Clients</span>
+                <a href="mailto:creative@doublediffusion.co" className="email-link">creative@doublediffusion.co</a>
+              </div>
+              <div className="email-item">
+                <span className="email-label">Technology Partnerships</span>
+                <a href="mailto:partnerships@doublediffusion.co" className="email-link">partnerships@doublediffusion.co</a>
+              </div>
+              <div className="email-item">
+                <span className="email-label">General Inquiries &amp; Press</span>
+                <a href="mailto:hello@doublediffusion.co" className="email-link">hello@doublediffusion.co</a>
+              </div>
+            </Reveal>
+            <Reveal className="contact-right">
+              <form className="contact-form" onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const btn = form.querySelector("button[type=submit]");
+                btn.textContent = "Sending...";
+                btn.disabled = true;
+                try {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      name: form.elements["cf-name"].value,
+                      email: form.elements["cf-email"].value,
+                      company: form.elements["cf-company"].value,
+                      service: form.elements["cf-service"].value,
+                      message: form.elements["cf-message"].value,
+                    }),
+                  });
+                  if (res.ok) {
+                    btn.textContent = "Sent ✓";
+                    form.reset();
+                  } else {
+                    btn.textContent = "Failed — Try Again";
+                    btn.disabled = false;
+                  }
+                } catch {
+                  btn.textContent = "Failed — Try Again";
+                  btn.disabled = false;
+                }
+              }}>
+                <div className="cf-row">
+                  <div className="cf-field">
+                    <label className="cf-label" htmlFor="cf-name">Full Name</label>
+                    <input className="cf-input" id="cf-name" type="text" placeholder="John Smith" required />
+                  </div>
+                  <div className="cf-field">
+                    <label className="cf-label" htmlFor="cf-email">Email</label>
+                    <input className="cf-input" id="cf-email" type="email" placeholder="john@company.com" required />
+                  </div>
+                </div>
+                <div className="cf-row">
+                  <div className="cf-field">
+                    <label className="cf-label" htmlFor="cf-company">Company</label>
+                    <input className="cf-input" id="cf-company" type="text" placeholder="Your company" />
+                  </div>
+                  <div className="cf-field">
+                    <label className="cf-label" htmlFor="cf-service">Service Interested In</label>
+                    <select className="cf-input cf-select" id="cf-service" defaultValue="">
+                      <option value="" disabled>Select a service</option>
+                      <option>Creative Production</option>
+                      <option>Social Content</option>
+                      <option>Music Videos</option>
+                      <option>Narrative Production</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="cf-field">
+                  <label className="cf-label" htmlFor="cf-message">Tell us about your project</label>
+                  <textarea className="cf-input cf-textarea" id="cf-message" rows={5} placeholder="Brief description of your project, timeline, budget..." required />
+                </div>
+                <div className="cf-submit-row">
+                  <button type="submit" className="contact-cta">Send Message</button>
+                  <span className="contact-cta-sub">We generally respond within 24 hours.</span>
+                </div>
+              </form>
+            </Reveal>
+          </div>
+          <Reveal className="socials-inner">
+            <h3 className="socials-headline">Follow Our Journey</h3>
+            <div className="socials-row">
+              <a href="https://www.instagram.com/doublediffusionstudios" target="_blank" rel="noopener noreferrer" className="social-card">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                <span className="social-card-name">Instagram</span>
+                <span className="social-card-handle">@doublediffusionstudios</span>
+              </a>
+              <a href="https://www.tiktok.com/@doublediffusionstudios" target="_blank" rel="noopener noreferrer" className="social-card">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.48a8.27 8.27 0 004.76 1.5V7.56a4.84 4.84 0 01-1-.87z"/></svg>
+                <span className="social-card-name">TikTok</span>
+                <span className="social-card-handle">@doublediffusionstudios</span>
+              </a>
             </div>
           </Reveal>
         </div>
@@ -632,6 +779,15 @@ export default function Home() {
 
       {/* Vision */}
       <section className="section vision">
+        <video
+          className="vision-video"
+          src="/videos/chad.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        <div className="vision-overlay" />
         <div className="vision-inner">
           <Reveal>
             <h2 className="vision-title">The Double Diffusion Vision</h2>
