@@ -6,9 +6,9 @@
 
 :root {
     --black: #010108;
-    --near-black: #06060e;
-    --dark: #0a0a14;
-    --mid-dark: #10101a;
+    --near-black: #010108;
+    --dark: #010108;
+    --mid-dark: #010108;
     --gray: rgba(255, 255, 255, 0.85);
     --silver: #fff;
     --chrome-light: #e0e4f0;
@@ -165,6 +165,26 @@ ul { list-style: none; }
 .nav-cta--primary:hover {
     background: linear-gradient(135deg, #fff, #e0e0e0);
     box-shadow: 0 0 24px rgba(255,255,255,0.2);
+}
+
+.nav-socials {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+    padding-left: 16px;
+    border-left: 1px solid rgba(255,255,255,0.12);
+}
+
+.nav-social {
+    color: rgba(255,255,255,0.5);
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.nav-social:hover {
+    color: var(--pure-white);
 }
 
 .nav-burger {
@@ -927,6 +947,84 @@ ul { list-style: none; }
 
 .sa-explore:hover {
     border-color: var(--pure-white);
+}
+
+/* === CASE STUDY === */
+.case-study {
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.case-study-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 48px;
+    text-align: center;
+}
+
+.case-study-label {
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 48px;
+    display: block;
+}
+
+.case-study-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.case-study-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+}
+
+.case-study-before {
+    font-family: var(--font-main);
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 800;
+    color: var(--gray);
+    letter-spacing: -2px;
+    text-decoration: line-through;
+    text-decoration-color: #fff;
+    text-decoration-thickness: 4px;
+}
+
+.case-study-arrow {
+    font-size: clamp(32px, 4vw, 48px);
+    color: var(--gray);
+}
+
+.case-study-after {
+    font-family: var(--font-main);
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 800;
+    color: var(--pure-white);
+    letter-spacing: -2px;
+}
+
+.case-study-headline {
+    font-family: var(--font-main);
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 600;
+    color: var(--pure-white);
+    line-height: 1.5;
+    max-width: 600px;
+}
+
+.case-study-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--gray);
+    max-width: 560px;
 }
 
 /* === ABOUT === */
