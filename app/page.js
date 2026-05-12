@@ -40,6 +40,14 @@ const SERVICES = [
     img: "/images/service-creative.png",
   },
   {
+    title: "AI Product Assessment",
+    desc: "Submit your creative brief and our AI pipeline evaluates every scene for AI-assisted production potential. We identify exactly where generative tools can replace traditional methods — giving you a clear cost breakdown and optimized production roadmap before a single frame is shot.",
+    slug: "ai-evaluation",
+    timeline: "2–3 Days",
+    tags: ["Feasibility Analysis", "Cost Optimization", "Scene Breakdown", "AI Readiness", "Production Roadmap"],
+    img: "/images/service-evaluation.png",
+  },
+  {
     title: "Social Content",
     desc: "Scroll-stopping vertical video for Instagram, TikTok, YouTube Shorts, and beyond. AI-powered UGC-style content, product demos, and social-first campaigns at scale.",
     slug: "social-content",
@@ -62,14 +70,6 @@ const SERVICES = [
     timeline: "2–6 Weeks",
     tags: ["Short Films", "Branded Narratives", "Live-Action", "Generative AI", "Feature Films"],
     img: "/images/service-narrative.png",
-  },
-  {
-    title: "AI Evaluation",
-    desc: "Submit your creative brief and our AI pipeline evaluates every scene for AI-assisted production potential. We identify exactly where generative tools can replace traditional methods — giving you a clear cost breakdown and optimized production roadmap before a single frame is shot.",
-    slug: "ai-evaluation",
-    timeline: "2–3 Days",
-    tags: ["Feasibility Analysis", "Cost Optimization", "Scene Breakdown", "AI Readiness", "Production Roadmap"],
-    img: "/images/service-evaluation.png",
   },
 ];
 
@@ -595,11 +595,16 @@ export default function Home() {
                 <span className="case-study-arrow">→</span>
                 <span className="case-study-after">$15K</span>
               </div>
+              <div className="case-study-stat">
+                <span className="case-study-before">2 Months</span>
+                <span className="case-study-arrow">→</span>
+                <span className="case-study-after">3 Weeks</span>
+              </div>
               <p className="case-study-headline">
-                80% production cost reduction through our AI + physical hybrid pipeline.
+                80% cost reduction. 75% faster delivery. Same cinematic quality.
               </p>
               <p className="case-study-desc">
-                By combining on-set cinematography with AI-driven post-production, we delivered a full ad campaign at a fraction of the traditional budget — same cinematic quality, radically lower cost.
+                By combining on-set cinematography with AI-driven post-production, we delivered a full ad campaign at a fraction of the traditional budget and timeline — proving that speed and quality aren&apos;t trade-offs.
               </p>
             </div>
           </Reveal>
@@ -641,17 +646,17 @@ export default function Home() {
               <h3 className="about-headline">Performance</h3>
               <div className="metric">
                 <div className="metric-value">
-                  <Counter target={50} suffix="+" />
+                  <Counter target={25} suffix="+" />
                 </div>
                 <div className="metric-label">
-                  Projects
+                  Project
                   <br />
-                  Delivered
+                  Experiences
                 </div>
               </div>
               <div className="metric">
                 <div className="metric-value">
-                  <Counter target={10} suffix="×" />
+                  <Counter target={5} suffix="×" />
                 </div>
                 <div className="metric-label">
                   Faster
@@ -785,7 +790,7 @@ export default function Home() {
                       <option>Social Content</option>
                       <option>Music Videos</option>
                       <option>Narrative Production</option>
-                      <option>AI Evaluation</option>
+                      <option>AI Product Assessment</option>
                       <option>Other</option>
                     </select>
                   </div>
