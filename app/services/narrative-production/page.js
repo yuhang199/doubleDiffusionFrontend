@@ -33,15 +33,23 @@ export default function NarrativeProduction() {
           </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-1">
-          <h2>Services</h2>
-          <ul>
-            <li><strong>AI-Enhanced Post-Production:</strong> Environment extension, set augmentation, sky replacement, crowd generation, and visual effects powered by AI</li>
-            <li><strong>Pre-Visualization:</strong> AI-generated storyboards, animatics, and concept art that let you see the film before you shoot it</li>
-            <li><strong>Technical Consulting:</strong> On-set AI supervision, pipeline integration, and workflow optimization for productions incorporating AI tools</li>
-            <li><strong>Hybrid Workflows:</strong> Seamless blending of live-action footage with AI-generated elements for a cohesive final product</li>
-            <li><strong>Digital Double Creation:</strong> AI-generated doubles of real talent for pickup shots, alternative takes, and multi-market versioning</li>
-          </ul>
+        <section className="legal-section--card has-media reveal reveal-delay-1">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/new-02.jpg" alt="Narrative production services" />
+            </div>
+            <div className="card-text">
+              <h2>Services</h2>
+              <ul>
+                <li><strong>AI-Enhanced Post-Production:</strong> Environment extension, set augmentation, sky replacement, crowd generation, and visual effects powered by AI</li>
+                <li><strong>Pre-Visualization:</strong> AI-generated storyboards, animatics, and concept art that let you see the film before you shoot it</li>
+                <li><strong>Technical Consulting:</strong> On-set AI supervision, pipeline integration, and workflow optimization for productions incorporating AI tools</li>
+                <li><strong>Hybrid Workflows:</strong> Seamless blending of live-action footage with AI-generated elements for a cohesive final product</li>
+                <li><strong>Digital Double Creation:</strong> AI-generated doubles of real talent for pickup shots, alternative takes, and multi-market versioning</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section className="legal-section--card has-media reveal reveal-delay-2">

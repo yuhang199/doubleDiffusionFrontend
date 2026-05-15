@@ -478,20 +478,20 @@ export default function Home() {
           <div className="gallery-row gallery-row--1">
             <div className="gallery-track">
               {[
-                "/images/gallery-reel-04.jpg",
+                "/images/new-01.jpg",
                 "/images/work-01.png",
                 "/images/gallery-reel-new-01.jpg",
                 "/images/gallery-reel-new-02.jpg",
                 "/images/gallery-reel-new-03.jpg",
                 "/images/work-02.png",
-                "/images/gallery-reel-04-b.jpg",
-                "/images/gallery-reel-04.jpg",
+                "/images/new-02.jpg",
+                "/images/new-01.jpg",
                 "/images/work-01.png",
                 "/images/gallery-reel-new-01.jpg",
                 "/images/gallery-reel-new-02.jpg",
                 "/images/gallery-reel-new-03.jpg",
                 "/images/work-02.png",
-                "/images/gallery-reel-04-b.jpg",
+                "/images/new-02.jpg",
               ].map((src, i) => (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img key={i} src={src} alt="" className="gallery-img" />
@@ -501,19 +501,19 @@ export default function Home() {
           <div className="gallery-row gallery-row--2">
             <div className="gallery-track gallery-track--reverse">
               {[
-                "/images/gallery-reel-new-04.jpg",
+                "/images/new-04.jpg",
                 "/images/upgrade-01.png",
                 "/images/gallery-reel-new-05.jpg",
-                "/images/gallery-reel-new-06.jpg",
+                "/images/new-03.jpg",
                 "/images/upgrade-02.png",
-                "/images/gallery-reel-new-04-b.jpg",
+                "/images/new-05.jpg",
                 "/images/gallery-reel-new-05-b.jpg",
-                "/images/gallery-reel-new-04.jpg",
+                "/images/new-04.jpg",
                 "/images/upgrade-01.png",
                 "/images/gallery-reel-new-05.jpg",
-                "/images/gallery-reel-new-06.jpg",
+                "/images/new-03.jpg",
                 "/images/upgrade-02.png",
-                "/images/gallery-reel-new-04-b.jpg",
+                "/images/new-05.jpg",
                 "/images/gallery-reel-new-05-b.jpg",
               ].map((src, i) => (
                 // eslint-disable-next-line @next/next/no-img-element

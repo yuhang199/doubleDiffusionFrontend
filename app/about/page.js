@@ -80,19 +80,43 @@ export default function About() {
           </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-3">
-          <h2>AI Content Generation &amp; Workflow Design</h2>
-          <p>Advanced use of AIGC tools and custom workflows. Optimization of generative models for character consistency, motion stability, temporal coherence, and narrative controllability.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-3">
+          <div className="card-with-media">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/new-01.jpg" alt="AI content generation" />
+            </div>
+            <div className="card-text">
+              <h2>AI Content Generation &amp; Workflow Design</h2>
+              <p>Advanced use of AIGC tools and custom workflows. Optimization of generative models for character consistency, motion stability, temporal coherence, and narrative controllability.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-4">
-          <h2>Full-Stack Production Infrastructure</h2>
-          <p>Scalable backend systems using cloud. Real-time data pipelines and automation systems for efficient and fine-tuned productions.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-4">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/new-02.jpg" alt="Production infrastructure" />
+            </div>
+            <div className="card-text">
+              <h2>Full-Stack Production Infrastructure</h2>
+              <p>Scalable backend systems using cloud. Real-time data pipelines and automation systems for efficient and fine-tuned productions.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="legal-section--card reveal">
-          <h2>Professional Post-Production Capabilities</h2>
-          <p>Industry-level expertise in editing, color grading, sound design, and full post-production for film and advertising. Advanced compositing, finishing, and delivery pipelines ensure high-quality final outputs.</p>
+        <section className="legal-section--card has-media reveal">
+          <div className="card-with-media">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/new-03.jpg" alt="Post-production" />
+            </div>
+            <div className="card-text">
+              <h2>Professional Post-Production Capabilities</h2>
+              <p>Industry-level expertise in editing, color grading, sound design, and full post-production for film and advertising. Advanced compositing, finishing, and delivery pipelines ensure high-quality final outputs.</p>
+            </div>
+          </div>
         </section>
 
         {/* Our Services */}
@@ -151,19 +175,43 @@ export default function About() {
           </div>
         </section>
 
-        <section className="legal-section--card reveal">
-          <h2>AIGC Narrative</h2>
-          <p>AI-generated narrative storytelling. State-of-the-art models and workflow. The best cinematic quality out there.</p>
+        <section className="legal-section--card has-media reveal">
+          <div className="card-with-media">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/new-04.jpg" alt="AIGC narrative" />
+            </div>
+            <div className="card-text">
+              <h2>AIGC Narrative</h2>
+              <p>AI-generated narrative storytelling. State-of-the-art models and workflow. The best cinematic quality out there.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-1">
-          <h2>Full Production Services</h2>
-          <p>Pre-production, production, and post-production execution.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-1">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/new-05.jpg" alt="Full production" />
+            </div>
+            <div className="card-text">
+              <h2>Full Production Services</h2>
+              <p>Pre-production, production, and post-production execution.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-2">
-          <h2>Technology &amp; Pipeline Solutions</h2>
-          <p>Custom AIGC workflow design and technical consulting. Industry-leading workflow combining AI production and physical production.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-2">
+          <div className="card-with-media">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/gallery-reel-new-03.jpg" alt="Technology pipeline" />
+            </div>
+            <div className="card-text">
+              <h2>Technology &amp; Pipeline Solutions</h2>
+              <p>Custom AIGC workflow design and technical consulting. Industry-leading workflow combining AI production and physical production.</p>
+            </div>
+          </div>
         </section>
 
         {/* Our Performance */}
@@ -196,14 +244,30 @@ export default function About() {
           </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-3">
-          <h2>Technical Engineering Impact</h2>
-          <p>Deployment of high-performance, real-time models supporting state-of-the-art visual and audio creations. Optimization of systems handling large-scale operations with accuracy and efficiency.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-3">
+          <div className="card-with-media">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/gallery-reel-new-01.jpg" alt="Technical engineering" />
+            </div>
+            <div className="card-text">
+              <h2>Technical Engineering Impact</h2>
+              <p>Deployment of high-performance, real-time models supporting state-of-the-art visual and audio creations. Optimization of systems handling large-scale operations with accuracy and efficiency.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-4">
-          <h2>AIGC Production Innovation</h2>
-          <p>End-to-end execution of AI-generated narrative film projects. Development of repeatable workflows bridging AI generation and physical production.</p>
+        <section className="legal-section--card has-media reveal reveal-delay-4">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/gallery-reel-new-02.jpg" alt="AIGC production innovation" />
+            </div>
+            <div className="card-text">
+              <h2>AIGC Production Innovation</h2>
+              <p>End-to-end execution of AI-generated narrative film projects. Development of repeatable workflows bridging AI generation and physical production.</p>
+            </div>
+          </div>
         </section>
       </div>
     </main>

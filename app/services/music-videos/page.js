@@ -33,15 +33,23 @@ export default function MusicVideos() {
           </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-1">
-          <h2>What We Deliver</h2>
-          <ul>
-            <li>Full music video production from concept to final master</li>
-            <li>AI-generated visual worlds, environments, and effects</li>
-            <li>Hybrid live-action + AI production options</li>
-            <li>Lyric videos and visualizers</li>
-            <li>Platform-specific cuts for YouTube, social, and streaming</li>
-          </ul>
+        <section className="legal-section--card has-media reveal reveal-delay-1">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/new-05.jpg" alt="Music video deliverables" />
+            </div>
+            <div className="card-text">
+              <h2>What We Deliver</h2>
+              <ul>
+                <li>Full music video production from concept to final master</li>
+                <li>AI-generated visual worlds, environments, and effects</li>
+                <li>Hybrid live-action + AI production options</li>
+                <li>Lyric videos and visualizers</li>
+                <li>Platform-specific cuts for YouTube, social, and streaming</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section className="legal-section--card has-media reveal reveal-delay-2">

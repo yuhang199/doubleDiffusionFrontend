@@ -33,15 +33,23 @@ export default function CreativeProduction() {
           </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-1">
-          <h2>What We Deliver</h2>
-          <ul>
-            <li>Hero video ads (15s, 30s, 60s) for TV, streaming, and digital platforms</li>
-            <li>Social-first video content optimized for Instagram, TikTok, YouTube, and Meta</li>
-            <li>Product launch films and brand anthems</li>
-            <li>Performance-driven direct response creatives</li>
-            <li>Seasonal campaign packages with rapid turnaround</li>
-          </ul>
+        <section className="legal-section--card has-media reveal reveal-delay-1">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/new-04.jpg" alt="Creative production deliverables" />
+            </div>
+            <div className="card-text">
+              <h2>What We Deliver</h2>
+              <ul>
+                <li>Hero video ads (15s, 30s, 60s) for TV, streaming, and digital platforms</li>
+                <li>Social-first video content optimized for Instagram, TikTok, YouTube, and Meta</li>
+                <li>Product launch films and brand anthems</li>
+                <li>Performance-driven direct response creatives</li>
+                <li>Seasonal campaign packages with rapid turnaround</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section className="legal-section--card has-media reveal reveal-delay-2">

@@ -33,15 +33,23 @@ export default function SocialContent() {
           </div>
         </section>
 
-        <section className="legal-section--card reveal reveal-delay-1">
-          <h2>What We Deliver</h2>
-          <ul>
-            <li>UGC-style video content with AI-generated visuals</li>
-            <li>Vertical-first product demos and unboxings</li>
-            <li>Platform-optimized ad creatives (9:16, 1:1, 4:5)</li>
-            <li>Social campaign packages with rapid turnaround</li>
-            <li>Trend-responsive content produced in days, not weeks</li>
-          </ul>
+        <section className="legal-section--card has-media reveal reveal-delay-1">
+          <div className="card-with-media card-with-media--reversed">
+            <div className="card-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/new-01.jpg" alt="Social content deliverables" />
+            </div>
+            <div className="card-text">
+              <h2>What We Deliver</h2>
+              <ul>
+                <li>UGC-style video content with AI-generated visuals</li>
+                <li>Vertical-first product demos and unboxings</li>
+                <li>Platform-optimized ad creatives (9:16, 1:1, 4:5)</li>
+                <li>Social campaign packages with rapid turnaround</li>
+                <li>Trend-responsive content produced in days, not weeks</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section className="legal-section--card has-media reveal reveal-delay-2">
