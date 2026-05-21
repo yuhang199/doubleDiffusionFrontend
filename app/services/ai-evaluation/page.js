@@ -1,7 +1,7 @@
 import ScrollReveal from "../../components/ScrollReveal";
 
 export const metadata = {
-  title: "AI Product Assessment — Double Diffusion",
+  title: "AI Production Assessment — Double Diffusion",
   description: "AI-powered product assessment to identify cost-saving production opportunities before a single frame is shot.",
 };
 
@@ -15,7 +15,7 @@ export default function AIProductAssessment() {
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
-          <h1 className="subpage-hero-title">AI Product Assessment</h1>
+          <h1 className="subpage-hero-title">AI Production Assessment</h1>
           <p className="subpage-hero-sub">Know exactly where AI saves you money — before production begins</p>
         </div>
       </div>
@@ -24,11 +24,11 @@ export default function AIProductAssessment() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-03.png" alt="AI Product Assessment dashboard" />
+              <img src="/images/upgrade-03.png" alt="AI Production Assessment dashboard" />
             </div>
             <div className="card-text">
               <h2>Overview</h2>
-              <p>Our AI Product Assessment service analyzes your creative brief scene-by-scene, identifying exactly where AI-assisted production can replace traditional methods. You get a detailed cost breakdown, feasibility score, and an optimized production roadmap — all before a single frame is shot.</p>
+              <p>Our AI Production Assessment service analyzes your creative brief scene-by-scene, identifying exactly where AI-assisted production can replace traditional methods. You get a detailed cost breakdown, feasibility score, and an optimized production roadmap — all before a single frame is shot.</p>
             </div>
           </div>
         </section>

@@ -40,7 +40,7 @@ const SERVICES = [
     img: "/images/service-creative.png",
   },
   {
-    title: "AI Product Assessment",
+    title: "AI Production Assessment",
     desc: "Submit your creative brief and our AI pipeline evaluates every scene for AI-assisted production potential. We identify exactly where generative tools can replace traditional methods — giving you a clear cost breakdown and optimized production roadmap before a single frame is shot.",
     slug: "ai-evaluation",
     timeline: "2–3 Days",
@@ -790,7 +790,7 @@ export default function Home() {
                       <option>Social Content</option>
                       <option>Music Videos</option>
                       <option>Narrative Production</option>
-                      <option>AI Product Assessment</option>
+                      <option>AI Production Assessment</option>
                       <option>Other</option>
                     </select>
                   </div>
