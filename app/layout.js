@@ -102,6 +102,8 @@ const jsonLd = {
   sameAs: [
     "https://www.linkedin.com/company/double-diffusion-studios",
     "https://www.instagram.com/doublediffusionstudios",
+    "https://www.youtube.com/@DoubleDiffusion",
+    "https://www.tiktok.com/@doublediffusionstudios",
   ],
 };
 
