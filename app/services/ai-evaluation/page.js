@@ -3,6 +3,9 @@ import ScrollReveal from "../../components/ScrollReveal";
 export const metadata = {
   title: "AI Production Assessment — Double Diffusion",
   description: "AI-powered product assessment to identify cost-saving production opportunities before a single frame is shot.",
+  alternates: {
+    canonical: "/services/ai-evaluation",
+  },
 };
 
 export default function AIProductAssessment() {
@@ -11,7 +14,7 @@ export default function AIProductAssessment() {
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div className="subpage-hero">
-        <img className="subpage-hero-img" src="/images/upgrade-09.png" alt="" />
+        <img className="subpage-hero-img" src="/images/upgrade-09.jpg" alt="" />
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
@@ -24,7 +27,7 @@ export default function AIProductAssessment() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-03.png" alt="AI Production Assessment dashboard" />
+              <img src="/images/upgrade-03.jpg" alt="AI Production Assessment dashboard" />
             </div>
             <div className="card-text">
               <h2>Overview</h2>
@@ -37,7 +40,7 @@ export default function AIProductAssessment() {
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-04.png" alt="AI assessment deliverables" />
+              <img src="/images/upgrade-04.jpg" alt="AI assessment deliverables" />
             </div>
             <div className="card-text">
               <h2>What You Get</h2>
@@ -56,7 +59,7 @@ export default function AIProductAssessment() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-05.png" alt="AI assessment process" />
+              <img src="/images/upgrade-05.jpg" alt="AI assessment process" />
             </div>
             <div className="card-text">
               <h2>How It Works</h2>
@@ -74,7 +77,7 @@ export default function AIProductAssessment() {
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-07.png" alt="AI production results" />
+              <img src="/images/upgrade-07.jpg" alt="AI production results" />
             </div>
             <div className="card-text">
               <h2>Why It Matters</h2>

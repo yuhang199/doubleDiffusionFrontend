@@ -1,6 +1,9 @@
 export const metadata = {
   title: "Support — Double Diffusion",
   description: "Get help with Double Diffusion services, projects, and technical inquiries.",
+  alternates: {
+    canonical: "/support",
+  },
 };
 
 export default function Support() {

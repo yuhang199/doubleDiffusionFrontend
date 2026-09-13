@@ -1,6 +1,9 @@
 export const metadata = {
   title: "Terms of Service — Double Diffusion",
   description: "Terms and conditions governing the use of Double Diffusion services.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsOfService() {

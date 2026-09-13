@@ -1,0 +1,27 @@
+# Double Diffusion
+
+> An AI-powered creative and production studio. We combine on-set cinematography
+> with generative AI post-production to deliver commercials, social content,
+> music videos, and narrative work.
+
+Contact: creative@doublediffusion.co
+Book a demo: https://www.doublediffusion.co/demo
+
+## Services
+
+- [Creative Production](https://www.doublediffusion.co/services/creative-production): End-to-end ad and campaign production, concept to final cut. Typical timeline 1–2 weeks.
+- [AI Production Assessment](https://www.doublediffusion.co/services/ai-evaluation): We evaluate a creative brief scene by scene to identify where generative tools can replace traditional methods, and return a cost breakdown and production roadmap. Typical timeline 2–3 days.
+- [Social Content](https://www.doublediffusion.co/services/social-content): Vertical video for Instagram, TikTok, and YouTube Shorts, including UGC-style content and product demos. Typical timeline 3–5 days.
+- [Music Videos](https://www.doublediffusion.co/services/music-videos): Concept, storyboarding, VFX, color, and final delivery. Typical timeline 1–3 weeks.
+- [Narrative Production](https://www.doublediffusion.co/services/narrative-production): Hybrid live-action and AI production for short films, branded narratives, and feature-length projects. Typical timeline 2–6 weeks.
+
+## About
+
+- [About](https://www.doublediffusion.co/about): Who we are and how we work.
+- [Ethical AI & Compliance](https://www.doublediffusion.co/compliance): Model licensing, training-data provenance, IP safeguards, and disclosure practices.
+- [Support](https://www.doublediffusion.co/support): Help with projects and technical inquiries.
+
+## Legal
+
+- [Privacy Policy](https://www.doublediffusion.co/privacy)
+- [Terms of Service](https://www.doublediffusion.co/terms)

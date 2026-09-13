@@ -1,6 +1,9 @@
 export const metadata = {
   title: "Privacy Policy — Double Diffusion",
   description: "How Double Diffusion collects, uses, and protects your personal information.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPolicy() {

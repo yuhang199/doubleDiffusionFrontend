@@ -6,6 +6,9 @@ export const metadata = {
   title: "Double Diffusion — AI-Powered Creative & Production Studio",
   description:
     "Double Diffusion is an AI-powered creative studio specializing in short films, ads, and cutting-edge production.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Double Diffusion — AI-Powered Creative & Production Studio",
     description:

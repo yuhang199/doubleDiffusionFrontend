@@ -3,6 +3,9 @@ import ScrollReveal from "../components/ScrollReveal";
 export const metadata = {
   title: "About — Double Diffusion",
   description: "How we serve our clients, our services, and our performance.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function About() {
@@ -11,7 +14,7 @@ export default function About() {
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div className="subpage-hero">
-        <img className="subpage-hero-img" src="/images/upgrade-01.png" alt="" />
+        <img className="subpage-hero-img" src="/images/upgrade-01.jpg" alt="" />
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
@@ -27,7 +30,7 @@ export default function About() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-08.png" alt="Double Diffusion studio" />
+              <img src="/images/upgrade-08.jpg" alt="Double Diffusion studio" />
             </div>
             <div className="card-text">
               <p>We are a multidisciplinary AIGC-driven creative studio located in Los Angeles, specializing in advertising and cinematic content production. We operate at the intersection of film production, artificial intelligence, brand building, and visual storytelling.</p>
@@ -40,7 +43,7 @@ export default function About() {
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-02.png" alt="Creative process" />
+              <img src="/images/upgrade-02.jpg" alt="Creative process" />
             </div>
             <div className="card-text">
               <p>With backgrounds spanning cinema, storytelling, and advanced cloud-based systems, we approach content creation and advertising as both an artistic and technological endeavor. Our studio is built to deliver the highest-quality and innovative visual content for commercial, entertainment, and experimental applications.</p>
@@ -58,7 +61,7 @@ export default function About() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-03.png" alt="Client collaboration" />
+              <img src="/images/upgrade-03.jpg" alt="Client collaboration" />
             </div>
             <div className="card-text">
               <h2>Collaborative &amp; Client-Centered Approach</h2>
@@ -71,7 +74,7 @@ export default function About() {
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-09.png" alt="Streamlined production" />
+              <img src="/images/upgrade-09.jpg" alt="Streamlined production" />
             </div>
             <div className="card-text">
               <h2>Streamlined Production Process</h2>
@@ -127,7 +130,7 @@ export default function About() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-06.png" alt="AIGC Production" />
+              <img src="/images/upgrade-06.jpg" alt="AIGC Production" />
             </div>
             <div className="card-text">
               <h2>AIGC Production</h2>
@@ -140,7 +143,7 @@ export default function About() {
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-07.png" alt="Social content" />
+              <img src="/images/upgrade-07.jpg" alt="Social content" />
             </div>
             <div className="card-text">
               <h2>Social Content &amp; UGC</h2>
@@ -153,7 +156,7 @@ export default function About() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-05.png" alt="Music video production" />
+              <img src="/images/upgrade-05.jpg" alt="Music video production" />
             </div>
             <div className="card-text">
               <h2>Music Video Production</h2>
@@ -166,7 +169,7 @@ export default function About() {
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-12.png" alt="Brand collaboration" />
+              <img src="/images/upgrade-12.jpg" alt="Brand collaboration" />
             </div>
             <div className="card-text">
               <h2>Creative Development &amp; Brand Collaboration</h2>
@@ -222,7 +225,7 @@ export default function About() {
           <div className="card-with-media">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-04.png" alt="Creative production" />
+              <img src="/images/upgrade-04.jpg" alt="Creative production" />
             </div>
             <div className="card-text">
               <h2>Creative Production</h2>
@@ -235,7 +238,7 @@ export default function About() {
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-10.png" alt="Technical engineering" />
+              <img src="/images/upgrade-10.jpg" alt="Technical engineering" />
             </div>
             <div className="card-text">
               <h2>Narrative Development</h2>

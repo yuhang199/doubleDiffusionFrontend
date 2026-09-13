@@ -1,6 +1,9 @@
 export const metadata = {
   title: "Ethical AI & Compliance — Double Diffusion",
   description: "Our commitment to responsible AI use, model licensing, and legal compliance.",
+  alternates: {
+    canonical: "/compliance",
+  },
 };
 
 export default function Compliance() {
