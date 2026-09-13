@@ -88,12 +88,16 @@ ul { list-style: none; }
 /* === CURSOR === */
 .cursor {
     width: 8px; height: 8px; background: var(--pure-white); border-radius: 50%;
-    position: fixed; pointer-events: none; z-index: 99999; mix-blend-mode: difference;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 99999; mix-blend-mode: difference;
+    will-change: transform;
 }
 .cursor-trail {
     width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%;
-    position: fixed; pointer-events: none; z-index: 99998; mix-blend-mode: difference;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 99998; mix-blend-mode: difference;
     transition: width 0.35s var(--ease), height 0.35s var(--ease);
+    will-change: transform;
 }
 .cursor-trail.expand { width: 80px; height: 80px; border-color: rgba(255,255,255,0.6); }
 
@@ -236,11 +240,16 @@ ul { list-style: none; }
     opacity: 0;
     z-index: 1;
     pointer-events: none;
+    /* opacity:0 alone keeps all eight videos in the paint tree, so every
+       compositing pass has to walk them. The slide swap is instant (no fade),
+       so hiding them outright costs nothing visually. */
+    visibility: hidden;
 }
 .hero-slide.active {
     opacity: 1;
     z-index: 2;
     pointer-events: auto;
+    visibility: visible;
 }
 
 .slide-video {

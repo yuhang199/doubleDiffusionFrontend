@@ -294,22 +294,30 @@ export default function Home() {
       my = 0,
       tx = 0,
       ty = 0;
+    // Record only — writing styles straight from the event fires a style
+    // recalc per mousemove (120+/s on a trackpad). Both elements are written
+    // once per frame in the loop below instead.
     const onMove = (e) => {
       mx = e.clientX;
       my = e.clientY;
-      if (cursorRef.current)
-        cursorRef.current.style.transform = `translate(${mx - 4}px, ${my - 4}px)`;
     };
+    let raf = null;
     const loop = () => {
+      if (cursorRef.current)
+        cursorRef.current.style.transform = `translate3d(${mx - 4}px, ${my - 4}px, 0)`;
       tx += (mx - tx) * 0.1;
       ty += (my - ty) * 0.1;
       if (trailRef.current)
-        trailRef.current.style.transform = `translate(${tx - 22}px, ${ty - 22}px)`;
-      requestAnimationFrame(loop);
+        trailRef.current.style.transform = `translate3d(${tx - 22}px, ${ty - 22}px, 0)`;
+      raf = requestAnimationFrame(loop);
     };
-    document.addEventListener("mousemove", onMove);
-    requestAnimationFrame(loop);
-    return () => document.removeEventListener("mousemove", onMove);
+    document.addEventListener("mousemove", onMove, { passive: true });
+    raf = requestAnimationFrame(loop);
+    return () => {
+      document.removeEventListener("mousemove", onMove);
+      // The loop re-queued itself forever; without this it outlives the page.
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   // Scroll
