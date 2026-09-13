@@ -1,5 +1,6 @@
 import ScrollReveal from "../../components/ScrollReveal";
 import SiteFooter from "../../components/SiteFooter";
+import ServiceSchema from "../../components/ServiceSchema";
 
 export const metadata = {
   title: "AI Production Assessment — Double Diffusion",
@@ -7,11 +8,25 @@ export const metadata = {
   alternates: {
     canonical: "/services/ai-evaluation",
   },
+  openGraph: {
+    title: "AI Production Assessment — Double Diffusion",
+    description: "AI-powered product assessment to identify cost-saving production opportunities before a single frame is shot.",
+    url: "https://www.doublediffusion.co/services/ai-evaluation",
+    images: [{ url: "/images/upgrade-09.jpg", width: 2400, height: 1339, alt: "AI Production Assessment" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Production Assessment — Double Diffusion",
+    description: "AI-powered product assessment to identify cost-saving production opportunities before a single frame is shot.",
+    images: ["/images/upgrade-09.jpg"],
+  },
 };
 
 export default function AIProductAssessment() {
   return (
     <>
+    <ServiceSchema slug="ai-evaluation" name="AI Production Assessment" description={"AI-powered product assessment to identify cost-saving production opportunities before a single frame is shot."} />
     <main className="legal-page legal-page--has-hero">
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}

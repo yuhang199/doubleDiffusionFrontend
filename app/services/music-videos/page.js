@@ -1,5 +1,6 @@
 import ScrollReveal from "../../components/ScrollReveal";
 import SiteFooter from "../../components/SiteFooter";
+import ServiceSchema from "../../components/ServiceSchema";
 
 export const metadata = {
   title: "Music Videos — Double Diffusion",
@@ -7,11 +8,25 @@ export const metadata = {
   alternates: {
     canonical: "/services/music-videos",
   },
+  openGraph: {
+    title: "Music Videos — Double Diffusion",
+    description: "AI-powered music video production at cinematic quality.",
+    url: "https://www.doublediffusion.co/services/music-videos",
+    images: [{ url: "/images/upgrade-06.jpg", width: 2400, height: 1339, alt: "Music Videos" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Music Videos — Double Diffusion",
+    description: "AI-powered music video production at cinematic quality.",
+    images: ["/images/upgrade-06.jpg"],
+  },
 };
 
 export default function MusicVideos() {
   return (
     <>
+    <ServiceSchema slug="music-videos" name="Music Videos" description={"AI-powered music video production at cinematic quality."} />
     <main className="legal-page legal-page--has-hero">
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}

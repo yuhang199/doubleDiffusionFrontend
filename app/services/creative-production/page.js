@@ -1,5 +1,6 @@
 import ScrollReveal from "../../components/ScrollReveal";
 import SiteFooter from "../../components/SiteFooter";
+import ServiceSchema from "../../components/ServiceSchema";
 
 export const metadata = {
   title: "Creative Production — Double Diffusion",
@@ -7,11 +8,25 @@ export const metadata = {
   alternates: {
     canonical: "/services/creative-production",
   },
+  openGraph: {
+    title: "Creative Production — Double Diffusion",
+    description: "End-to-end AI-powered ad production from concept to final cut.",
+    url: "https://www.doublediffusion.co/services/creative-production",
+    images: [{ url: "/images/upgrade-08.jpg", width: 2400, height: 1339, alt: "Creative Production" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Creative Production — Double Diffusion",
+    description: "End-to-end AI-powered ad production from concept to final cut.",
+    images: ["/images/upgrade-08.jpg"],
+  },
 };
 
 export default function CreativeProduction() {
   return (
     <>
+    <ServiceSchema slug="creative-production" name="Creative Production" description={"End-to-end AI-powered ad production from concept to final cut."} />
     <main className="legal-page legal-page--has-hero">
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}

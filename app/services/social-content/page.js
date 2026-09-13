@@ -1,5 +1,6 @@
 import ScrollReveal from "../../components/ScrollReveal";
 import SiteFooter from "../../components/SiteFooter";
+import ServiceSchema from "../../components/ServiceSchema";
 
 export const metadata = {
   title: "Social Content — Double Diffusion",
@@ -7,11 +8,25 @@ export const metadata = {
   alternates: {
     canonical: "/services/social-content",
   },
+  openGraph: {
+    title: "Social Content — Double Diffusion",
+    description: "AI-powered social media content and vertical video production.",
+    url: "https://www.doublediffusion.co/services/social-content",
+    images: [{ url: "/images/upgrade-10.jpg", width: 2400, height: 1339, alt: "Social Content" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Social Content — Double Diffusion",
+    description: "AI-powered social media content and vertical video production.",
+    images: ["/images/upgrade-10.jpg"],
+  },
 };
 
 export default function SocialContent() {
   return (
     <>
+    <ServiceSchema slug="social-content" name="Social Content" description={"AI-powered social media content and vertical video production."} />
     <main className="legal-page legal-page--has-hero">
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}

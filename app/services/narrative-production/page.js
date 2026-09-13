@@ -1,5 +1,6 @@
 import ScrollReveal from "../../components/ScrollReveal";
 import SiteFooter from "../../components/SiteFooter";
+import ServiceSchema from "../../components/ServiceSchema";
 
 export const metadata = {
   title: "Narrative Production — Double Diffusion",
@@ -7,11 +8,25 @@ export const metadata = {
   alternates: {
     canonical: "/services/narrative-production",
   },
+  openGraph: {
+    title: "Narrative Production — Double Diffusion",
+    description: "Hybrid live-action and AI production for films and branded narratives.",
+    url: "https://www.doublediffusion.co/services/narrative-production",
+    images: [{ url: "/images/upgrade-12.jpg", width: 2400, height: 1339, alt: "Narrative Production" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Narrative Production — Double Diffusion",
+    description: "Hybrid live-action and AI production for films and branded narratives.",
+    images: ["/images/upgrade-12.jpg"],
+  },
 };
 
 export default function NarrativeProduction() {
   return (
     <>
+    <ServiceSchema slug="narrative-production" name="Narrative Production" description={"Hybrid live-action and AI production for films and branded narratives."} />
     <main className="legal-page legal-page--has-hero">
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
