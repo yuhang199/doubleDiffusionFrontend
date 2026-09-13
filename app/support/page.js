@@ -1,3 +1,5 @@
+import SiteFooter from "../components/SiteFooter";
+
 export const metadata = {
   title: "Support — Double Diffusion",
   description: "Get help with Double Diffusion services, projects, and technical inquiries.",
@@ -8,6 +10,7 @@ export const metadata = {
 
 export default function Support() {
   return (
+    <>
     <main className="legal-page">
       <div className="legal-inner">
         <a href="/" className="legal-back">← Back to Home</a>
@@ -55,5 +58,7 @@ export default function Support() {
         </section>
       </div>
     </main>
+    <SiteFooter />
+    </>
   );
 }

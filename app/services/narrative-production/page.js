@@ -1,4 +1,5 @@
 import ScrollReveal from "../../components/ScrollReveal";
+import SiteFooter from "../../components/SiteFooter";
 
 export const metadata = {
   title: "Narrative Production — Double Diffusion",
@@ -10,6 +11,7 @@ export const metadata = {
 
 export default function NarrativeProduction() {
   return (
+    <>
     <main className="legal-page legal-page--has-hero">
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -92,5 +94,7 @@ export default function NarrativeProduction() {
         </section>
       </div>
     </main>
+    <SiteFooter />
+    </>
   );
 }

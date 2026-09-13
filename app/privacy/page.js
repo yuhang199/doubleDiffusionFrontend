@@ -1,3 +1,5 @@
+import SiteFooter from "../components/SiteFooter";
+
 export const metadata = {
   title: "Privacy Policy — Double Diffusion",
   description: "How Double Diffusion collects, uses, and protects your personal information.",
@@ -8,6 +10,7 @@ export const metadata = {
 
 export default function PrivacyPolicy() {
   return (
+    <>
     <main className="legal-page">
       <div className="legal-inner">
         <a href="/" className="legal-back">← Back to Home</a>
@@ -101,5 +104,7 @@ export default function PrivacyPolicy() {
         </section>
       </div>
     </main>
+    <SiteFooter />
+    </>
   );
 }

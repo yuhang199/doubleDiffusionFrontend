@@ -1,3 +1,5 @@
+import SiteFooter from "../components/SiteFooter";
+
 export const metadata = {
   title: "Terms of Service — Double Diffusion",
   description: "Terms and conditions governing the use of Double Diffusion services.",
@@ -8,6 +10,7 @@ export const metadata = {
 
 export default function TermsOfService() {
   return (
+    <>
     <main className="legal-page">
       <div className="legal-inner">
         <a href="/" className="legal-back">← Back to Home</a>
@@ -86,5 +89,7 @@ export default function TermsOfService() {
         </section>
       </div>
     </main>
+    <SiteFooter />
+    </>
   );
 }

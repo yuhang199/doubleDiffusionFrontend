@@ -1,3 +1,5 @@
+import SiteFooter from "../components/SiteFooter";
+
 export const metadata = {
   title: "Ethical AI & Compliance — Double Diffusion",
   description: "Our commitment to responsible AI use, model licensing, and legal compliance.",
@@ -8,6 +10,7 @@ export const metadata = {
 
 export default function Compliance() {
   return (
+    <>
     <main className="legal-page">
       <div className="legal-inner">
         <a href="/" className="legal-back">← Back to Home</a>
@@ -98,5 +101,7 @@ export default function Compliance() {
         </section>
       </div>
     </main>
+    <SiteFooter />
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import ScrollReveal from "../../components/ScrollReveal";
+import SiteFooter from "../../components/SiteFooter";
 
 export const metadata = {
   title: "Music Videos — Double Diffusion",
@@ -10,6 +11,7 @@ export const metadata = {
 
 export default function MusicVideos() {
   return (
+    <>
     <main className="legal-page legal-page--has-hero">
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -80,5 +82,7 @@ export default function MusicVideos() {
         </section>
       </div>
     </main>
+    <SiteFooter />
+    </>
   );
 }

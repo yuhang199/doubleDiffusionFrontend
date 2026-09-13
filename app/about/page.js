@@ -1,4 +1,5 @@
 import ScrollReveal from "../components/ScrollReveal";
+import SiteFooter from "../components/SiteFooter";
 
 export const metadata = {
   title: "About — Double Diffusion",
@@ -10,6 +11,7 @@ export const metadata = {
 
 export default function About() {
   return (
+    <>
     <main className="legal-page legal-page--has-hero">
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -274,5 +276,7 @@ export default function About() {
         </section>
       </div>
     </main>
+    <SiteFooter />
+    </>
   );
 }

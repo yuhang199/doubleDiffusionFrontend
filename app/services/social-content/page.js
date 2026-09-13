@@ -1,4 +1,5 @@
 import ScrollReveal from "../../components/ScrollReveal";
+import SiteFooter from "../../components/SiteFooter";
 
 export const metadata = {
   title: "Social Content — Double Diffusion",
@@ -10,6 +11,7 @@ export const metadata = {
 
 export default function SocialContent() {
   return (
+    <>
     <main className="legal-page legal-page--has-hero">
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -74,5 +76,7 @@ export default function SocialContent() {
         </section>
       </div>
     </main>
+    <SiteFooter />
+    </>
   );
 }

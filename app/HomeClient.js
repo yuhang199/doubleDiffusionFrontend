@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import { SERVICES } from "./lib/services";
+import SiteFooter from "./components/SiteFooter";
 
 /* ─── brand logos ─── */
 const BRAND_LOGOS = [
@@ -30,48 +32,6 @@ const VIDEOS = [
   { src: "/videos/reel-new-06.mp4", poster: "/videos/posters/reel-new-06.jpg" },
 ];
 
-const SERVICES = [
-  {
-    title: "Creative Production",
-    desc: "End-to-end AI-powered ad and campaign production. From concept to final cut — high-converting video ads, branded content, and campaign visuals delivered at cinematic quality.",
-    slug: "creative-production",
-    timeline: "1–2 Weeks",
-    tags: ["Video Ads", "Campaign Visuals", "Branded Content", "Color Grading", "Storyboarding"],
-    img: "/images/service-creative.jpg",
-  },
-  {
-    title: "AI Production Assessment",
-    desc: "Submit your creative brief and our AI pipeline evaluates every scene for AI-assisted production potential. We identify exactly where generative tools can replace traditional methods — giving you a clear cost breakdown and optimized production roadmap before a single frame is shot.",
-    slug: "ai-evaluation",
-    timeline: "2–3 Days",
-    tags: ["Feasibility Analysis", "Cost Optimization", "Scene Breakdown", "AI Readiness", "Production Roadmap"],
-    img: "/images/service-evaluation.jpg",
-  },
-  {
-    title: "Social Content",
-    desc: "Scroll-stopping vertical video for Instagram, TikTok, YouTube Shorts, and beyond. AI-powered UGC-style content, product demos, and social-first campaigns at scale.",
-    slug: "social-content",
-    timeline: "3–5 Days",
-    tags: ["Instagram Reels", "TikTok", "YouTube Shorts", "UGC-Style", "Product Demos"],
-    img: "/images/service-social.jpg",
-  },
-  {
-    title: "Music Videos",
-    desc: "Visually stunning music videos produced with AI-powered workflows. From concept and storyboarding to final delivery — cinematic visuals at a fraction of traditional production costs.",
-    slug: "music-videos",
-    timeline: "1–3 Weeks",
-    tags: ["Concept Art", "Storyboarding", "VFX", "Color Grading", "Final Delivery"],
-    img: "/images/service-music.jpg",
-  },
-  {
-    title: "Narrative Production",
-    desc: "Hybrid live-action and AI production for short films, branded narratives, and feature-length projects. We seamlessly blend traditional filmmaking with cutting-edge generative AI.",
-    slug: "narrative-production",
-    timeline: "2–6 Weeks",
-    tags: ["Short Films", "Branded Narratives", "Live-Action", "Generative AI", "Feature Films"],
-    img: "/images/service-narrative.jpg",
-  },
-];
 
 /* ─── Counter component ─── */
 function Counter({ target, suffix }) {
@@ -858,21 +818,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-inner">
-          <div className="footer-brand">
-            <span className="footer-name">Double Diffusion®</span>
-            <span className="footer-sub">AI-Powered Creative Studio</span>
-          </div>
-          <div className="footer-links">
-            <a href="/privacy" className="footer-link">Privacy Policy</a>
-            <a href="/terms" className="footer-link">Terms of Service</a>
-            <a href="/compliance" className="footer-link">Ethical AI & Compliance</a>
-            <a href="/support" className="footer-link">Support</a>
-          </div>
-          <div className="footer-copy">© 2026 Double Diffusion. All rights reserved.</div>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

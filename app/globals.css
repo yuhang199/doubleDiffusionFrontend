@@ -1307,17 +1307,31 @@ ul { list-style: none; }
 }
 .footer-inner {
     max-width: 1440px; margin: 0 auto;
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 48px; flex-wrap: wrap;
 }
 .footer-name { font-family: var(--font-main); font-size: 14px; font-weight: 600; letter-spacing: 1px; }
 .footer-sub { display: block; font-size: 11px; color: var(--gray); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
-.footer-links { display: flex; gap: 32px; }
+.footer-cols {
+    display: flex; gap: 64px; flex-wrap: wrap;
+}
+.footer-col {
+    display: flex; flex-direction: column; gap: 10px;
+}
+.footer-col-title {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.9); margin-bottom: 2px;
+}
 .footer-link {
     font-size: 12px; letter-spacing: 1px; color: var(--gray);
     transition: color 0.3s;
 }
 .footer-link:hover { color: var(--pure-white); }
-.footer-copy { font-size: 12px; color: var(--gray); }
+.footer-copy {
+    max-width: 1440px; margin: 32px auto 0;
+    padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 12px; color: var(--gray);
+}
 
 /* === SOCIALS (inside contact) === */
 .socials-inner {
@@ -2043,7 +2057,9 @@ ul { list-style: none; }
     .contact-btn { font-size: 13px; padding: 16px 24px; }
     .contact-links { flex-wrap: wrap; gap: 20px; }
     .footer { padding: 28px 24px; }
-    .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+    .footer-inner { flex-direction: column; gap: 28px; }
+    .footer-cols { gap: 28px; flex-direction: column; }
+    .footer-copy { margin-top: 24px; }
     .cursor, .cursor-trail { display: none; }
     body, a, button { cursor: auto; }
     /* Global overflow fix */
