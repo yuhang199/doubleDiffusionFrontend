@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { SERVICES } from "./lib/services";
@@ -281,9 +282,21 @@ export default function Home() {
       setCurtainDone(true);
       document.body.style.overflow = "";
     }, 2000);
+    // Leaving before the intro finishes freezes this page into the back/forward
+    // cache mid-curtain; restoring it does not re-run these timers, so the
+    // curtain and the scroll lock would stay put.
+    const onPageShow = (e) => {
+      if (!e.persisted) return;
+      setCurtainHiding(true);
+      setCurtainDone(true);
+      document.body.style.overflow = "";
+    };
+    window.addEventListener("pageshow", onPageShow);
+
     return () => {
       clearTimeout(showTimer);
       clearTimeout(removeTimer);
+      window.removeEventListener("pageshow", onPageShow);
       document.body.style.overflow = "";
     };
   }, []);
@@ -467,7 +480,7 @@ export default function Home() {
                 "/images/new-02.jpg",
               ].map((src, i) => (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img key={i} src={src} alt="" className="gallery-img" />
+                <Image src={src} alt="" className="gallery-img" width={498} height={280} sizes="498px" />
               ))}
             </div>
           </div>
@@ -490,7 +503,7 @@ export default function Home() {
                 "/images/gallery-reel-new-05-b.jpg",
               ].map((src, i) => (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img key={i} src={src} alt="" className="gallery-img" />
+                <Image src={src} alt="" className="gallery-img" width={498} height={280} sizes="498px" />
               ))}
             </div>
           </div>
@@ -500,8 +513,7 @@ export default function Home() {
       {/* Services */}
       <section className="section services">
         <div className="section-visual">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/upgrade-11.jpg" alt="" className="section-visual-img" />
+          <Image src="/images/upgrade-11.jpg" alt="" className="section-visual-img" fill sizes="100vw" />
         </div>
         <div id="services" />
         <Reveal className="section-header">
@@ -544,8 +556,7 @@ export default function Home() {
                           Explore →
                         </a>
                       </div>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={s.img} alt={s.title} className="sa-img" />
+                      <Image src={s.img} alt={s.title} className="sa-img" width={140} height={100} sizes="140px" />
                     </div>
                   </div>
                 </div>
@@ -588,8 +599,7 @@ export default function Home() {
       <section className="section about">
         <BrandMarquee />
         <div className="section-visual">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/work-01.jpg" alt="" className="section-visual-img" />
+          <Image src="/images/work-01.jpg" alt="" className="section-visual-img" fill sizes="100vw" />
         </div>
         <div className="about-inner" id="about">
           <Reveal className="section-header">
@@ -655,8 +665,7 @@ export default function Home() {
             <div className="spaces-grid">
               <div className="space-card">
                 <div className="space-img-wrap">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/studio.jpg" alt="Double Diffusion LA Studio" className="space-img" />
+                  <Image src="/images/studio.jpg" alt="Double Diffusion LA Studio" className="space-img" fill sizes="(max-width: 900px) 100vw, 50vw" />
                 </div>
                 <div className="space-info">
                   <span className="space-badge">2,400 SQFT</span>
@@ -666,8 +675,7 @@ export default function Home() {
               </div>
               <div className="space-card">
                 <div className="space-img-wrap">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/warehouse.jpg" alt="Double Diffusion Houston Warehouse" className="space-img" />
+                  <Image src="/images/warehouse.jpg" alt="Double Diffusion Houston Warehouse" className="space-img" fill sizes="(max-width: 900px) 100vw, 50vw" />
                 </div>
                 <div className="space-info">
                   <span className="space-badge">5,000 SQFT</span>
@@ -684,8 +692,7 @@ export default function Home() {
       {/* Get in Touch */}
       <section className="section contact">
         <div className="section-visual">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/work-05.jpg" alt="" className="section-visual-img" />
+          <Image src="/images/work-05.jpg" alt="" className="section-visual-img" fill sizes="100vw" />
         </div>
         <div className="contact-inner" id="contact">
           <Reveal>

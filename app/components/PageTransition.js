@@ -66,6 +66,21 @@ export default function PageTransition() {
     return () => document.removeEventListener("click", handleClick, true);
   }, [handleClick]);
 
+  // ── Restore from the back/forward cache ──
+  // Navigation is a full page load, so the browser freezes this page while the
+  // exit curtain is covering it. Coming back restores that frozen DOM without
+  // re-running effects, leaving the curtain stuck over the page. `pageshow`
+  // with persisted=true is the only signal for that restore.
+  useEffect(() => {
+    const onPageShow = (e) => {
+      if (!e.persisted) return;
+      setPendingHref(null);
+      setPhase("idle");
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, []);
+
   if (phase === "idle") return null;
 
   return (

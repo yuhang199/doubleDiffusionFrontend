@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollReveal from "../../components/ScrollReveal";
 import SiteFooter from "../../components/SiteFooter";
 import ServiceSchema from "../../components/ServiceSchema";
@@ -31,7 +32,7 @@ export default function CreativeProduction() {
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div className="subpage-hero">
-        <img className="subpage-hero-img" src="/images/upgrade-08.jpg" alt="" />
+        <Image src="/images/upgrade-08.jpg" alt="" className="subpage-hero-img" fill sizes="100vw" preload />
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
@@ -43,8 +44,7 @@ export default function CreativeProduction() {
         <section className="legal-section--card has-media reveal">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-01.jpg" alt="Creative production reel" />
+              <Image src="/images/upgrade-01.jpg" alt="Creative production reel" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Overview</h2>
@@ -56,8 +56,7 @@ export default function CreativeProduction() {
         <section className="legal-section--card has-media reveal reveal-delay-1">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/new-04.jpg" alt="Creative production deliverables" />
+              <Image src="/images/new-04.jpg" alt="Creative production deliverables" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>What We Deliver</h2>
@@ -75,8 +74,7 @@ export default function CreativeProduction() {
         <section className="legal-section--card has-media reveal reveal-delay-2">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-02.jpg" alt="Creative production process" />
+              <Image src="/images/upgrade-02.jpg" alt="Creative production process" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Our Process</h2>
@@ -94,8 +92,7 @@ export default function CreativeProduction() {
         <section className="legal-section--card has-media reveal reveal-delay-3">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/gallery-reel-new-03.jpg" alt="Cinematic macro shot" />
+              <Image src="/images/gallery-reel-new-03.jpg" alt="Cinematic macro shot" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Why AI-Powered?</h2>

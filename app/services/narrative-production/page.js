@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollReveal from "../../components/ScrollReveal";
 import SiteFooter from "../../components/SiteFooter";
 import ServiceSchema from "../../components/ServiceSchema";
@@ -31,7 +32,7 @@ export default function NarrativeProduction() {
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div className="subpage-hero">
-        <img className="subpage-hero-img" src="/images/upgrade-12.jpg" alt="" />
+        <Image src="/images/upgrade-12.jpg" alt="" className="subpage-hero-img" fill sizes="100vw" preload />
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
@@ -43,8 +44,7 @@ export default function NarrativeProduction() {
         <section className="legal-section--card has-media reveal">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-03.jpg" alt="Narrative production fieldwork" />
+              <Image src="/images/upgrade-03.jpg" alt="Narrative production fieldwork" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Overview</h2>
@@ -56,8 +56,7 @@ export default function NarrativeProduction() {
         <section className="legal-section--card has-media reveal reveal-delay-1">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/new-02.jpg" alt="Narrative production services" />
+              <Image src="/images/new-02.jpg" alt="Narrative production services" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Services</h2>
@@ -75,8 +74,7 @@ export default function NarrativeProduction() {
         <section className="legal-section--card has-media reveal reveal-delay-2">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-04.jpg" alt="Cinematic cyclist silhouette" />
+              <Image src="/images/upgrade-04.jpg" alt="Cinematic cyclist silhouette" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Who This Is For</h2>
@@ -93,8 +91,7 @@ export default function NarrativeProduction() {
         <section className="legal-section--card has-media reveal reveal-delay-3">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/gallery-reel-new-05.jpg" alt="Cinematic landscape" />
+              <Image src="/images/gallery-reel-new-05.jpg" alt="Cinematic landscape" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Our Approach</h2>

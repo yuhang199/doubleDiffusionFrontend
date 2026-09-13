@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollReveal from "../components/ScrollReveal";
 import SiteFooter from "../components/SiteFooter";
 
@@ -16,7 +17,7 @@ export default function About() {
       <ScrollReveal />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div className="subpage-hero">
-        <img className="subpage-hero-img" src="/images/upgrade-01.jpg" alt="" />
+        <Image src="/images/upgrade-01.jpg" alt="" className="subpage-hero-img" fill sizes="100vw" preload />
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-content">
           <a href="/" className="legal-back">← Back to Home</a>
@@ -31,8 +32,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-1">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-08.jpg" alt="Double Diffusion studio" />
+              <Image src="/images/upgrade-08.jpg" alt="Double Diffusion studio" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <p>We are a multidisciplinary AIGC-driven creative studio located in Los Angeles, specializing in advertising and cinematic content production. We operate at the intersection of film production, artificial intelligence, brand building, and visual storytelling.</p>
@@ -44,8 +44,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-2">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-02.jpg" alt="Creative process" />
+              <Image src="/images/upgrade-02.jpg" alt="Creative process" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <p>With backgrounds spanning cinema, storytelling, and advanced cloud-based systems, we approach content creation and advertising as both an artistic and technological endeavor. Our studio is built to deliver the highest-quality and innovative visual content for commercial, entertainment, and experimental applications.</p>
@@ -62,8 +61,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-1">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-03.jpg" alt="Client collaboration" />
+              <Image src="/images/upgrade-03.jpg" alt="Client collaboration" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Collaborative &amp; Client-Centered Approach</h2>
@@ -75,8 +73,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-2">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-09.jpg" alt="Streamlined production" />
+              <Image src="/images/upgrade-09.jpg" alt="Streamlined production" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Streamlined Production Process</h2>
@@ -88,8 +85,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-3">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/new-01.jpg" alt="AI content generation" />
+              <Image src="/images/new-01.jpg" alt="AI content generation" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>AI Content Generation &amp; Workflow Design</h2>
@@ -101,8 +97,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-4">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/new-02.jpg" alt="Production infrastructure" />
+              <Image src="/images/new-02.jpg" alt="Production infrastructure" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Full-Stack Production Infrastructure</h2>
@@ -114,8 +109,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/new-03.jpg" alt="Post-production" />
+              <Image src="/images/new-03.jpg" alt="Post-production" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Professional Post-Production Capabilities</h2>
@@ -131,8 +125,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-1">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-06.jpg" alt="AIGC Production" />
+              <Image src="/images/upgrade-06.jpg" alt="AIGC Production" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>AIGC Production</h2>
@@ -144,8 +137,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-2">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-07.jpg" alt="Social content" />
+              <Image src="/images/upgrade-07.jpg" alt="Social content" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Social Content &amp; UGC</h2>
@@ -157,8 +149,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-3">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-05.jpg" alt="Music video production" />
+              <Image src="/images/upgrade-05.jpg" alt="Music video production" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Music Video Production</h2>
@@ -170,8 +161,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-4">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-12.jpg" alt="Brand collaboration" />
+              <Image src="/images/upgrade-12.jpg" alt="Brand collaboration" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Creative Development &amp; Brand Collaboration</h2>
@@ -183,8 +173,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/new-04.jpg" alt="AIGC narrative" />
+              <Image src="/images/new-04.jpg" alt="AIGC narrative" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>AIGC Narrative</h2>
@@ -196,8 +185,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-1">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/new-05.jpg" alt="Full production" />
+              <Image src="/images/new-05.jpg" alt="Full production" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Full Production Services</h2>
@@ -209,8 +197,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-2">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/gallery-reel-new-03.jpg" alt="Technology pipeline" />
+              <Image src="/images/gallery-reel-new-03.jpg" alt="Technology pipeline" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Technology &amp; Pipeline Solutions</h2>
@@ -226,8 +213,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-1">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-04.jpg" alt="Creative production" />
+              <Image src="/images/upgrade-04.jpg" alt="Creative production" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Creative Production</h2>
@@ -239,8 +225,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-2">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/upgrade-10.jpg" alt="Technical engineering" />
+              <Image src="/images/upgrade-10.jpg" alt="Technical engineering" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Narrative Development</h2>
@@ -252,8 +237,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-3">
           <div className="card-with-media">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/gallery-reel-new-01.jpg" alt="Technical engineering" />
+              <Image src="/images/gallery-reel-new-01.jpg" alt="Technical engineering" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>Technical Engineering Impact</h2>
@@ -265,8 +249,7 @@ export default function About() {
         <section className="legal-section--card has-media reveal reveal-delay-4">
           <div className="card-with-media card-with-media--reversed">
             <div className="card-media">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/gallery-reel-new-02.jpg" alt="AIGC production innovation" />
+              <Image src="/images/gallery-reel-new-02.jpg" alt="AIGC production innovation" fill sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="card-text">
               <h2>AIGC Production Innovation</h2>
