@@ -14,13 +14,22 @@ export const metadata = {
     description:
       "Tell us about your project and get a response within one business day.",
     url: "https://www.doublediffusion.co/demo",
+    images: [
+      {
+        url: "/images/work-01.jpg",
+        width: 2400,
+        height: 1350,
+        alt: "Double Diffusion — book a demo",
+      },
+    ],
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Book a Demo — Double Diffusion",
     description:
       "Tell us about your project and get a response within one business day.",
+    images: ["/images/work-01.jpg"],
   },
 };
 

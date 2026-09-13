@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import SiteFooter from "../components/SiteFooter";
 
 export default function BookDemo() {
   const [form, setForm] = useState({
@@ -70,6 +71,7 @@ export default function BookDemo() {
   };
 
   return (
+    <>
     <main className="demo-page">
       <div className="demo-inner">
         <a href="/" className="legal-back">← Back to Home</a>
@@ -199,5 +201,7 @@ export default function BookDemo() {
         )}
       </div>
     </main>
+    <SiteFooter />
+    </>
   );
 }

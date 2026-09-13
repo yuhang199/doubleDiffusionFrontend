@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 /**
  * Global page-transition curtain.
@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
  */
 export default function PageTransition() {
   const pathname = usePathname();
+  const router = useRouter();
   const [phase, setPhase] = useState("entering"); // entering | exiting | idle
   const [pendingHref, setPendingHref] = useState(null);
 
@@ -21,14 +22,31 @@ export default function PageTransition() {
   }, [pathname]);
 
   // ── Navigate after exit animation completes ──
+  // router.push keeps the app shell alive; window.location.href used to reload
+  // every asset and re-run all the JS on each internal link.
   useEffect(() => {
     if (phase === "exiting" && pendingHref) {
       const timer = setTimeout(() => {
-        window.location.href = pendingHref;
+        router.push(pendingHref);
+        setPendingHref(null);
       }, 500); // matches CSS exit duration
       return () => clearTimeout(timer);
     }
-  }, [phase, pendingHref]);
+  }, [phase, pendingHref, router]);
+
+  // ── Warm the target route while the exit curtain plays ──
+  useEffect(() => {
+    if (pendingHref) router.prefetch(pendingHref);
+  }, [pendingHref, router]);
+
+  // ── Safety net ──
+  // The curtain now stays closed until the new route commits. If a navigation
+  // stalls or never lands, lift it anyway rather than leaving a covered page.
+  useEffect(() => {
+    if (phase !== "exiting") return;
+    const timer = setTimeout(() => setPhase("idle"), 4000);
+    return () => clearTimeout(timer);
+  }, [phase]);
 
   // ── Intercept internal link clicks ──
   const handleClick = useCallback(
