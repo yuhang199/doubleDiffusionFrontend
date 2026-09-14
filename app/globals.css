@@ -1123,6 +1123,7 @@ ul { list-style: none; }
 }
 
 .space-img-wrap {
+    position: relative;   /* anchors the next/image fill child */
     aspect-ratio: 16 / 10;
     overflow: hidden;
 }
