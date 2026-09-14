@@ -37,19 +37,30 @@ const VIDEOS = [
 /* ─── Counter component ─── */
 function Counter({ target, suffix }) {
   const ref = useRef(null);
-  const [value, setValue] = useState(0);
+  // Starts at the real figure so the server-rendered HTML carries it. Starting
+  // at 0 meant crawlers and AI agents read "0+", "0x" and "0%" — the animation
+  // only ever ran for humans with JS.
+  const [value, setValue] = useState(target);
   const counted = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduced || typeof IntersectionObserver === "undefined") return;
+
+    let timer = null;
+    // Drop back to zero only once the client has taken over, then count up.
+    setValue(0);
+
     const obs = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !counted.current) {
           counted.current = true;
           let cur = 0;
           const step = target / 50;
-          const timer = setInterval(() => {
+          timer = setInterval(() => {
             cur += step;
             if (cur >= target) {
               setValue(target);
@@ -63,7 +74,10 @@ function Counter({ target, suffix }) {
       { threshold: 0.5 }
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    return () => {
+      obs.disconnect();
+      if (timer) clearInterval(timer);
+    };
   }, [target]);
 
   return (
@@ -223,7 +237,7 @@ function HeroCarousel() {
         </h1>
         <p className="hero-sub-text">
           AI-powered production for ads, campaigns, social content,
-          music videos, and more — delivered in DAYS, not months.
+          music videos, and more — delivered in weeks, not months.
         </p>
         <a href="/demo" className="hero-cta-btn">
           Book a Demo <span className="btn-icon">→</span>
@@ -582,7 +596,7 @@ export default function Home() {
               <div className="case-study-stat">
                 <span className="case-study-before">2 Months</span>
                 <span className="case-study-arrow">→</span>
-                <span className="case-study-after">3 Weeks</span>
+                <span className="case-study-after">2 Weeks</span>
               </div>
               <p className="case-study-headline">
                 80% cost reduction. 75% faster delivery. Same cinematic quality.
@@ -639,7 +653,7 @@ export default function Home() {
               </div>
               <div className="metric">
                 <div className="metric-value">
-                  <Counter target={5} suffix="×" />
+                  <Counter target={4} suffix="×" />
                 </div>
                 <div className="metric-label">
                   Faster
