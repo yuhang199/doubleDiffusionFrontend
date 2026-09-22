@@ -1438,10 +1438,10 @@ ul { list-style: none; }
 
 /* Contact Form */
 .contact-split {
-    /* Single column since the form was removed; the details block now stands
-       on its own rather than sitting beside an empty half. */
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    align-items: start;
 }
 
 .contact-left {
@@ -1570,12 +1570,6 @@ ul { list-style: none; }
     padding-bottom: 4px;
 }
 .email-link:hover { color: var(--pure-white); border-color: var(--pure-white); }
-.contact-cta-btn {
-    align-self: flex-start;
-    margin-top: 16px;
-}
-.email-link--static { cursor: default; }
-.email-link--static:hover { color: var(--gray); border-color: rgba(255,255,255,0.06); }
 
 /* === SUB-PAGE HERO BANNER === */
 .subpage-hero {
@@ -2142,6 +2136,7 @@ ul { list-style: none; }
     .metric-value { font-size: clamp(28px, 10vw, 48px); }
 
     /* Contact — stack emails vertically */
+    .contact-split { grid-template-columns: 1fr; gap: 40px; }
     .contact-inner { padding: 60px 24px; }
     .contact-headline { font-size: clamp(28px, 8vw, 48px); }
     .contact-subtitle { font-size: 14px; }

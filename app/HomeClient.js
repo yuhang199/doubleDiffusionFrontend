@@ -729,19 +729,75 @@ export default function Home() {
                 <span className="email-label">General Inquiries &amp; Press</span>
                 <a href="mailto:hello@doublediffusion.co" className="email-link">hello@doublediffusion.co</a>
               </div>
-              <div className="email-item">
-                <span className="email-label">Phone</span>
-                <a href="tel:+18329513171" className="email-link">+1 (832) 951-3171</a>
-              </div>
-              <div className="email-item">
-                <span className="email-label">Based In</span>
-                <span className="email-link email-link--static">Los Angeles &amp; Houston</span>
-              </div>
-              {/* The form used to be this section's call to action; without a
-                  button the block is purely passive. */}
-              <a href="/demo" className="hero-cta-btn contact-cta-btn">
-                Book a Demo <span className="btn-icon">→</span>
-              </a>
+            </Reveal>
+            <Reveal className="contact-right">
+              <form className="contact-form" onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const btn = form.querySelector("button[type=submit]");
+                btn.textContent = "Sending...";
+                btn.disabled = true;
+                try {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      name: form.elements["cf-name"].value,
+                      email: form.elements["cf-email"].value,
+                      company: form.elements["cf-company"].value,
+                      service: form.elements["cf-service"].value,
+                      message: form.elements["cf-message"].value,
+                    }),
+                  });
+                  if (res.ok) {
+                    btn.textContent = "Sent ✓";
+                    form.reset();
+                  } else {
+                    btn.textContent = "Failed — Try Again";
+                    btn.disabled = false;
+                  }
+                } catch {
+                  btn.textContent = "Failed — Try Again";
+                  btn.disabled = false;
+                }
+              }}>
+                <div className="cf-row">
+                  <div className="cf-field">
+                    <label className="cf-label" htmlFor="cf-name">Full Name</label>
+                    <input className="cf-input" id="cf-name" type="text" placeholder="John Smith" required />
+                  </div>
+                  <div className="cf-field">
+                    <label className="cf-label" htmlFor="cf-email">Email</label>
+                    <input className="cf-input" id="cf-email" type="email" placeholder="john@company.com" required />
+                  </div>
+                </div>
+                <div className="cf-row">
+                  <div className="cf-field">
+                    <label className="cf-label" htmlFor="cf-company">Company</label>
+                    <input className="cf-input" id="cf-company" type="text" placeholder="Your company" />
+                  </div>
+                  <div className="cf-field">
+                    <label className="cf-label" htmlFor="cf-service">Service Interested In</label>
+                    <select className="cf-input cf-select" id="cf-service" defaultValue="">
+                      <option value="" disabled>Select a service</option>
+                      <option>Creative Production</option>
+                      <option>Social Content</option>
+                      <option>Music Videos</option>
+                      <option>Narrative Production</option>
+                      <option>AI Production Assessment</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="cf-field">
+                  <label className="cf-label" htmlFor="cf-message">Tell us about your project</label>
+                  <textarea className="cf-input cf-textarea" id="cf-message" rows={5} placeholder="Brief description of your project, timeline, budget..." required />
+                </div>
+                <div className="cf-submit-row">
+                  <button type="submit" className="contact-cta">Send Message</button>
+                  <span className="contact-cta-sub">We generally respond within 24 hours.</span>
+                </div>
+              </form>
             </Reveal>
           </div>
           <Reveal className="socials-inner">
