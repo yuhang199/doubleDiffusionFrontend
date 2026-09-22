@@ -12,7 +12,7 @@ export async function POST(req) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "Double Diffusion <noreply@doublediffusion.co>",
       to: ["creative@doublediffusion.co"],
       replyTo: email,
@@ -35,7 +35,20 @@ export async function POST(req) {
       `,
     });
 
-    return NextResponse.json({ success: true });
+    // resend.emails.send resolves with { data, error } — it does not throw on
+    // API failures (quota, rate limit, unverified sender). Without this check a
+    // failed send would still report success and the lead would be lost silently.
+    if (error) {
+      console.error("Contact form — Resend rejected the send:", {
+        name: error.name,
+        statusCode: error.statusCode,
+        message: error.message,
+        lead: { name, email, company },
+      });
+      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+    }
+
+    return NextResponse.json({ success: true, id: data?.id });
   } catch (error) {
     console.error("Contact form error:", error);
     return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
