@@ -737,6 +737,11 @@ export default function Home() {
                 <span className="email-label">Based In</span>
                 <span className="email-link email-link--static">Los Angeles &amp; Houston</span>
               </div>
+              {/* The form used to be this section's call to action; without a
+                  button the block is purely passive. */}
+              <a href="/demo" className="hero-cta-btn contact-cta-btn">
+                Book a Demo <span className="btn-icon">→</span>
+              </a>
             </Reveal>
           </div>
           <Reveal className="socials-inner">
