@@ -13,7 +13,7 @@ export async function POST(req) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: "Double Diffusion <noreply@send.doublediffusion.co>",
+      from: "Double Diffusion <noreply@doublediffusion.co>",
       to: ["creative@doublediffusion.co"],
       replyTo: email,
       subject: `Contact Form — ${name}${company ? ` (${company})` : ""}`,
