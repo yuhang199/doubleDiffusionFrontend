@@ -1438,18 +1438,16 @@ ul { list-style: none; }
 
 /* Contact Form */
 .contact-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 120px;
-    align-items: start;
+    /* Single column since the form was removed; the details block now stands
+       on its own rather than sitting beside an empty half. */
+    display: flex;
+    justify-content: center;
 }
 
 .contact-left {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    position: sticky;
-    top: 120px;
 }
 
 .contact-left .email-item {
@@ -1572,6 +1570,8 @@ ul { list-style: none; }
     padding-bottom: 4px;
 }
 .email-link:hover { color: var(--pure-white); border-color: var(--pure-white); }
+.email-link--static { cursor: default; }
+.email-link--static:hover { color: var(--gray); border-color: rgba(255,255,255,0.06); }
 
 /* === SUB-PAGE HERO BANNER === */
 .subpage-hero {
@@ -2143,7 +2143,6 @@ ul { list-style: none; }
     .contact-subtitle { font-size: 14px; }
     .cf-row { grid-template-columns: 1fr; }
     .contact-form { margin-bottom: 40px; }
-    .contact-split { grid-template-columns: 1fr; gap: 40px; }
     .contact-left { position: static; }
     .contact-emails { grid-template-columns: 1fr; gap: 12px; width: 100%; }
     .email-item { text-align: center; }

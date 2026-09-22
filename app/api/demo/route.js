@@ -1,7 +1,14 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Built per request rather than at module scope: the Resend constructor throws
+// on a missing key, which would otherwise fail the whole build (and any deploy
+// where the env var is not set) rather than just this one route.
+function getResend() {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return null;
+  return new Resend(key);
+}
 
 export async function POST(req) {
   try {
@@ -11,6 +18,17 @@ export async function POST(req) {
     // Validate required fields
     if (!name || !email || !company) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
+
+    const resend = getResend();
+    if (!resend) {
+      console.error("Demo form — RESEND_API_KEY is not set. Lead received but not emailed:", {
+        name,
+        email,
+        company,
+        message,
+      });
+      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
     }
 
     const { data, error } = await resend.emails.send({
