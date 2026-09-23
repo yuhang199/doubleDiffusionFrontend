@@ -18,14 +18,6 @@ export const SERVICES = [
     img: "/images/service-evaluation.jpg",
   },
   {
-    title: "Social Content",
-    desc: "Scroll-stopping vertical video for Instagram, TikTok, YouTube Shorts, and beyond. AI-powered UGC-style content, product demos, and social-first campaigns at scale.",
-    slug: "social-content",
-    timeline: "3–5 Days",
-    tags: ["Instagram Reels", "TikTok", "YouTube Shorts", "UGC-Style", "Product Demos"],
-    img: "/images/service-social.jpg",
-  },
-  {
     title: "Music Videos",
     desc: "Visually stunning music videos produced with AI-powered workflows. From concept and storyboarding to final delivery — cinematic visuals at a fraction of traditional production costs.",
     slug: "music-videos",

@@ -62,7 +62,6 @@ export default function CreativeProduction() {
               <h2>What We Deliver</h2>
               <ul>
                 <li>Hero video ads (15s, 30s, 60s) for TV, streaming, and digital platforms</li>
-                <li>Social-first video content optimized for Instagram, TikTok, YouTube, and Meta</li>
                 <li>Product launch films and brand anthems</li>
                 <li>Performance-driven direct response creatives</li>
                 <li>Seasonal campaign packages with rapid turnaround</li>

@@ -5,7 +5,7 @@ import DemoForm from "./DemoForm";
 export const metadata = {
   title: "Book a Demo — Double Diffusion",
   description:
-    "Tell us about your project and get a response within one business day. Book a demo with Double Diffusion for AI-powered commercial, social, and narrative production.",
+    "Tell us about your project and get a response within one business day. Book a demo with Double Diffusion for AI-powered commercial and narrative production.",
   alternates: {
     canonical: "/demo",
   },

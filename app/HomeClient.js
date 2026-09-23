@@ -236,8 +236,8 @@ function HeroCarousel() {
           <span className="hero-headline-sub">Startup Budget.</span>
         </h1>
         <p className="hero-sub-text">
-          AI-powered production for ads, campaigns, social content,
-          music videos, and more — delivered in weeks, not months.
+          AI-powered production for ads, campaigns, music videos,
+          and more — delivered in weeks, not months.
         </p>
         <a href="/demo" className="hero-cta-btn">
           Book a Demo <span className="btn-icon">→</span>
@@ -781,7 +781,6 @@ export default function Home() {
                     <select className="cf-input cf-select" id="cf-service" defaultValue="">
                       <option value="" disabled>Select a service</option>
                       <option>Creative Production</option>
-                      <option>Social Content</option>
                       <option>Music Videos</option>
                       <option>Narrative Production</option>
                       <option>AI Production Assessment</option>

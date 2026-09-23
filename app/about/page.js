@@ -134,18 +134,6 @@ export default function About() {
           </div>
         </section>
 
-        <section className="legal-section--card has-media reveal reveal-delay-2">
-          <div className="card-with-media card-with-media--reversed">
-            <div className="card-media">
-              <Image src="/images/upgrade-07.jpg" alt="Social content" fill sizes="(max-width: 900px) 100vw, 50vw" />
-            </div>
-            <div className="card-text">
-              <h2>Social Content &amp; UGC</h2>
-              <p>AI-powered vertical video and social-first content for Instagram, TikTok, YouTube Shorts, and more. Scroll-stopping visuals produced at scale.</p>
-            </div>
-          </div>
-        </section>
-
         <section className="legal-section--card has-media reveal reveal-delay-3">
           <div className="card-with-media">
             <div className="card-media">

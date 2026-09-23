@@ -31,12 +31,6 @@ const routes = [
     priority: 0.9,
   },
   {
-    path: "/services/social-content",
-    files: ["app/services/social-content/page.js"],
-    changeFrequency: "monthly",
-    priority: 0.9,
-  },
-  {
     path: "/services/music-videos",
     files: ["app/services/music-videos/page.js"],
     changeFrequency: "monthly",
