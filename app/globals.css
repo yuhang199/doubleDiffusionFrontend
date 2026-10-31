@@ -2681,45 +2681,40 @@ ul { list-style: none; }
 .work-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
+    gap: 48px 2px;
+    margin-bottom: 96px;
 }
-.work-tile {
+.work-tile { display: block; color: var(--pure-white); }
+.work-tile-media {
     position: relative;
-    display: block;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     background: #0d0d14;
 }
 .work-tile-img {
     object-fit: cover;
     transition: transform 0.8s var(--ease), filter 0.5s;
-    filter: brightness(0.75);
 }
-.work-tile:hover .work-tile-img { transform: scale(1.04); filter: brightness(0.5); }
-.work-tile-overlay {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 10px;
-    padding: 24px;
-    text-align: center;
-    color: var(--pure-white);
-    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
-}
-.work-tile-category {
-    font-family: var(--font-main);
-    font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
+.work-tile:hover .work-tile-img { transform: scale(1.04); filter: brightness(0.8); }
+.work-tile-caption {
+    display: flex; align-items: baseline; flex-wrap: wrap;
+    gap: 8px 16px;
+    padding: 20px 24px 0;
 }
 .work-tile-title {
     font-family: var(--font-main);
-    font-size: clamp(22px, 2.6vw, 36px);
+    font-size: clamp(16px, 1.6vw, 22px);
     font-weight: 700; letter-spacing: 1px;
     text-transform: uppercase;
 }
-.work-tile-soon {
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+.work-tile-category {
+    font-family: var(--font-main);
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
     color: rgba(255,255,255,0.5);
+}
+.work-tile-soon {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
 }
 .work-more { padding: 0 48px; margin-top: 40px; text-align: center; }
 
@@ -2727,5 +2722,6 @@ ul { list-style: none; }
     .work-page { padding-top: 110px; }
     .work-page-header, .work-tabs { padding: 0 24px; }
     .work-tab { min-width: 0; flex: 1; padding: 8px 12px; }
-    .work-grid { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; gap: 36px; }
+    .work-tile-caption { padding: 16px 24px 0; }
 }

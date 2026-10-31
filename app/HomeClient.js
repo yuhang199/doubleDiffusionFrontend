@@ -503,12 +503,12 @@ export default function Home() {
             <div className="spaces-grid">
               <div className="space-card">
                 <div className="space-img-wrap">
-                  <Image src="/images/studio.jpg" alt="Double Diffusion LA Studio" className="space-img" fill sizes="(max-width: 900px) 100vw, 50vw" />
+                  <Image src="/images/gallery-reel-new-03.jpg" alt="Double Diffusion in-house AI/VFX platform" className="space-img" fill sizes="(max-width: 900px) 100vw, 50vw" />
                 </div>
                 <div className="space-info">
-                  <span className="space-badge">2,400 SQFT</span>
-                  <span className="space-name">Partner Production Studio<br />Los Angeles</span>
-                  <span className="space-desc">Equipped with full lighting rigs, sound stage, and dedicated AI render stations for real-time post-production.</span>
+                  <span className="space-badge">1,000+ Hours</span>
+                  <span className="space-name">In-house AI/VFX Platform</span>
+                  <span className="space-desc">Unique in-house AI/VFX platform with customizable models. Built, tested, and used for more than 1,000 hours.</span>
                 </div>
               </div>
               <div className="space-card">
@@ -523,12 +523,12 @@ export default function Home() {
               </div>
               <div className="space-card">
                 <div className="space-img-wrap">
-                  <Image src="/images/gallery-reel-new-03.jpg" alt="Double Diffusion in-house AI/VFX platform" className="space-img" fill sizes="(max-width: 900px) 100vw, 50vw" />
+                  <Image src="/images/studio.jpg" alt="Double Diffusion LA Studio" className="space-img" fill sizes="(max-width: 900px) 100vw, 50vw" />
                 </div>
                 <div className="space-info">
-                  <span className="space-badge">1,000+ Hours</span>
-                  <span className="space-name">In-house AI/VFX Platform</span>
-                  <span className="space-desc">Unique in-house AI/VFX platform with customizable models. Built, tested, and used for more than 1,000 hours.</span>
+                  <span className="space-badge">2,400 SQFT</span>
+                  <span className="space-name">Partner Production Studio<br />Los Angeles</span>
+                  <span className="space-desc">Equipped with full lighting rigs, sound stage, and dedicated AI render stations for real-time post-production.</span>
                 </div>
               </div>
             </div>

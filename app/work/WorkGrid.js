@@ -46,18 +46,20 @@ export default function WorkGrid() {
       <div className="work-grid">
         {shown.map((p) => (
           <a key={p.slug} href={`/work/${p.slug}`} className="work-tile">
-            {p.reel.poster ? (
-              <Image
-                src={p.reel.poster}
-                alt=""
-                className="work-tile-img"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            ) : null}
-            <div className="work-tile-overlay">
-              <span className="work-tile-category">{categoryLabel(p.category)}</span>
+            <div className="work-tile-media">
+              {p.reel.poster ? (
+                <Image
+                  src={p.reel.poster}
+                  alt=""
+                  className="work-tile-img"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              ) : null}
+            </div>
+            <div className="work-tile-caption">
               <h2 className="work-tile-title">{p.title}</h2>
+              <span className="work-tile-category">{categoryLabel(p.category)}</span>
               {!p.reel.src && <span className="work-tile-soon">Coming soon</span>}
             </div>
           </a>

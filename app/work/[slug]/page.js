@@ -55,7 +55,7 @@ export default async function ProjectPage({ params }) {
           <header className="reveal">
             <span className="case-eyebrow">{categoryLabel(project.category)}</span>
             <h1 className="case-title">{project.title}</h1>
-            <p className="case-lead">{project.summary}</p>
+            {project.summary && <p className="case-lead">{project.summary}</p>}
           </header>
 
           <div className="case-reel reveal">

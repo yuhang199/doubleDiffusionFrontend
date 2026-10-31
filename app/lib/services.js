@@ -12,8 +12,8 @@ export const SOLUTIONS = [
   {
     title: "Production",
     paragraphs: [
-      "Our AI/VFX team is on set to advise the director and 1st AD throughout the shoot. We flag each shot's compatibility with our AI/VFX models and make sure we capture everything needed in post. We respond to on-set creative decisions as they happen and give our assessment quickly.",
-      "For key shots, we render on set and feed the result to the monitors, so the director and crew can evaluate their work in context. For example, we might be shooting in a Los Angeles forest while the client requires the Pacific Northwest. The director and gaffer can see how the current lighting will look once the environment is replaced.",
+      "Our AI/VFX team is on set throughout the shoot, advising the director and 1st AD. We flag each shot's compatibility with our AI/VFX models and make sure everything needed in post-production is captured. As creative decisions are made on set, we respond in real time and deliver our assessment quickly.",
+      "For key shots, we render on set and feed the results directly to the monitors, so the director and crew can evaluate their work in context. For example, we might be shooting in a Los Angeles forest while the client requires the Pacific Northwest. The director and gaffer can then see exactly how the current lighting will look once the environment is replaced.",
     ],
   },
   {

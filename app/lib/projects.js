@@ -6,12 +6,21 @@ export const CATEGORIES = [
   { id: "hybrid", label: "Hybrid" },
 ];
 
+// The pure AI workflow, shown under every pure AI reel.
+const PURE_AI_STEPS = [
+  { title: "Script", text: "Story and structure, written for the screen." },
+  { title: "Storyboard", text: "Every shot planned before anything is generated." },
+  { title: "Shooting", text: "Visual generation, shot by shot, on our in-house models." },
+  { title: "Editing", text: "Cut, paced, and refined like any production." },
+  { title: "Color & Sound", text: "Final grade and audio to professional specs." },
+];
+
 // Portfolio shown on /work, each with a detail page at /work/[slug].
 // `phases` and `steps` are optional sections on the detail page.
 export const PROJECTS = [
   {
-    slug: "example-work-case",
-    title: "Example Work Case",
+    slug: "berry-law-firm-commercial",
+    title: "Berry Law Firm Commercial",
     category: "hybrid",
     reel: REELS.hybrid,
     summary:
@@ -58,34 +67,28 @@ export const PROJECTS = [
     reel: REELS.pureAi,
     summary:
       "Pure AI workflows are recommended for productions with little to no acting. They follow the same process as a physical production.",
-    steps: [
-      { title: "Script", text: "Story and structure, written for the screen." },
-      { title: "Storyboard", text: "Every shot planned before anything is generated." },
-      { title: "Shooting", text: "Visual generation, shot by shot, on our in-house models." },
-      { title: "Editing", text: "Cut, paced, and refined like any production." },
-      { title: "Color & Sound", text: "Final grade and audio to professional specs." },
-    ],
+    steps: PURE_AI_STEPS,
   },
   {
-    slug: "cola",
-    title: "Cola",
+    slug: "crack-the-routine",
+    title: "Crack the Routine",
     category: "pure-ai",
-    reel: REELS.cola,
-    summary: "A pure AI spot.",
+    reel: REELS.crackTheRoutine,
+    steps: PURE_AI_STEPS,
   },
   {
-    slug: "jogging",
-    title: "Jogging",
+    slug: "run-on",
+    title: "Run On",
     category: "pure-ai",
-    reel: REELS.jogging,
-    summary: "A pure AI spot.",
+    reel: REELS.runOn,
+    steps: PURE_AI_STEPS,
   },
   {
-    slug: "world-cup",
-    title: "World Cup",
+    slug: "try-not-to-look",
+    title: "Try Not to Look",
     category: "pure-ai",
-    reel: REELS.worldCup,
-    summary: "A pure AI spot.",
+    reel: REELS.tryNotToLook,
+    steps: PURE_AI_STEPS,
   },
 ];
 
