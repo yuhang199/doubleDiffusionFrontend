@@ -6,6 +6,17 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
 
+  // The four original service pages were folded into the homepage
+  // AI/VFX Solutions section in the October 2026 redesign.
+  async redirects() {
+    return [
+      { source: "/services/:slug", destination: "/#services", permanent: true },
+      // The solution detail pages moved into the Work portfolio.
+      { source: "/solutions/work-case", destination: "/work/example-work-case", permanent: true },
+      { source: "/solutions/pure-ai", destination: "/work?type=pure-ai", permanent: true },
+    ];
+  },
+
   async headers() {
     return [
       {

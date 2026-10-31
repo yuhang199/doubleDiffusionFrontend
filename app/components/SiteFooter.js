@@ -1,10 +1,9 @@
-import { SERVICES } from "../lib/services";
 
 /**
  * Site-wide footer.
  *
  * Every subpage used to end with a single "Back to Home" link, which left the
- * service pages as crawl dead ends with no path to each other or to /demo.
+ * service pages as crawl dead ends with no path to each other.
  * Rendering this on every page gives the whole site one shared link graph.
  */
 export default function SiteFooter() {
@@ -13,22 +12,20 @@ export default function SiteFooter() {
       <div className="footer-inner">
         <div className="footer-brand">
           <span className="footer-name">Double Diffusion®</span>
-          <span className="footer-sub">AI-Powered Creative Studio</span>
+          <span className="footer-sub">AI/VFX Solutions for Professional Productions</span>
         </div>
         <div className="footer-cols">
-          <nav className="footer-col" aria-label="Services">
-            <span className="footer-col-title">Services</span>
-            {SERVICES.map((s) => (
-              <a key={s.slug} href={`/services/${s.slug}`} className="footer-link">
-                {s.title}
-              </a>
-            ))}
+          <nav className="footer-col" aria-label="Work">
+            <span className="footer-col-title">Work</span>
+            <a href="/work" className="footer-link">All Work</a>
+            <a href="/work?type=pure-ai" className="footer-link">Pure AI</a>
+            <a href="/work?type=hybrid" className="footer-link">Hybrid</a>
           </nav>
           <nav className="footer-col" aria-label="Company">
             <span className="footer-col-title">Company</span>
             <a href="/" className="footer-link">Home</a>
+            <a href="/#services" className="footer-link">AI/VFX Solutions</a>
             <a href="/about" className="footer-link">About</a>
-            <a href="/demo" className="footer-link">Book a Demo</a>
             <a href="/support" className="footer-link">Support</a>
           </nav>
           <nav className="footer-col" aria-label="Legal">

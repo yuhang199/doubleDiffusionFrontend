@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import { PROJECTS } from "./lib/projects";
 
 const baseUrl = "https://www.doublediffusion.co";
 
@@ -13,35 +14,17 @@ const routes = [
     priority: 1,
   },
   {
-    path: "/demo",
-    files: ["app/demo/page.js", "app/demo/DemoForm.js"],
-    changeFrequency: "monthly",
+    path: "/work",
+    files: ["app/work/page.js", "app/work/WorkGrid.js", "app/lib/projects.js"],
+    changeFrequency: "weekly",
     priority: 0.9,
   },
-  {
-    path: "/services/creative-production",
-    files: ["app/services/creative-production/page.js"],
+  ...PROJECTS.map((p) => ({
+    path: `/work/${p.slug}`,
+    files: ["app/work/[slug]/page.js", "app/lib/projects.js", "app/lib/reels.js"],
     changeFrequency: "monthly",
-    priority: 0.9,
-  },
-  {
-    path: "/services/ai-evaluation",
-    files: ["app/services/ai-evaluation/page.js"],
-    changeFrequency: "monthly",
-    priority: 0.9,
-  },
-  {
-    path: "/services/music-videos",
-    files: ["app/services/music-videos/page.js"],
-    changeFrequency: "monthly",
-    priority: 0.9,
-  },
-  {
-    path: "/services/narrative-production",
-    files: ["app/services/narrative-production/page.js"],
-    changeFrequency: "monthly",
-    priority: 0.9,
-  },
+    priority: 0.7,
+  })),
   { path: "/about", files: ["app/about/page.js"], changeFrequency: "monthly", priority: 0.8 },
   { path: "/support", files: ["app/support/page.js"], changeFrequency: "monthly", priority: 0.5 },
   { path: "/compliance", files: ["app/compliance/page.js"], changeFrequency: "yearly", priority: 0.4 },

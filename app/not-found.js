@@ -22,7 +22,6 @@ export default function NotFound() {
             <ul>
               <li><a href="/">Home</a> — our work and how we produce it</li>
               <li><a href="/about">About</a> — who we are</li>
-              <li><a href="/demo">Book a demo</a> — tell us about your project</li>
               <li><a href="/support">Support</a> — help with an existing project</li>
             </ul>
             <p>

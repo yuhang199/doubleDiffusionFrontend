@@ -1,36 +1,33 @@
-// Shared service catalogue: used by the homepage accordion and by the
-// site-wide footer, so both stay in sync with the actual /services routes.
-export const SERVICES = [
+// Solutions catalogue for the homepage list. An entry with `href` gets an
+// "Explore" link (Pure AI points at its filtered view of /work).
+export const SOLUTIONS = [
   {
-    title: "Creative Production",
-    desc: "End-to-end AI-powered ad and campaign production. From concept to final cut — high-converting video ads, branded content, and campaign visuals delivered at cinematic quality.",
-    slug: "creative-production",
-    timeline: "1–2 Weeks",
-    tags: ["Video Ads", "Campaign Visuals", "Branded Content", "Color Grading", "Storyboarding"],
-    img: "/images/service-creative.jpg",
+    title: "Pre-production",
+    paragraphs: [
+      "Detailed preparation has always been the key to a successful production, and in our AI/VFX workflow it matters even more. Our VFX supervisor works closely with the producer and director to lay the groundwork for post-production: visual effects, visual generation, background replacement, and performance enhancement.",
+      "We scout locations to make sure they don't limit model compatibility, and source the necessary filming and AI/VFX equipment, including tracking markers for key props and actors. We previsualize the storyboard and go through it shot by shot with the camera crew, so the footage works in post-production AI/VFX environments. We also coordinate each shot with the producer, production designer, and G&E crew, and advise the 1st AD on on-set AI/VFX rendering and its impact on the schedule.",
+      "Prior to the shoot, we deliver detailed previsualization and run multiple rounds of AI/VFX tests, giving the director and cinematographer a clear view of how each creative choice will play out, so they arrive on set with confidence.",
+    ],
   },
   {
-    title: "AI Production Assessment",
-    desc: "Submit your creative brief and our AI pipeline evaluates every scene for AI-assisted production potential. We identify exactly where generative tools can replace traditional methods — giving you a clear cost breakdown and optimized production roadmap before a single frame is shot.",
-    slug: "ai-evaluation",
-    timeline: "2–3 Days",
-    tags: ["Feasibility Analysis", "Cost Optimization", "Scene Breakdown", "AI Readiness", "Production Roadmap"],
-    img: "/images/service-evaluation.jpg",
+    title: "Production",
+    paragraphs: [
+      "Our AI/VFX team is on set to advise the director and 1st AD throughout the shoot. We flag each shot's compatibility with our AI/VFX models and make sure we capture everything needed in post. We respond to on-set creative decisions as they happen and give our assessment quickly.",
+      "For key shots, we render on set and feed the result to the monitors, so the director and crew can evaluate their work in context. For example, we might be shooting in a Los Angeles forest while the client requires the Pacific Northwest. The director and gaffer can see how the current lighting will look once the environment is replaced.",
+    ],
   },
   {
-    title: "Music Videos",
-    desc: "Visually stunning music videos produced with AI-powered workflows. From concept and storyboarding to final delivery — cinematic visuals at a fraction of traditional production costs.",
-    slug: "music-videos",
-    timeline: "1–3 Weeks",
-    tags: ["Concept Art", "Storyboarding", "VFX", "Color Grading", "Final Delivery"],
-    img: "/images/service-music.jpg",
+    title: "Post-production",
+    paragraphs: [
+      "Our team works closely with the editor, and we offer editorial services as well. Once the edit is locked, AI/VFX comes into play: we can extend, trim, or create entirely new shots to meet the needs of the editor and director.",
+      "We create visuals that are nearly, if not entirely, indistinguishable from camera footage. Every deliverable meets professional production standards and is ready for broadcast, theatrical, and live-venue exhibition, as well as online distribution.",
+    ],
   },
   {
-    title: "Narrative Production",
-    desc: "Hybrid live-action and AI production for short films, branded narratives, and feature-length projects. We seamlessly blend traditional filmmaking with cutting-edge generative AI.",
-    slug: "narrative-production",
-    timeline: "2–6 Weeks",
-    tags: ["Short Films", "Branded Narratives", "Live-Action", "Generative AI", "Feature Films"],
-    img: "/images/service-narrative.jpg",
+    title: "Pure AI",
+    paragraphs: [
+      "Pure AI workflows are recommended for productions with little to no acting. They follow the same process as a physical production: script, storyboard, shooting (visual generation), editing, then color grading and sound. Explore our pure AI work.",
+    ],
+    href: "/work?type=pure-ai",
   },
 ];

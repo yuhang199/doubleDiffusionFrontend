@@ -3,16 +3,16 @@ import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   metadataBase: new URL("https://www.doublediffusion.co"),
-  title: "Double Diffusion — AI-Powered Creative & Production Studio",
+  title: "Double Diffusion Studios — AI/VFX Solutions for Professional Productions",
   description:
-    "Double Diffusion is an AI-powered creative studio specializing in short films, ads, and cutting-edge production.",
+    "Double Diffusion Studios is a Los Angeles-based production studio providing AI/VFX solutions and hybrid workflows for professional productions.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Double Diffusion — AI-Powered Creative & Production Studio",
+    title: "Double Diffusion Studios — AI/VFX Solutions for Professional Productions",
     description:
-      "AI-powered creative studio specializing in short films, ads, and cutting-edge production.",
+      "Los Angeles-based production studio providing AI/VFX solutions and hybrid workflows for professional productions.",
     url: "https://www.doublediffusion.co",
     siteName: "Double Diffusion",
     images: [
@@ -20,16 +20,16 @@ export const metadata = {
         url: "/images/upgrade-11.jpg",
         width: 2400,
         height: 1339,
-        alt: "Double Diffusion — AI-powered creative and production studio",
+        alt: "Double Diffusion Studios — AI/VFX solutions for professional productions",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Double Diffusion — AI-Powered Creative & Production Studio",
+    title: "Double Diffusion Studios — AI/VFX Solutions for Professional Productions",
     description:
-      "AI-powered creative studio specializing in short films, ads, and cutting-edge production.",
+      "Los Angeles-based production studio providing AI/VFX solutions and hybrid workflows for professional productions.",
     images: ["/images/upgrade-11.jpg"],
   },
 };
@@ -50,7 +50,7 @@ const jsonLd = {
     height: 512,
   },
   description:
-    "AI-powered creative studio specializing in short films, ads, and cutting-edge production.",
+    "Los Angeles-based production studio providing AI/VFX solutions and hybrid workflows for professional productions.",
   foundingDate: "2026",
   telephone: "+1-832-951-3171",
   email: "hello@doublediffusion.co",

@@ -1,26 +1,27 @@
 # Double Diffusion
 
-> An AI-powered creative and production studio. We combine on-set cinematography
-> with generative AI post-production to deliver commercials, music videos,
-> and narrative work.
+> A Los Angeles-based production studio providing AI/VFX solutions for
+> professional productions: hybrid AI/VFX workflows with customizable models,
+> plus full post-production support for ads, narratives, and music videos.
 
-Contact: creative@doublediffusion.co
-Book a demo: https://www.doublediffusion.co/demo
+Production partnerships: creative@doublediffusion.co
+General inquiries & press: manager@doublediffusion.co
 Based in Los Angeles and Houston.
 
 ## Elsewhere
 
-- [YouTube](https://www.youtube.com/@DoubleDiffusion)
 - [LinkedIn](https://www.linkedin.com/company/double-diffusion-studios)
 - [Instagram](https://www.instagram.com/doublediffusionstudios)
-- [TikTok](https://www.tiktok.com/@doublediffusionstudios)
 
-## Services
+## AI/Hybrid Solutions
 
-- [Creative Production](https://www.doublediffusion.co/services/creative-production): End-to-end ad and campaign production, concept to final cut. Typical timeline 1–2 weeks.
-- [AI Production Assessment](https://www.doublediffusion.co/services/ai-evaluation): We evaluate a creative brief scene by scene to identify where generative tools can replace traditional methods, and return a cost breakdown and production roadmap. Typical timeline 2–3 days.
-- [Music Videos](https://www.doublediffusion.co/services/music-videos): Concept, storyboarding, VFX, color, and final delivery. Typical timeline 1–3 weeks.
-- [Narrative Production](https://www.doublediffusion.co/services/narrative-production): Hybrid live-action and AI production for short films, branded narratives, and feature-length projects. Typical timeline 2–6 weeks.
+- [Solutions overview](https://www.doublediffusion.co/#services): Pre-production, on-set production, and post-production AI/VFX support, plus pure AI production.
+
+## Work
+
+- [All work](https://www.doublediffusion.co/work): Portfolio, filterable by Pure AI and Hybrid.
+- [Example Work Case](https://www.doublediffusion.co/work/example-work-case): A professional commercial project, from pre-production through post-production.
+- [Pure AI Reel](https://www.doublediffusion.co/work/pure-ai-reel): Fully generated work for productions with little to no acting.
 
 ## About
 

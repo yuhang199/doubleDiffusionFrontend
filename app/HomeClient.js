@@ -2,28 +2,19 @@
 import Image from "next/image";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { SERVICES } from "./lib/services";
+import { SOLUTIONS } from "./lib/services";
+import { REELS } from "./lib/reels";
+import ReelPlayer from "./components/ReelPlayer";
 import SiteFooter from "./components/SiteFooter";
 
-/* ─── brand logos ─── */
-const BRAND_LOGOS = [
-  { src: "/logos/doublediffusion.png", alt: "Double Diffusion" },
-  { src: "/logos/liquiddeath.png", alt: "Liquid Death" },
-  { src: "/logos/patagonia.png", alt: "Patagonia" },
-  { src: "https://cdn.simpleicons.org/nike/ffffff", alt: "Nike" },
-  { src: "/logos/oatly.png", alt: "Oatly" },
-  { src: "https://cdn.simpleicons.org/yeti/ffffff", alt: "Yeti" },
-  { src: "/logos/allbirds.png", alt: "Allbirds" },
-  { src: "/logos/glossier.png", alt: "Glossier" },
-  { src: "/logos/stanley.png", alt: "Stanley" },
-  {
-    src: "https://cdn.simpleicons.org/thenorthface/ffffff",
-    alt: "North Face",
-  },
+const NAV_LINKS = [
+  { id: "work", label: "Work", href: "/work" },
+  { id: "services", label: "AI/VFX Solutions" },
+  { id: "about", label: "About" },
+  { id: "contact", label: "Contact" },
 ];
 
 const VIDEOS = [
-  { src: "/videos/snowboard.mp4", poster: "/videos/posters/snowboard.jpg" },
   { src: "/videos/sample-01.mp4", poster: "/videos/posters/sample-01.jpg" },
   { src: "/videos/biker.mp4", poster: "/videos/posters/biker.jpg" },
   { src: "/videos/blue-dress.mp4", poster: "/videos/posters/blue-dress.jpg" },
@@ -34,71 +25,43 @@ const VIDEOS = [
 ];
 
 
-/* ─── Counter component ─── */
-function Counter({ target, suffix }) {
-  const ref = useRef(null);
-  // Starts at the real figure so the server-rendered HTML carries it. Starting
-  // at 0 meant crawlers and AI agents read "0+", "0x" and "0%" — the animation
-  // only ever ran for humans with JS.
-  const [value, setValue] = useState(target);
-  const counted = useRef(false);
+/* ─── Hero tagline ─── */
+const TAGLINE_POINTS = [
+  "Cutting-edge AI/hybrid workflows with customizable models",
+  "Professional VFX/AI and full post-production support",
+  <>
+    AI-powered production for ads, narratives, music videos, and{" "}
+    <a href="#work" className="hero-tagline-link">more →</a>
+  </>,
+];
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    if (reduced || typeof IntersectionObserver === "undefined") return;
-
-    let timer = null;
-    // Drop back to zero only once the client has taken over, then count up.
-    setValue(0);
-
-    const obs = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !counted.current) {
-          counted.current = true;
-          let cur = 0;
-          const step = target / 50;
-          timer = setInterval(() => {
-            cur += step;
-            if (cur >= target) {
-              setValue(target);
-              clearInterval(timer);
-            } else {
-              setValue(Math.floor(cur));
-            }
-          }, 25);
-        }
-      },
-      { threshold: 0.5 }
-    );
-    obs.observe(el);
-    return () => {
-      obs.disconnect();
-      if (timer) clearInterval(timer);
-    };
-  }, [target]);
+// The points open on hover (CSS) on desktop, and on tap via `open` for touch.
+function HeroTagline() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <span ref={ref}>
-      {value}
-      {suffix}
-    </span>
-  );
-}
-
-/* ─── Brand Grid ─── */
-function BrandMarquee() {
-  return (
-    <div className="brand-grid-wrap">
-      <div className="brand-grid">
-        {BRAND_LOGOS.map((l, i) => (
-          <div key={i} className="brand-cell">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="brand-cell-logo" src={l.src} alt={l.alt} />
-          </div>
-        ))}
+    <div className={`hero-tagline${open ? " open" : ""}`}>
+      <button
+        type="button"
+        className="hero-headline-sub hero-tagline-toggle"
+        aria-expanded={open}
+        aria-controls="hero-tagline-points"
+        onClick={() => setOpen((v) => !v)}
+      >
+        We provide AI/VFX solutions for professional productions.
+        <span className="hero-tagline-chevron" aria-hidden="true">
+          <svg width="40" height="20" viewBox="0 0 40 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="4 4 20 16 36 4" />
+          </svg>
+        </span>
+      </button>
+      <div className="hero-tagline-points" id="hero-tagline-points">
+        <span className="hero-tagline-rule" aria-hidden="true" />
+        <ul>
+          {TAGLINE_POINTS.map((point, i) => (
+            <li key={i}>{point}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
@@ -214,6 +177,8 @@ function HeroCarousel() {
               className="slide-video"
               muted
               playsInline
+              disablePictureInPicture
+              onContextMenu={(e) => e.preventDefault()}
               poster={poster}
               /* Only the first slide is fetched up front. The rest stay at
                  "none" until the carousel warms them, so the landing page no
@@ -230,18 +195,10 @@ function HeroCarousel() {
         ))}
       </div>
       <div className="hero-content">
-        <span className="hero-label">AI-Powered Production Studio</span>
         <h1 className="hero-headline">
-          <span className="hero-headline-main">Cinema Quality.</span>
-          <span className="hero-headline-sub">Startup Budget.</span>
+          <span className="hero-headline-main">Double Diffusion Studios</span>
         </h1>
-        <p className="hero-sub-text">
-          AI-powered production for ads, campaigns, music videos,
-          and more — delivered in weeks, not months.
-        </p>
-        <a href="/demo" className="hero-cta-btn">
-          Book a Demo <span className="btn-icon">→</span>
-        </a>
+        <HeroTagline />
       </div>
     </section>
   );
@@ -283,7 +240,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [curtainDone, setCurtainDone] = useState(false);
   const [curtainHiding, setCurtainHiding] = useState(false);
-  const [openServices, setOpenServices] = useState(new Set([0]));
+  const [openSolution, setOpenSolution] = useState(null);
 
   // Intro curtain timer
   useEffect(() => {
@@ -393,43 +350,24 @@ export default function Home() {
             <span className="logo-bot">DIFFUSION</span>
           </a>
           <div className="nav-center">
-            {["work", "services", "about", "contact"].map((s) => (
+            {NAV_LINKS.map(({ id, label, href }) => (
               <a
-                key={s}
-                href={`#${s}`}
+                key={id}
+                href={href ?? `#${id}`}
                 className="nav-link"
-                onClick={(e) => scrollTo(e, s)}
+                onClick={href ? undefined : (e) => scrollTo(e, id)}
               >
-                {s.charAt(0).toUpperCase() + s.slice(1)}
+                {label}
               </a>
             ))}
           </div>
           <div className="nav-ctas">
-            <a
-              href="#contact"
-              className="nav-cta"
-              onClick={(e) => scrollTo(e, "contact")}
-            >
-              Get in Touch
-            </a>
-            <a
-              href="/demo"
-              className="nav-cta nav-cta--primary"
-            >
-              Book a Demo
-            </a>
             <div className="nav-socials">
               <a href="https://www.instagram.com/doublediffusionstudios" target="_blank" rel="noopener noreferrer" className="nav-social" aria-label="Instagram">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
               </a>
-              <a href="https://www.tiktok.com/@doublediffusionstudios" target="_blank" rel="noopener noreferrer" className="nav-social" aria-label="TikTok">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.48a8.27 8.27 0 004.76 1.5V7.56a4.84 4.84 0 01-1-.87z"/></svg>
-              </a>
               <a href="https://www.linkedin.com/company/double-diffusion-studios" target="_blank" rel="noopener noreferrer" className="nav-social" aria-label="LinkedIn">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </a>
-              <a href="https://www.youtube.com/@DoubleDiffusion" target="_blank" rel="noopener noreferrer" className="nav-social" aria-label="YouTube">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               </a>
             </div>
           </div>
@@ -446,18 +384,18 @@ export default function Home() {
       {/* Mobile Menu */}
       <div className={`mobile-overlay${menuOpen ? " open" : ""}`}>
         <div className="mobile-nav">
-          {["work", "services", "about", "process", "contact"].map((s) => (
+          {NAV_LINKS.map(({ id, label, href }) => (
             <a
-              key={s}
-              href={`#${s}`}
+              key={id}
+              href={href ?? `#${id}`}
               className="mobile-link"
-              onClick={(e) => scrollTo(e, s)}
+              onClick={href ? undefined : (e) => scrollTo(e, id)}
             >
-              {s.charAt(0).toUpperCase() + s.slice(1)}
+              {label}
             </a>
           ))}
         </div>
-        <div className="mobile-footer">doublediffusionstudios@gmail.com</div>
+        <div className="mobile-footer">creative@doublediffusion.co</div>
       </div>
 
       {/* Hero */}
@@ -469,149 +407,76 @@ export default function Home() {
       <section className="section work">
         <div id="work" />
         <Reveal className="section-header work-header">
-          <h2 className="section-title">Our Work</h2>
+          <div className="work-title-row">
+            <h2 className="section-title">Our Work</h2>
+            <a href="/work" className="sa-explore work-see-all">See All →</a>
+          </div>
           <p className="section-sub">
-            Selected frames from our productions. Industry-leading AI productions, crafted to the highest quality.
+            Our AI/VFX/hybrid workflows reduce cost and improve efficiency.
           </p>
         </Reveal>
-        <div className="gallery-wrap">
-          <div className="gallery-row gallery-row--1">
-            <div className="gallery-track">
-              {[
-                "/images/new-01.jpg",
-                "/images/work-01.jpg",
-                "/images/gallery-reel-new-01.jpg",
-                "/images/gallery-reel-new-02.jpg",
-                "/images/gallery-reel-new-03.jpg",
-                "/images/work-02.jpg",
-                "/images/new-02.jpg",
-                "/images/new-01.jpg",
-                "/images/work-01.jpg",
-                "/images/gallery-reel-new-01.jpg",
-                "/images/gallery-reel-new-02.jpg",
-                "/images/gallery-reel-new-03.jpg",
-                "/images/work-02.jpg",
-                "/images/new-02.jpg",
-              ].map((src, i) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <Image src={src} alt="" className="gallery-img" width={498} height={280} sizes="498px" />
-              ))}
-            </div>
-          </div>
-          <div className="gallery-row gallery-row--2">
-            <div className="gallery-track gallery-track--reverse">
-              {[
-                "/images/new-04.jpg",
-                "/images/upgrade-01.jpg",
-                "/images/gallery-reel-new-05.jpg",
-                "/images/new-03.jpg",
-                "/images/upgrade-02.jpg",
-                "/images/new-05.jpg",
-                "/images/gallery-reel-new-05-b.jpg",
-                "/images/new-04.jpg",
-                "/images/upgrade-01.jpg",
-                "/images/gallery-reel-new-05.jpg",
-                "/images/new-03.jpg",
-                "/images/upgrade-02.jpg",
-                "/images/new-05.jpg",
-                "/images/gallery-reel-new-05-b.jpg",
-              ].map((src, i) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <Image src={src} alt="" className="gallery-img" width={498} height={280} sizes="498px" />
-              ))}
-            </div>
-          </div>
-        </div>
+        <Reveal className="work-reels">
+          <ReelPlayer reel={REELS.pureAi} />
+          <ReelPlayer reel={REELS.hybrid} />
+        </Reveal>
+        <Reveal className="work-more">
+          <a href="/work" className="sa-explore">View All Work →</a>
+        </Reveal>
       </section>
 
       {/* Services */}
       <section className="section services">
-        <div className="section-visual">
-          <Image src="/images/upgrade-11.jpg" alt="" className="section-visual-img" fill sizes="100vw" />
-        </div>
         <div id="services" />
-        <Reveal className="section-header">
-          <h2 className="section-title">Our Services</h2>
+        <Reveal className="section-header sol-header">
+          <h2 className="section-title">AI/Hybrid Solutions</h2>
           <p className="section-sub">
-            Full-spectrum creative production. Supercharged by AI.
+            Advanced AI/hybrid solutions that meet industry standards.
           </p>
         </Reveal>
-        <div className="services-accordion">
-          {SERVICES.map((s, i) => {
-            const isOpen = openServices.has(i);
+        {/* Two-column list of solutions; the selected one opens in the panel
+            below. Every panel stays in the DOM so all copy is crawlable. */}
+        <Reveal className="sol-list">
+          {SOLUTIONS.map((s, i) => {
+            const isOpen = openSolution === i;
             return (
-              <Reveal key={i} delay={i * 0.06}>
-                <div className={`sa-item${isOpen ? " sa-item--open" : ""}`}>
-                  <button
-                    className="sa-header"
-                    onClick={() => setOpenServices(prev => {
-                      const next = new Set(prev);
-                      if (next.has(i)) next.delete(i);
-                      else next.add(i);
-                      return next;
-                    })}
-                    aria-expanded={isOpen}
-                  >
-                    <span className="sa-index">0{i + 1}</span>
-                    <h3 className="sa-title">{s.title}</h3>
-                    <span className="sa-timeline">{s.timeline}</span>
-                    <span className="sa-chevron">{isOpen ? "−" : "+"}</span>
-                  </button>
-                  <div className="sa-body" style={{ maxHeight: isOpen ? "400px" : "0" }}>
-                    <div className="sa-body-inner">
-                      <div className="sa-body-content">
-                        <p className="sa-desc">{s.desc}</p>
-                        <div className="sa-tags">
-                          {s.tags.map((tag, ti) => (
-                            <span key={ti} className="sa-tag">{tag}</span>
-                          ))}
-                        </div>
-                        <a href={`/services/${s.slug}`} className="sa-explore">
-                          Explore →
-                        </a>
-                      </div>
-                      <Image src={s.img} alt={s.title} className="sa-img" width={140} height={100} sizes="140px" />
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
+              <button
+                key={s.title}
+                type="button"
+                className={`sol-item${isOpen ? " sol-item--open" : ""}`}
+                aria-expanded={isOpen}
+                aria-controls={`sol-panel-${i}`}
+                onClick={() => setOpenSolution(isOpen ? null : i)}
+              >
+                <span className="sol-item-title">{s.title}</span>
+                <span className="sol-item-sign" aria-hidden="true">{isOpen ? "−" : "+"}</span>
+              </button>
             );
           })}
-        </div>
-      </section>
-
-      {/* Case Study */}
-      <section className="section case-study">
-        <div className="case-study-inner">
-          <Reveal>
-            <span className="case-study-label">Case Study — Ad Campaign</span>
-          </Reveal>
-          <Reveal>
-            <div className="case-study-stats">
-              <div className="case-study-stat">
-                <span className="case-study-before">$80K</span>
-                <span className="case-study-arrow">→</span>
-                <span className="case-study-after">$15K</span>
-              </div>
-              <div className="case-study-stat">
-                <span className="case-study-before">2 Months</span>
-                <span className="case-study-arrow">→</span>
-                <span className="case-study-after">2 Weeks</span>
-              </div>
-              <p className="case-study-headline">
-                80% cost reduction. 75% faster delivery. Same cinematic quality.
-              </p>
-              <p className="case-study-desc">
-                By combining on-set cinematography with AI-driven post-production, we delivered a full ad campaign at a fraction of the traditional budget and timeline — proving that speed and quality aren&apos;t trade-offs.
-              </p>
+        </Reveal>
+        <div className="sol-panels">
+          {SOLUTIONS.map((s, i) => (
+            <div
+              key={s.title}
+              id={`sol-panel-${i}`}
+              className="sol-panel"
+              hidden={openSolution !== i}
+            >
+              <h3 className="sol-panel-title">{s.title}</h3>
+              {s.paragraphs.map((p, pi) => (
+                <p key={pi} className="sol-panel-text">{p}</p>
+              ))}
+              {s.href && (
+                <a href={s.href} className="sa-explore">
+                  Explore →
+                </a>
+              )}
             </div>
-          </Reveal>
+          ))}
         </div>
       </section>
 
       {/* About */}
       <section className="section about">
-        <BrandMarquee />
         <div className="section-visual">
           <Image src="/images/work-01.jpg" alt="" className="section-visual-img" fill sizes="100vw" />
         </div>
@@ -619,58 +484,17 @@ export default function Home() {
           <Reveal className="section-header">
             <h2 className="section-title">About Us</h2>
           </Reveal>
-          <div className="about-row">
-            <div className="about-content card">
-              <Reveal delay={0.1}>
-                <h3 className="about-headline">Who We Are</h3>
-              </Reveal>
-
-              <Reveal className="about-subsection" delay={0.2}>
-                <p className="about-text about-text--hero">
-                  We&apos;re a Los Angeles-based studio where filmmakers and engineers build together. Our crew spans directors, screenwriters, post-production artists, and AI researchers — all under one roof, all obsessed with the final frame.
-                </p>
-                <p className="about-text about-text--hero">
-                  Our AI + physical hybrid pipeline merges on-set cinematography with generative post-production — slashing production costs by up to 80% while delivering studio-grade quality. From $80K campaigns reduced to $15K, the math speaks for itself.
-                </p>
-              </Reveal>
-
-              <Reveal delay={0.3}>
-                <a href="/about" className="learn-more-btn">Learn More →</a>
-              </Reveal>
-            </div>
-
-            <Reveal className="about-metrics card" delay={0.15}>
-              <h3 className="about-headline">Performance</h3>
-              <div className="metric">
-                <div className="metric-value">
-                  <Counter target={25} suffix="+" />
-                </div>
-                <div className="metric-label">
-                  Project
-                  <br />
-                  Experiences
-                </div>
-              </div>
-              <div className="metric">
-                <div className="metric-value">
-                  <Counter target={4} suffix="×" />
-                </div>
-                <div className="metric-label">
-                  Faster
-                  <br />
-                  Production
-                </div>
-              </div>
-              <div className="metric">
-                <div className="metric-value">
-                  <Counter target={80} suffix="%" />
-                </div>
-                <div className="metric-label">
-                  Cost
-                  <br />
-                  Savings
-                </div>
-              </div>
+          <div className="about-intro">
+            <Reveal delay={0.1}>
+              <h3 className="about-headline">Who We Are</h3>
+            </Reveal>
+            <Reveal className="about-intro-body" delay={0.2}>
+              <p className="about-text about-text--hero">
+                We&apos;re a Los Angeles-based production studio.
+              </p>
+              <p className="about-text about-text--hero">
+                Our team spans directors, screenwriters, VFX artists, and AI researchers.
+              </p>
             </Reveal>
           </div>
 
@@ -697,6 +521,16 @@ export default function Home() {
                   <span className="space-desc">Large-format set builds, prop storage, and multi-zone shooting stages for end-to-end in-house production.</span>
                 </div>
               </div>
+              <div className="space-card">
+                <div className="space-img-wrap">
+                  <Image src="/images/gallery-reel-new-03.jpg" alt="Double Diffusion in-house AI/VFX platform" className="space-img" fill sizes="(max-width: 900px) 100vw, 50vw" />
+                </div>
+                <div className="space-info">
+                  <span className="space-badge">1,000+ Hours</span>
+                  <span className="space-name">In-house AI/VFX Platform</span>
+                  <span className="space-desc">Unique in-house AI/VFX platform with customizable models. Built, tested, and used for more than 1,000 hours.</span>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -713,103 +547,23 @@ export default function Home() {
             <h2 className="contact-headline">
               <span className="contact-line">Get in Touch</span>
             </h2>
-            <p className="contact-subtitle">Tell us about your project — we reply within one business day.</p>
           </Reveal>
-          <div className="contact-split">
-            <Reveal className="contact-left">
-              <div className="email-item">
-                <span className="email-label">New Creative Clients</span>
-                <a href="mailto:creative@doublediffusion.co" className="email-link">creative@doublediffusion.co</a>
-              </div>
-              <div className="email-item">
-                <span className="email-label">Technology Partnerships</span>
-                <a href="mailto:partnerships@doublediffusion.co" className="email-link">partnerships@doublediffusion.co</a>
-              </div>
-              <div className="email-item">
-                <span className="email-label">General Inquiries &amp; Press</span>
-                <a href="mailto:hello@doublediffusion.co" className="email-link">hello@doublediffusion.co</a>
-              </div>
-            </Reveal>
-            <Reveal className="contact-right">
-              <form className="contact-form" onSubmit={async (e) => {
-                e.preventDefault();
-                const form = e.target;
-                const btn = form.querySelector("button[type=submit]");
-                btn.textContent = "Sending...";
-                btn.disabled = true;
-                try {
-                  const res = await fetch("/api/contact", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                      name: form.elements["cf-name"].value,
-                      email: form.elements["cf-email"].value,
-                      company: form.elements["cf-company"].value,
-                      service: form.elements["cf-service"].value,
-                      message: form.elements["cf-message"].value,
-                    }),
-                  });
-                  if (res.ok) {
-                    btn.textContent = "Sent ✓";
-                    form.reset();
-                  } else {
-                    btn.textContent = "Failed — Try Again";
-                    btn.disabled = false;
-                  }
-                } catch {
-                  btn.textContent = "Failed — Try Again";
-                  btn.disabled = false;
-                }
-              }}>
-                <div className="cf-row">
-                  <div className="cf-field">
-                    <label className="cf-label" htmlFor="cf-name">Full Name</label>
-                    <input className="cf-input" id="cf-name" type="text" placeholder="John Smith" required />
-                  </div>
-                  <div className="cf-field">
-                    <label className="cf-label" htmlFor="cf-email">Email</label>
-                    <input className="cf-input" id="cf-email" type="email" placeholder="john@company.com" required />
-                  </div>
-                </div>
-                <div className="cf-row">
-                  <div className="cf-field">
-                    <label className="cf-label" htmlFor="cf-company">Company</label>
-                    <input className="cf-input" id="cf-company" type="text" placeholder="Your company" />
-                  </div>
-                  <div className="cf-field">
-                    <label className="cf-label" htmlFor="cf-service">Service Interested In</label>
-                    <select className="cf-input cf-select" id="cf-service" defaultValue="">
-                      <option value="" disabled>Select a service</option>
-                      <option>Creative Production</option>
-                      <option>Music Videos</option>
-                      <option>Narrative Production</option>
-                      <option>AI Production Assessment</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="cf-field">
-                  <label className="cf-label" htmlFor="cf-message">Tell us about your project</label>
-                  <textarea className="cf-input cf-textarea" id="cf-message" rows={5} placeholder="Brief description of your project, timeline, budget..." required />
-                </div>
-                <div className="cf-submit-row">
-                  <button type="submit" className="contact-cta">Send Message</button>
-                  <span className="contact-cta-sub">We generally respond within 24 hours.</span>
-                </div>
-              </form>
-            </Reveal>
-          </div>
+          <Reveal className="contact-emails">
+            <div className="email-item">
+              <span className="email-label">Production Partnerships</span>
+              <a href="mailto:creative@doublediffusion.co" className="email-link">creative@doublediffusion.co</a>
+            </div>
+            <div className="email-item">
+              <span className="email-label">General Inquiries &amp; Press</span>
+              <a href="mailto:manager@doublediffusion.co" className="email-link">manager@doublediffusion.co</a>
+            </div>
+          </Reveal>
           <Reveal className="socials-inner">
-            <h3 className="socials-headline">Follow Our Journey</h3>
+            <h3 className="socials-headline">Follow Us</h3>
             <div className="socials-row">
               <a href="https://www.instagram.com/doublediffusionstudios" target="_blank" rel="noopener noreferrer" className="social-card">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                 <span className="social-card-name">Instagram</span>
-                <span className="social-card-handle">@doublediffusionstudios</span>
-              </a>
-              <a href="https://www.tiktok.com/@doublediffusionstudios" target="_blank" rel="noopener noreferrer" className="social-card">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.48a8.27 8.27 0 004.76 1.5V7.56a4.84 4.84 0 01-1-.87z"/></svg>
-                <span className="social-card-name">TikTok</span>
                 <span className="social-card-handle">@doublediffusionstudios</span>
               </a>
               <a href="https://www.linkedin.com/company/double-diffusion-studios" target="_blank" rel="noopener noreferrer" className="social-card">
@@ -817,38 +571,7 @@ export default function Home() {
                 <span className="social-card-name">LinkedIn</span>
                 <span className="social-card-handle">Double Diffusion Studios</span>
               </a>
-              <a href="https://www.youtube.com/@DoubleDiffusion" target="_blank" rel="noopener noreferrer" className="social-card">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                <span className="social-card-name">YouTube</span>
-                <span className="social-card-handle">@DoubleDiffusion</span>
-              </a>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Vision */}
-      <section className="section vision">
-        <video
-          className="vision-video"
-          src="/videos/chad.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-        <div className="vision-overlay" />
-        <div className="vision-inner">
-          <Reveal>
-            <h2 className="vision-title">The Double Diffusion Vision</h2>
-          </Reveal>
-          <Reveal>
-            <p className="vision-text">
-              We believe the future of content lies in the fusion of human creativity and artificial intelligence. Our mission is to build a new production process and mindset that is more agile, accurate, and creatively liberated.
-            </p>
-            <p className="vision-text">
-              By combining cinematic storytelling, AI-driven generation, and engineering rigor, we deliver content that is both efficient and emotionally impactful.
-            </p>
           </Reveal>
         </div>
       </section>
