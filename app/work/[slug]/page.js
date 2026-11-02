@@ -48,8 +48,8 @@ export default async function ProjectPage({ params }) {
       <main className="case-page">
         <ScrollReveal />
         <div className="case-inner">
-          <a href={`/work?type=${project.category}`} className="case-back">
-            ← {categoryLabel(project.category)} Work
+          <a href="/work" className="case-back">
+            ← All Work
           </a>
 
           <header className="reveal">

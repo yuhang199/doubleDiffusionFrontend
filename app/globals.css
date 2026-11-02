@@ -34,7 +34,6 @@ body {
     color: var(--white);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    cursor: none;
     position: relative;
 }
 
@@ -80,26 +79,10 @@ body > * {
     position: relative;
     z-index: 1;
 }
-a { color: inherit; text-decoration: none; cursor: none; }
-button { cursor: none; background: none; border: none; color: inherit; font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; background: none; border: none; color: inherit; font-family: inherit; }
 ul { list-style: none; }
 ::selection { background: var(--pure-white); color: var(--black); }
-
-/* === CURSOR === */
-.cursor {
-    width: 8px; height: 8px; background: var(--pure-white); border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 99999; mix-blend-mode: difference;
-    will-change: transform;
-}
-.cursor-trail {
-    width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 99998; mix-blend-mode: difference;
-    transition: width 0.35s var(--ease), height 0.35s var(--ease);
-    will-change: transform;
-}
-.cursor-trail.expand { width: 80px; height: 80px; border-color: rgba(255,255,255,0.6); }
 
 /* === NAV === */
 .nav {
@@ -589,9 +572,9 @@ ul { list-style: none; }
 .section > .section-header { padding-top: 120px; padding-bottom: 0; }
 /* Solutions follows the Work reels directly (no header image), so it needs
    far less room above its title */
-.section.services > .section-header { padding-top: 24px; }
+.section.services > .section-header { padding-top: 80px; }
 /* Keep the Solutions title clear of the fixed nav when jumped to */
-#services { scroll-margin-top: 90px; }
+#services { scroll-margin-top: 34px; }
 
 /* Section visual header — full-bleed image at top of card */
 .section-visual {
@@ -2020,8 +2003,6 @@ ul { list-style: none; }
     .footer-inner { flex-direction: column; gap: 28px; }
     .footer-cols { gap: 28px; flex-direction: column; }
     .footer-copy { margin-top: 24px; }
-    .cursor, .cursor-trail { display: none; }
-    body, a, button { cursor: auto; }
     /* Global overflow fix */
     html, body { max-width: 100vw; overflow-x: hidden; }
 
@@ -2125,50 +2106,6 @@ ul { list-style: none; }
     .subpage-hero { height: 40vh; min-height: 280px; }
     .subpage-hero-content { padding: 0 24px 40px; }
     .subpage-hero-title { font-size: clamp(24px, 7vw, 36px); }
-}
-
-/* === INTRO CURTAIN (landing page) === */
-.intro-curtain {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    background: var(--black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
-}
-
-.intro-curtain--hide {
-    transform: translateY(-100%);
-}
-
-.intro-curtain-content {
-    text-align: center;
-}
-
-.intro-curtain-headline {
-    font-family: var(--font-main);
-    font-size: clamp(24px, 4vw, 48px);
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--pure-white);
-    margin-bottom: 12px;
-    animation: curtainFadeIn 0.6s ease forwards;
-}
-
-.intro-curtain-sub {
-    font-size: 14px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gray);
-    animation: curtainFadeIn 0.6s 0.2s ease both;
-}
-
-@keyframes curtainFadeIn {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
 }
 
 /* === PAGE TRANSITION CURTAIN === */
@@ -2343,8 +2280,13 @@ ul { list-style: none; }
 
 /* === REEL PLAYER === */
 .work-reels {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-    padding: 0 48px; margin-top: 48px;
+    /* Cards stay at the outer edges; the gap between them takes up the slack */
+    display: grid; grid-template-columns: repeat(2, minmax(0, 40%));
+    justify-content: space-between; gap: 32px;
+    /* Same box as the section header, so the reels line up with the
+       Our Work title on the left and See All on the right */
+    max-width: 1440px; margin: 48px auto 0;
+    padding: 0 48px;
 }
 .reel-player { margin: 0; }
 .reel-player-frame {
@@ -2356,6 +2298,27 @@ ul { list-style: none; }
     border: 1px solid rgba(255,255,255,0.12);
 }
 .reel-player-video { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Covers the poster until first play; the round button sits dead center */
+.reel-player-play {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.15);
+    border: none; padding: 0;
+    color: var(--pure-white);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.reel-player-play svg {
+    box-sizing: content-box;
+    padding: 14px 13px 14px 16px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s var(--ease), background 0.3s;
+}
+.reel-player-play:hover { background: rgba(0,0,0,0.05); }
+.reel-player-play:hover svg { transform: scale(1.08); background: rgba(0,0,0,0.6); }
 .reel-player-placeholder {
     width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: center;
@@ -2595,11 +2558,10 @@ ul { list-style: none; }
 }
 .sol-item:hover,
 .sol-item--open { color: var(--pure-white); }
-.sol-item--open .sol-item-title {
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    text-decoration-color: rgba(255,255,255,0.4);
-}
+/* Each option is underlined edge to edge, from the bullet through the sign */
+.sol-item { border-bottom: 1px solid rgba(255,255,255,0.2); transition: color 0.3s, border-color 0.3s; }
+.sol-item:hover,
+.sol-item--open { border-bottom-color: rgba(255,255,255,0.7); }
 .sol-item:hover .sol-item-sign,
 .sol-item--open .sol-item-sign { color: var(--pure-white); }
 
@@ -2643,16 +2605,13 @@ ul { list-style: none; }
 }
 
 /* === SUBPAGES WITH THE SITE NAV === */
-/* The homepage draws its own cursor; subpages use the system one */
-.subpage, .subpage * { cursor: default; }
-.subpage a, .subpage button { cursor: pointer; }
 .site-nav { position: fixed; }
 .nav-link--active { color: var(--pure-white); }
 .nav-link--active::after { width: 100%; }
 
 /* === WORK PAGE === */
 .work-page { background: var(--near-black); padding-top: 140px; }
-.work-page-header { padding: 0 48px; margin-bottom: 32px; }
+.work-page-header { padding: 0 48px; margin-bottom: 48px; }
 .work-page-title {
     font-family: var(--font-main);
     font-size: clamp(36px, 5vw, 64px);
@@ -2660,68 +2619,49 @@ ul { list-style: none; }
     text-transform: uppercase;
     color: var(--pure-white);
 }
-.work-tabs {
-    display: flex; gap: 12px; flex-wrap: wrap;
-    padding: 0 48px;
-    margin-bottom: 48px;
-}
-.work-tab {
-    min-width: 140px;
-    padding: 8px 24px;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 100px;
-    font-family: var(--font-main);
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--pure-white);
-    transition: background 0.3s, color 0.3s, border-color 0.3s;
-}
-.work-tab:hover { border-color: var(--pure-white); }
-.work-tab--active { background: var(--pure-white); color: var(--black); border-color: var(--pure-white); }
-/* Full-bleed two-column grid with hairline gutters */
+/* Cards match the homepage reel windows and line up with the page header */
 .work-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 48px 2px;
+    /* Three columns that scale with the window (two on tablets, one on phones) */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 48px clamp(20px, 2.2vw, 40px);
+    padding: 0 48px;
     margin-bottom: 96px;
 }
 .work-tile { display: block; color: var(--pure-white); }
-.work-tile-media {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    background: #0d0d14;
-}
-.work-tile-img {
-    object-fit: cover;
-    transition: transform 0.8s var(--ease), filter 0.5s;
-}
-.work-tile:hover .work-tile-img { transform: scale(1.04); filter: brightness(0.8); }
-.work-tile-caption {
-    display: flex; align-items: baseline; flex-wrap: wrap;
-    gap: 8px 16px;
-    padding: 20px 24px 0;
-}
+.work-tile-caption { margin-bottom: 16px; }
 .work-tile-title {
     font-family: var(--font-main);
-    font-size: clamp(16px, 1.6vw, 22px);
-    font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase;
+    font-size: clamp(15px, 1.25vw, 22px);
+    font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
 }
 .work-tile-category {
+    display: block;
+    margin-top: 6px;
     font-family: var(--font-main);
     font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
     color: rgba(255,255,255,0.5);
 }
-.work-tile-soon {
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
+.work-tile-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--black);
+    border: 1px solid rgba(255,255,255,0.12);
 }
-.work-more { padding: 0 48px; margin-top: 40px; text-align: center; }
+.work-tile-img {
+    object-fit: cover;
+    transition: transform 0.8s var(--ease);
+}
+.work-tile:hover .work-tile-img { transform: scale(1.04); }
 
+@media (max-width: 1100px) {
+    .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 768px) {
     .work-page { padding-top: 110px; }
-    .work-page-header, .work-tabs { padding: 0 24px; }
-    .work-tab { min-width: 0; flex: 1; padding: 8px 12px; }
-    .work-grid { grid-template-columns: 1fr; gap: 36px; }
-    .work-tile-caption { padding: 16px 24px 0; }
+    .work-page-header { padding: 0 24px; }
+    .work-grid { grid-template-columns: 1fr; gap: 40px; padding: 0 24px; }
 }

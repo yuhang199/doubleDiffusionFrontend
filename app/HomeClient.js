@@ -35,12 +35,17 @@ const TAGLINE_POINTS = [
   </>,
 ];
 
-// The points open on hover (CSS) on desktop, and on tap via `open` for touch.
+// The points open on mouse hover and stay open; on touch, a tap toggles them.
 function HeroTagline() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={`hero-tagline${open ? " open" : ""}`}>
+    <div
+      className={`hero-tagline${open ? " open" : ""}`}
+      // Mouse only: a tap also fires pointerenter, and the click right after
+      // would toggle the list straight back closed
+      onPointerEnter={(e) => e.pointerType === "mouse" && setOpen(true)}
+    >
       <button
         type="button"
         className="hero-headline-sub hero-tagline-toggle"
@@ -234,75 +239,9 @@ function Reveal({ children, className = "", delay = 0 }) {
 
 /* ─── Main Page ─── */
 export default function Home() {
-  const cursorRef = useRef(null);
-  const trailRef = useRef(null);
   const [navScrolled, setNavScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [curtainDone, setCurtainDone] = useState(false);
-  const [curtainHiding, setCurtainHiding] = useState(false);
   const [openSolution, setOpenSolution] = useState(null);
-
-  // Intro curtain timer
-  useEffect(() => {
-    // Lock scroll while curtain is visible
-    document.body.style.overflow = "hidden";
-    const showTimer = setTimeout(() => {
-      setCurtainHiding(true);
-    }, 1000);
-    const removeTimer = setTimeout(() => {
-      setCurtainDone(true);
-      document.body.style.overflow = "";
-    }, 2000);
-    // Leaving before the intro finishes freezes this page into the back/forward
-    // cache mid-curtain; restoring it does not re-run these timers, so the
-    // curtain and the scroll lock would stay put.
-    const onPageShow = (e) => {
-      if (!e.persisted) return;
-      setCurtainHiding(true);
-      setCurtainDone(true);
-      document.body.style.overflow = "";
-    };
-    window.addEventListener("pageshow", onPageShow);
-
-    return () => {
-      clearTimeout(showTimer);
-      clearTimeout(removeTimer);
-      window.removeEventListener("pageshow", onPageShow);
-      document.body.style.overflow = "";
-    };
-  }, []);
-
-  // Cursor
-  useEffect(() => {
-    let mx = 0,
-      my = 0,
-      tx = 0,
-      ty = 0;
-    // Record only — writing styles straight from the event fires a style
-    // recalc per mousemove (120+/s on a trackpad). Both elements are written
-    // once per frame in the loop below instead.
-    const onMove = (e) => {
-      mx = e.clientX;
-      my = e.clientY;
-    };
-    let raf = null;
-    const loop = () => {
-      if (cursorRef.current)
-        cursorRef.current.style.transform = `translate3d(${mx - 4}px, ${my - 4}px, 0)`;
-      tx += (mx - tx) * 0.1;
-      ty += (my - ty) * 0.1;
-      if (trailRef.current)
-        trailRef.current.style.transform = `translate3d(${tx - 22}px, ${ty - 22}px, 0)`;
-      raf = requestAnimationFrame(loop);
-    };
-    document.addEventListener("mousemove", onMove, { passive: true });
-    raf = requestAnimationFrame(loop);
-    return () => {
-      document.removeEventListener("mousemove", onMove);
-      // The loop re-queued itself forever; without this it outlives the page.
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
 
   // Scroll
   useEffect(() => {
@@ -327,20 +266,6 @@ export default function Home() {
 
   return (
     <>
-      {/* Intro Curtain */}
-      {!curtainDone && (
-        <div className={`intro-curtain${curtainHiding ? " intro-curtain--hide" : ""}`}>
-          <div className="intro-curtain-content">
-            <h2 className="intro-curtain-headline">Cinema Built To Convert</h2>
-            <p className="intro-curtain-sub">By Double Diffusion AI</p>
-          </div>
-        </div>
-      )}
-
-      {/* Cursor */}
-      <div className="cursor" ref={cursorRef} />
-      <div className="cursor-trail" ref={trailRef} />
-
       {/* Nav */}
       <nav className={`nav${navScrolled ? " scrolled" : ""}`} id="nav">
         <div className="nav-inner">
@@ -418,9 +343,6 @@ export default function Home() {
         <Reveal className="work-reels">
           <ReelPlayer reel={REELS.pureAi} />
           <ReelPlayer reel={REELS.hybrid} />
-        </Reveal>
-        <Reveal className="work-more">
-          <a href="/work" className="sa-explore">View All Work →</a>
         </Reveal>
       </section>
 
@@ -503,7 +425,7 @@ export default function Home() {
             <div className="spaces-grid">
               <div className="space-card">
                 <div className="space-img-wrap">
-                  <Image src="/images/gallery-reel-new-03.jpg" alt="Double Diffusion in-house AI/VFX platform" className="space-img" fill sizes="(max-width: 900px) 100vw, 50vw" />
+                  <Image src="/images/service-creative.jpg" alt="Double Diffusion in-house AI/VFX platform" className="space-img" fill sizes="(max-width: 900px) 100vw, 50vw" />
                 </div>
                 <div className="space-info">
                   <span className="space-badge">1,000+ Hours</span>

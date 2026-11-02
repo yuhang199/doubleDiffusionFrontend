@@ -18,8 +18,6 @@ export default function SiteFooter() {
           <nav className="footer-col" aria-label="Work">
             <span className="footer-col-title">Work</span>
             <a href="/work" className="footer-link">All Work</a>
-            <a href="/work?type=pure-ai" className="footer-link">Pure AI</a>
-            <a href="/work?type=hybrid" className="footer-link">Hybrid</a>
           </nav>
           <nav className="footer-col" aria-label="Company">
             <span className="footer-col-title">Company</span>

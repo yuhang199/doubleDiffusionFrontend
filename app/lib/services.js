@@ -28,6 +28,6 @@ export const SOLUTIONS = [
     paragraphs: [
       "Pure AI workflows are recommended for productions with little to no acting. They follow the same process as a physical production: script, storyboard, shooting (visual generation), editing, then color grading and sound. Explore our pure AI work.",
     ],
-    href: "/work?type=pure-ai",
+    href: "/work",
   },
 ];

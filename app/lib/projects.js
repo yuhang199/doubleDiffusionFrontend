@@ -1,6 +1,6 @@
 import { REELS } from "./reels";
 
-// Work categories, in the order the /work filter tabs show them.
+// Work categories, shown as the label on each project card.
 export const CATEGORIES = [
   { id: "pure-ai", label: "Pure AI" },
   { id: "hybrid", label: "Hybrid" },
