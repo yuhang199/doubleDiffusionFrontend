@@ -92,7 +92,7 @@ export default function Compliance() {
 
         <section className="legal-section">
           <h2>10. Contact</h2>
-          <p>For questions about our AI ethics practices or compliance framework, contact us at:<br /><a href="mailto:hello@doublediffusion.co">hello@doublediffusion.co</a></p>
+          <p>For questions about our AI ethics practices or compliance framework, contact us at:<br /><a href="mailto:manager@doublediffusion.co">manager@doublediffusion.co</a></p>
         </section>
     </LegalPage>
   );

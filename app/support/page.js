@@ -18,12 +18,12 @@ const CONTACTS = [
   {
     title: "Technology Partnerships",
     text: "Looking to collaborate on AI technology, integrate our pipeline, or explore technical consulting engagements?",
-    email: "partnerships@doublediffusion.co",
+    email: "creative@doublediffusion.co",
   },
   {
     title: "General Inquiries & Press",
     text: "Media inquiries, speaking requests, general questions, or anything else — we'd love to hear from you.",
-    email: "hello@doublediffusion.co",
+    email: "manager@doublediffusion.co",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function Support() {
 
           <div className="support-contacts">
             {CONTACTS.map((c) => (
-              <section key={c.email} className="support-card">
+              <section key={c.title} className="support-card">
                 <h2>{c.title}</h2>
                 <p>{c.text}</p>
                 <a href={`mailto:${c.email}`} className="support-link">{c.email}</a>
@@ -56,7 +56,7 @@ export default function Support() {
               <p>
                 If you are an existing client with an active project or retainer, please contact your
                 dedicated project manager directly. For urgent matters outside business hours, email{" "}
-                <a href="mailto:hello@doublediffusion.co">hello@doublediffusion.co</a>{" "}
+                <a href="mailto:manager@doublediffusion.co">manager@doublediffusion.co</a>{" "}
                 with &quot;URGENT&quot; in the subject line.
               </p>
             </section>
@@ -73,7 +73,7 @@ export default function Support() {
               <p>
                 If you encounter technical issues with deliverables, need to report a concern about
                 AI-generated content, or have a compliance-related question, please contact us at{" "}
-                <a href="mailto:hello@doublediffusion.co">hello@doublediffusion.co</a> with a detailed
+                <a href="mailto:manager@doublediffusion.co">manager@doublediffusion.co</a> with a detailed
                 description of the issue.
               </p>
             </section>

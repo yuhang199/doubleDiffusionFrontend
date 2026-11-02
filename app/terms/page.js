@@ -80,7 +80,7 @@ export default function TermsOfService() {
 
         <section className="legal-section">
           <h2>12. Contact</h2>
-          <p>For questions regarding these Terms of Service, contact us at:<br /><a href="mailto:hello@doublediffusion.co">hello@doublediffusion.co</a></p>
+          <p>For questions regarding these Terms of Service, contact us at:<br /><a href="mailto:manager@doublediffusion.co">manager@doublediffusion.co</a></p>
         </section>
     </LegalPage>
   );

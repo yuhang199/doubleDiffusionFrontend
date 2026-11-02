@@ -74,7 +74,7 @@ export default function PrivacyPolicy() {
             <li>Request data portability</li>
             <li>Withdraw consent where processing is based on consent</li>
           </ul>
-          <p>To exercise these rights, contact us at <a href="mailto:hello@doublediffusion.co">hello@doublediffusion.co</a>.</p>
+          <p>To exercise these rights, contact us at <a href="mailto:manager@doublediffusion.co">manager@doublediffusion.co</a>.</p>
         </section>
 
         <section className="legal-section">
@@ -95,7 +95,7 @@ export default function PrivacyPolicy() {
         <section className="legal-section">
           <h2>11. Contact Us</h2>
           <p>If you have questions about this Privacy Policy, please contact us at:</p>
-          <p><strong>Double Diffusion</strong><br />Email: <a href="mailto:hello@doublediffusion.co">hello@doublediffusion.co</a></p>
+          <p><strong>Double Diffusion</strong><br />Email: <a href="mailto:manager@doublediffusion.co">manager@doublediffusion.co</a></p>
         </section>
     </LegalPage>
   );

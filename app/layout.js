@@ -53,7 +53,7 @@ const jsonLd = {
     "Los Angeles-based production studio providing AI/VFX solutions and hybrid workflows for professional productions.",
   foundingDate: "2026",
   telephone: "+1-832-951-3171",
-  email: "hello@doublediffusion.co",
+  email: "manager@doublediffusion.co",
   // Two production bases. Street addresses are omitted rather than guessed;
   // add them here if a Google Business Profile is ever registered.
   location: [
@@ -82,7 +82,7 @@ const jsonLd = {
     {
       "@type": "ContactPoint",
       contactType: "customer service",
-      email: "hello@doublediffusion.co",
+      email: "manager@doublediffusion.co",
       telephone: "+1-832-951-3171",
       availableLanguage: ["en"],
     },
@@ -90,12 +90,6 @@ const jsonLd = {
       "@type": "ContactPoint",
       contactType: "sales",
       email: "creative@doublediffusion.co",
-      availableLanguage: ["en"],
-    },
-    {
-      "@type": "ContactPoint",
-      contactType: "partnerships",
-      email: "partnerships@doublediffusion.co",
       availableLanguage: ["en"],
     },
   ],
