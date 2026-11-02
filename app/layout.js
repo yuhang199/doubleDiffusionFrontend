@@ -118,8 +118,6 @@ const webSiteJsonLd = {
   inLanguage: "en",
 };
 
-import PageTransition from "./components/PageTransition";
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -144,7 +142,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <PageTransition />
         {children}
         <Analytics />
       </body>

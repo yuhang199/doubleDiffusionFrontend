@@ -21,7 +21,7 @@ export default function NotFound() {
             </p>
             <ul>
               <li><a href="/">Home</a> — our work and how we produce it</li>
-              <li><a href="/about">About</a> — who we are</li>
+              <li><a href="/#about">About</a> — who we are</li>
               <li><a href="/support">Support</a> — help with an existing project</li>
             </ul>
             <p>

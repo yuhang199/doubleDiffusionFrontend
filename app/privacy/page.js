@@ -1,4 +1,4 @@
-import SiteFooter from "../components/SiteFooter";
+import LegalPage from "../components/LegalPage";
 
 export const metadata = {
   title: "Privacy Policy — Double Diffusion",
@@ -10,12 +10,7 @@ export const metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <>
-    <main className="legal-page">
-      <div className="legal-inner">
-        <a href="/" className="legal-back">← Back to Home</a>
-        <h1 className="legal-title">Privacy Policy</h1>
-        <p className="legal-date">Last updated: April 23, 2026</p>
+    <LegalPage title="Privacy Policy" updated="April 23, 2026">
 
         <section className="legal-section">
           <h2>1. Introduction</h2>
@@ -102,9 +97,6 @@ export default function PrivacyPolicy() {
           <p>If you have questions about this Privacy Policy, please contact us at:</p>
           <p><strong>Double Diffusion</strong><br />Email: <a href="mailto:hello@doublediffusion.co">hello@doublediffusion.co</a></p>
         </section>
-      </div>
-    </main>
-    <SiteFooter />
-    </>
+    </LegalPage>
   );
 }

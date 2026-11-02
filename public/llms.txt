@@ -19,13 +19,12 @@ Based in Los Angeles and Houston.
 
 ## Work
 
-- [All work](https://www.doublediffusion.co/work): Portfolio, filterable by Pure AI and Hybrid.
+- [All work](https://www.doublediffusion.co/work): Pure AI and hybrid portfolio.
 - [Berry Law Firm Commercial](https://www.doublediffusion.co/work/berry-law-firm-commercial): A professional commercial project, from pre-production through post-production.
 - [Pure AI Reel](https://www.doublediffusion.co/work/pure-ai-reel): Fully generated work for productions with little to no acting.
 
 ## About
 
-- [About](https://www.doublediffusion.co/about): Who we are and how we work.
 - [Ethical AI & Compliance](https://www.doublediffusion.co/compliance): Model licensing, training-data provenance, IP safeguards, and disclosure practices.
 - [Support](https://www.doublediffusion.co/support): Help with projects and technical inquiries.
 

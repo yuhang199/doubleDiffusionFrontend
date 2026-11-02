@@ -243,6 +243,19 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSolution, setOpenSolution] = useState(null);
 
+  // Links back to "/" (footer Home and the like) would reload the page we are
+  // already on; scroll to the top instead
+  useEffect(() => {
+    const onClick = (e) => {
+      const a = e.target.closest('a[href="/"]');
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
+
   // Scroll
   useEffect(() => {
     const onScroll = () => setNavScrolled(window.scrollY > 100);

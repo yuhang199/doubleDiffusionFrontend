@@ -23,7 +23,7 @@ export default function SiteFooter() {
             <span className="footer-col-title">Company</span>
             <a href="/" className="footer-link">Home</a>
             <a href="/#services" className="footer-link">AI/VFX Solutions</a>
-            <a href="/about" className="footer-link">About</a>
+            <a href="/#about" className="footer-link">About</a>
             <a href="/support" className="footer-link">Support</a>
           </nav>
           <nav className="footer-col" aria-label="Legal">

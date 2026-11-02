@@ -1,4 +1,4 @@
-import SiteFooter from "../components/SiteFooter";
+import LegalPage from "../components/LegalPage";
 
 export const metadata = {
   title: "Terms of Service — Double Diffusion",
@@ -10,12 +10,7 @@ export const metadata = {
 
 export default function TermsOfService() {
   return (
-    <>
-    <main className="legal-page">
-      <div className="legal-inner">
-        <a href="/" className="legal-back">← Back to Home</a>
-        <h1 className="legal-title">Terms of Service</h1>
-        <p className="legal-date">Last updated: April 23, 2026</p>
+    <LegalPage title="Terms of Service" updated="April 23, 2026">
 
         <section className="legal-section">
           <h2>1. Agreement to Terms</h2>
@@ -87,9 +82,6 @@ export default function TermsOfService() {
           <h2>12. Contact</h2>
           <p>For questions regarding these Terms of Service, contact us at:<br /><a href="mailto:hello@doublediffusion.co">hello@doublediffusion.co</a></p>
         </section>
-      </div>
-    </main>
-    <SiteFooter />
-    </>
+    </LegalPage>
   );
 }

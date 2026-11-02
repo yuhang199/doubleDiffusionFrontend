@@ -1,4 +1,4 @@
-import SiteFooter from "../components/SiteFooter";
+import LegalPage from "../components/LegalPage";
 
 export const metadata = {
   title: "Ethical AI & Compliance — Double Diffusion",
@@ -10,12 +10,7 @@ export const metadata = {
 
 export default function Compliance() {
   return (
-    <>
-    <main className="legal-page">
-      <div className="legal-inner">
-        <a href="/" className="legal-back">← Back to Home</a>
-        <h1 className="legal-title">Ethical AI & Compliance</h1>
-        <p className="legal-date">Last updated: April 23, 2026</p>
+    <LegalPage title="Ethical AI & Compliance" updated="April 23, 2026">
 
         <section className="legal-section">
           <h2>1. Our Commitment</h2>
@@ -99,9 +94,6 @@ export default function Compliance() {
           <h2>10. Contact</h2>
           <p>For questions about our AI ethics practices or compliance framework, contact us at:<br /><a href="mailto:hello@doublediffusion.co">hello@doublediffusion.co</a></p>
         </section>
-      </div>
-    </main>
-    <SiteFooter />
-    </>
+    </LegalPage>
   );
 }

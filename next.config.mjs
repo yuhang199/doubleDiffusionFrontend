@@ -11,6 +11,7 @@ const nextConfig = {
   async redirects() {
     return [
       { source: "/services/:slug", destination: "/#services", permanent: true },
+      { source: "/about", destination: "/#about", permanent: true },
       // The solution detail pages moved into the Work portfolio.
       { source: "/solutions/work-case", destination: "/work/berry-law-firm-commercial", permanent: true },
       { source: "/work/example-work-case", destination: "/work/berry-law-firm-commercial", permanent: true },

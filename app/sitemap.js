@@ -25,7 +25,6 @@ const routes = [
     changeFrequency: "monthly",
     priority: 0.7,
   })),
-  { path: "/about", files: ["app/about/page.js"], changeFrequency: "monthly", priority: 0.8 },
   { path: "/support", files: ["app/support/page.js"], changeFrequency: "monthly", priority: 0.5 },
   { path: "/compliance", files: ["app/compliance/page.js"], changeFrequency: "yearly", priority: 0.4 },
   { path: "/privacy", files: ["app/privacy/page.js"], changeFrequency: "yearly", priority: 0.3 },
