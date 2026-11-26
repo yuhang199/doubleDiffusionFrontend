@@ -425,10 +425,11 @@ export default function Home() {
             </Reveal>
             <Reveal className="about-intro-body" delay={0.2}>
               <p className="about-text about-text--hero">
-                We&apos;re a Los Angeles-based production studio.
-              </p>
-              <p className="about-text about-text--hero">
-                Our team spans directors, screenwriters, VFX artists, and AI researchers.
+                We&apos;re a Los Angeles–based entertainment production studio. We specialize in
+                creative development and <span className="nowrap">post-production</span>, with a
+                strong focus on visual effects (VFX), generative AI, and hybrid production workflows
+                that integrate <span className="nowrap">live-action</span> filmmaking with emerging
+                technologies.
               </p>
             </Reveal>
           </div>

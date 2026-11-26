@@ -1041,11 +1041,11 @@ ul { list-style: none; }
 }
 .about-intro .about-headline { border-bottom: 0; padding-bottom: 0; margin: 10px 0 0; }
 .about-intro-body { display: flex; flex-direction: column; gap: 20px; }
+.nowrap { white-space: nowrap; }
 .about-intro .about-text--hero {
     font-size: clamp(24px, 2.8vw, 38px); line-height: 1.35; max-width: 900px;
     color: var(--pure-white); font-weight: 300; letter-spacing: -0.3px;
 }
-.about-intro .about-text--hero + .about-text--hero { color: rgba(255,255,255,0.55); }
 
 /* Spaces Showcase */
 .spaces-showcase {
