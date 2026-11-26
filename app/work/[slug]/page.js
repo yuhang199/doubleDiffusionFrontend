@@ -3,7 +3,7 @@ import ScrollReveal from "../../components/ScrollReveal";
 import SiteNav from "../../components/SiteNav";
 import SiteFooter from "../../components/SiteFooter";
 import ReelPlayer from "../../components/ReelPlayer";
-import { PROJECTS, categoryLabel } from "../../lib/projects";
+import { PROJECTS, projectLabel } from "../../lib/projects";
 
 export const dynamicParams = false;
 
@@ -53,7 +53,7 @@ export default async function ProjectPage({ params }) {
           </a>
 
           <header className="reveal">
-            <span className="case-eyebrow">{categoryLabel(project.category)}</span>
+            <span className="case-eyebrow">{projectLabel(project)}</span>
             <h1 className="case-title">{project.title}</h1>
             {project.summary && <p className="case-lead">{project.summary}</p>}
           </header>

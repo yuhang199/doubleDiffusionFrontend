@@ -16,12 +16,15 @@ const PURE_AI_STEPS = [
 ];
 
 // Portfolio shown on /work, each with a detail page at /work/[slug].
+// `featured` projects (the reels) get the large top row on /work.
+// `label` overrides the category name shown on the card and detail page.
 // `phases` and `steps` are optional sections on the detail page.
 export const PROJECTS = [
   {
-    slug: "berry-law-firm-commercial",
-    title: "Berry Law Firm Commercial",
+    slug: "hybrid-ai-reel",
+    title: "Hybrid AI Reel",
     category: "hybrid",
+    featured: true,
     reel: REELS.hybrid,
     summary:
       "A real professional commercial project, from pre-production through post-production, showing how we bring AI and VFX into a production while meeting industry standards.",
@@ -64,6 +67,7 @@ export const PROJECTS = [
     slug: "pure-ai-reel",
     title: "Pure AI Reel",
     category: "pure-ai",
+    featured: true,
     reel: REELS.pureAi,
     summary:
       "Pure AI workflows are recommended for productions with little to no acting. They follow the same process as a physical production.",
@@ -73,6 +77,7 @@ export const PROJECTS = [
     slug: "crack-the-routine",
     title: "Crack the Routine",
     category: "pure-ai",
+    label: "AI Visual Sample",
     reel: REELS.crackTheRoutine,
     steps: PURE_AI_STEPS,
   },
@@ -80,6 +85,7 @@ export const PROJECTS = [
     slug: "run-on",
     title: "Run On",
     category: "pure-ai",
+    label: "AI Visual Sample",
     reel: REELS.runOn,
     steps: PURE_AI_STEPS,
   },
@@ -87,6 +93,7 @@ export const PROJECTS = [
     slug: "try-not-to-look",
     title: "Try Not to Look",
     category: "pure-ai",
+    label: "AI Visual Sample",
     reel: REELS.tryNotToLook,
     steps: PURE_AI_STEPS,
   },
@@ -94,4 +101,8 @@ export const PROJECTS = [
 
 export function categoryLabel(id) {
   return CATEGORIES.find((c) => c.id === id)?.label ?? id;
+}
+
+export function projectLabel(project) {
+  return project.label ?? categoryLabel(project.category);
 }
